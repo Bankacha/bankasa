@@ -1,0 +1,12 @@
+.bigButton {
+    height: 30vh;
+    width: 30vh;
+    font-size: 350%;
+    font-weight: bolder;
+    background-color:#00d6b4;
+    color: #27293d;
+}
+
+.bigButton:hover {
+    background-color:#f84e6f
+}

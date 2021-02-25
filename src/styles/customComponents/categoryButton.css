@@ -1,0 +1,10 @@
+.categoryButton {
+    color: #27293d;
+    background-color:#00d6b4;
+    font-weight:bold;
+    height: 150%;
+}
+
+.categoryButton:hover {
+    background-color:#f84e6f
+}

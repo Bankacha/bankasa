@@ -1,0 +1,12 @@
+.homePageRow_1 {
+  height: 32%;
+  background-color: #1f8ef1;
+  align-items: center;
+}
+
+.homePageRow_2 {
+  height: 68%;
+  background-color: #27293d;
+  align-items: center;
+  text-align: center;
+}

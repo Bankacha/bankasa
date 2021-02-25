@@ -1,0 +1,9 @@
+.logoText {
+  /* font-size: 150%; */
+  margin-left: 10%;
+  color: black;
+  text-shadow: rgba(0, 0, 0, 0.298039) 2px 2px;
+  font-family: futura-pt, "Courier New", monospace;
+  -webkit-transform: translateX(-3%) translateY(-85%) rotate(-10deg);
+  -webkit-transition: 0s;
+}

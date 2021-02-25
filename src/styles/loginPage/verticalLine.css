@@ -1,0 +1,6 @@
+.verticalLine {
+  border-left: thick solid #000000;
+  min-height: 100%;
+  position: relative;
+  background-color: #1f8ef1;
+}
