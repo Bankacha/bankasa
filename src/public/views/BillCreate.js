@@ -54,6 +54,12 @@ export function BillCreate() {
                             <Col className='drinksCol'>
                                 <CategoryButton text='drink'></CategoryButton>
                             </Col>
+                            <Col className='drinksCol'>
+                                <CategoryButton text='drink'></CategoryButton>
+                            </Col>
+                            <Col className='drinksCol'>
+                                <CategoryButton text='drink'></CategoryButton>
+                            </Col>
                         </Row>
                         <Row className='drinks'>
                             <Col className='drinksCol'>
@@ -65,8 +71,20 @@ export function BillCreate() {
                             <Col className='drinksCol'>
                                 <CategoryButton text='drink'></CategoryButton>
                             </Col>
+                            <Col className='drinksCol'>
+                                <CategoryButton text='drink'></CategoryButton>
+                            </Col>
+                            <Col className='drinksCol'>
+                                <CategoryButton text='drink'></CategoryButton>
+                            </Col>
                         </Row>
                         <Row className='drinks'>
+                            <Col className='drinksCol'>
+                                <CategoryButton text='drink'></CategoryButton>
+                            </Col>
+                            <Col className='drinksCol'>
+                                <CategoryButton text='drink'></CategoryButton>
+                            </Col>
                             <Col className='drinksCol'>
                                 <CategoryButton text='drink'></CategoryButton>
                             </Col>
