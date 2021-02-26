@@ -1,11 +1,11 @@
 import { Col, Row, Form } from "react-bootstrap";
+import { CustomButton } from "../components/customButton";
+import { Logo } from "../components/logo";
 import '../../styles/loginPage/verticalLine.css';
 import '../../styles/loginPage/loginBackground.css';
 import '../../styles/loginPage/loginForm.css';
-import { CustomButton } from "../components/customButton";
 import '../../styles/loginPage/adminLoginBtn.css';
 import '../../styles/loginPage/loginPageRow.css';
-import { Logo } from "../components/logo";
 import '../../styles/loginPage/loginPageLogoPosition.css';
 
 

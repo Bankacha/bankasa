@@ -1,9 +1,9 @@
 import { Col, Row } from "react-bootstrap";
-import '../../styles/homePage/homePageRows.css'
+import { BigButton } from "../components/bigButton";
 import { Logo } from "../components/logo";
+import '../../styles/homePage/homePageRows.css'
 import '../../styles/homePage/homePageText.css';
 import '../../styles/homePage/homePageLogo.css';
-import { BigButton } from "../components/bigButton";
 import '../../styles/homePage/homePageDiv.css'
 
 

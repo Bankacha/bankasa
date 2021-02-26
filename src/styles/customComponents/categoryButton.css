@@ -6,5 +6,6 @@
 }
 
 .categoryButton:hover {
-    background-color:#f84e6f
+    background-color:#27293d;
+    color: #00d6b4;
 }

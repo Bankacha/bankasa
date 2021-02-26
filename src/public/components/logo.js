@@ -1,6 +1,6 @@
+import { Col, Image } from 'react-bootstrap';
 import '../../styles/customComponents/logo.css';
 import '../../styles/customComponents/logoText.css';
-import { Col, Image } from 'react-bootstrap';
 
 
 export function Logo() {

@@ -1,12 +1,15 @@
 import { Col, Row } from "react-bootstrap";
+import { CategoryButton } from "../components/categoryButton";
+import { Logo } from "../components/logo";
 import '../../styles/billCreate/billCreateRows.css';
 import '../../styles/billCreate/billCreateDiv.css';
-import { Logo } from "../components/logo";
 import '../../styles/billCreate/billCreateLogo.css';
-import { CategoryButton } from "../components/categoryButton";
 import '../../styles/billCreate/categoryButtons.css';
 import '../../styles/billCreate/bill.css';
-import '../../styles/billCreate/drinks.css'
+import '../../styles/billCreate/products.css'
+import '../../styles/billCreate/billCreateColl.css'
+
+import { ProductCard } from "../components/productCard";
 
 
 export function BillCreate() {
@@ -19,7 +22,7 @@ export function BillCreate() {
                 </Col>
             </Row>
             <Row className='billCreateRow_2'>
-                <Col md={9}>
+                <Col md={9} className='billCreateColl'>
                     <Row className='categoryButtons'>
                         <Col>
                             <CategoryButton text='category'></CategoryButton>
@@ -43,64 +46,68 @@ export function BillCreate() {
                             <CategoryButton text='category'></CategoryButton>
                         </Col>
                     </Row>
-                    <div className='drinksList'>
-                        <Row className='drinks'>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                        </Row>
-                        <Row className='drinks'>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                        </Row>
-                        <Row className='drinks'>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                            <Col className='drinksCol'>
-                                <CategoryButton text='drink'></CategoryButton>
-                            </Col>
-                        </Row>
+                    <div className='productsList'>
+                        <div className='products'>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                            <div className='productsCol'>
+                                <ProductCard text='drink'></ProductCard>
+                            </div>
+                        </div>
                     </div>
-
                 </Col>
                 <Col className='bill'>
-                    <Row>
-                        <Col>bla bla</Col>
+                    <Row className='w-100'>
+                        <Col><input></input></Col>
                     </Row>
                     <Row>
                         <Col>bla bla</Col>

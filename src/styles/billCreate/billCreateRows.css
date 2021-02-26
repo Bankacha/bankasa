@@ -1,9 +1,11 @@
 .billCreateRow_1 {
   height: 11%;
   background-color: #1f8ef1;
+  width: 100%;
 }
 
 .billCreateRow_2 {
     height: 89%;
     background-color: #27293d;
+    width: 100%;
   }

@@ -1,0 +1,26 @@
+.productsList {
+  background-color: #263250;
+  margin: 2.5%;
+  max-height: 80%;
+  min-height: 50%;
+  width: 95%;
+  margin-top: 5%;
+  overflow-y: auto;
+  margin-bottom: 0%;
+}
+.products {
+  margin-top: 7%;
+  margin-left: 5%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat( auto-fit, minmax(180px, 1fr));
+  gap: 2%;
+  grid-auto-rows: 15%;
+  row-gap: 20%;
+  margin-bottom: 3%;
+
+}
+
+.productsCol {
+    /* row-gap: 15%;  */
+}
