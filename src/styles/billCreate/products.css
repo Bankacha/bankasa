@@ -10,10 +10,10 @@
 }
 .products {
   margin-top: 7%;
-  margin-left: 5%;
+  margin-left: 3%;
   display: grid;
   align-items: center;
-  grid-template-columns: repeat( auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr));
   gap: 2%;
   grid-auto-rows: 15%;
   row-gap: 20%;
@@ -24,3 +24,4 @@
 .productsCol {
     /* row-gap: 15%;  */
 }
+
