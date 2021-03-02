@@ -4,7 +4,7 @@ import './App.css';
 
 import {Container} from 'react-bootstrap';
 
-import {BillCreate} from './public/views/BillCreate';
+import {BillPage} from './public/views/BillPage';
 import {HomePage} from './public/views/HomePage';
 import {LoginPage} from './public/views/LoginPage'
 
@@ -12,8 +12,8 @@ function App() {
     return (
         <Container className="h-100" fluid>
             {/*<LoginPage></LoginPage>*/}
-            <HomePage></HomePage> 
-            {/*<BillCreate></BillCreate>*/}
+            {/*<HomePage></HomePage> */}
+            <BillPage></BillPage>
         </Container>
     );
 }
