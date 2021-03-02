@@ -1,40 +1,32 @@
-import { Col, Row, Form } from "react-bootstrap";
-import { CustomButton } from "../components/customButton";
-import { Logo } from "../components/logo";
-import '../../styles/loginPage/verticalLine.css';
-import '../../styles/loginPage/loginBackground.css';
-import '../../styles/loginPage/loginForm.css';
-import '../../styles/loginPage/adminLoginBtn.css';
-import '../../styles/loginPage/loginPageRow.css';
-import '../../styles/loginPage/loginPageLogoPosition.css';
+import {Col, Row, Form, Button} from "react-bootstrap";
+import '../../styles/login.css';
 
 
 export function LoginPage() {
 
     return (
-        <Row className='loginPageRow'>
-            <Col className='loginBackground' md={9}>
-                <div className='adminLoginBtnDiv mt-1'>
-                    <CustomButton className='adminLoginBtn' text='admin'></CustomButton>
-                </div>
-                <Form className='w-50 loginForm'>
-                    <Form.Group className='row'>
-                        <Col md={10}>
-                            <Form.Control />
-                        </Col>
-                        <Col md={2}>
-                            <CustomButton text="login"></CustomButton>
-                        </Col>
-                    </Form.Group>
-                </Form>
-            </Col>
-            <Col className='verticalLine' md={3}>
-                <Row className='loginPageLogoPosition_1'>
-                    <Col className='loginPageLogoPosition_2'>
-                        <Logo></Logo>
+        <Row className="h-100 bg-light">
+            <div className="col-8 align-self-center">
+                <Row className="justify-content-center">
+                    <Col xs={6}>
+                        <Row>
+                            <Col xs={8}>
+                                <Form.Control placeholder="Jane Doe"/>
+                            </Col>
+                            <Col>
+                                <Button variant="success" type="button" className="w-100">Go</Button>
+                            </Col>
+                        </Row>
+
                     </Col>
                 </Row>
-            </Col>
+            </div>
+            <div className="col-4 bg-success shadow-sm">
+                <Row className="h-100">
+                    <Col className="align-self-center">
+                    </Col>
+                </Row>
+            </div>
         </Row>
     )
 }
