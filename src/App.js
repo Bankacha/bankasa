@@ -11,8 +11,8 @@ import {LoginPage} from './public/views/LoginPage'
 function App() {
     return (
         <Container className="h-100" fluid>
-            <LoginPage></LoginPage>
-            {/*<HomePage></HomePage> */}
+            {/*<LoginPage></LoginPage>*/}
+            <HomePage></HomePage> 
             {/*<BillCreate></BillCreate>*/}
         </Container>
     );
