@@ -1,5 +1,4 @@
 import {Col, Row, Form, Button} from "react-bootstrap";
-import '../../styles/login.css';
 
 
 export function LoginPage() {
@@ -11,7 +10,7 @@ export function LoginPage() {
                     <Col xs={6}>
                         <Row>
                             <Col xs={8}>
-                                <Form.Control placeholder="Jane Doe"/>
+                                <Form.Control placeholder="12345"/>
                             </Col>
                             <Col>
                                 <Button variant="success" type="button" className="w-100">Go</Button>
