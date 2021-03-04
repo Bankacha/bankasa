@@ -2,6 +2,7 @@ import { Row, Col, Button } from "react-bootstrap"
 import { BillTable } from "./sub-components/BillTable"
 import { OrderItems } from "./sub-components/OrderItems"
 import { OrderItemsHeader } from "./sub-components/order-component/OrderItemsHeader"
+import { OrderItemsFooter } from "./sub-components/order-component/OrderItemsFooter"
 
 export function OrderComponent() {
 
@@ -11,21 +12,12 @@ export function OrderComponent() {
                 <Col className="h-85">
                     <Row className="text-light h-10">
                         <OrderItemsHeader/>
-                        {/* <Col className="text-light my-1 px-4 d-flex justify-content-between">
-                            <h6>Waiter Name</h6>
-                            <h6>08:02</h6>
-                        </Col> */}
                     </Row>
                     <Row className="h-85">
                         <OrderItems></OrderItems>
                     </Row>
-                    <Row className="h-10 text-dark mx-2 rounded-pill align-self-center bg-light">
-                        <Col className="text-center align-self-center h-50">
-                            <h5>Order Total: 500</h5>
-                        </Col>
-                        <Col className="text-center align-self-center" sm={3}>
-                            <h7 type="button">clear</h7>
-                        </Col>
+                    <Row className="h-10 rounded-pill mx-2 bg-light">
+                        <OrderItemsFooter></OrderItemsFooter>
                     </Row>
                 </Col>
             </Row>
@@ -34,7 +26,6 @@ export function OrderComponent() {
                     <Row className="h-80">
                         <Col>
                             <BillTable></BillTable>
-
                         </Col>
                     </Row>
                     <Row className="text-light h-20">
