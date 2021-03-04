@@ -1,6 +1,7 @@
 import { Row, Col, Button } from "react-bootstrap"
 import { BillTable } from "./sub-components/BillTable"
 import { OrderItems } from "./sub-components/OrderItems"
+import { OrderItemsHeader } from "./sub-components/order-component/OrderItemsHeader"
 
 export function OrderComponent() {
 
@@ -8,10 +9,12 @@ export function OrderComponent() {
         <div className="h-100">
             <Row className="h-50">
                 <Col className="h-85">
-                    <Row>
-                        <Col className="text-light h-5 mt-1">
+                    <Row className="text-light h-10">
+                        <OrderItemsHeader/>
+                        {/* <Col className="text-light my-1 px-4 d-flex justify-content-between">
                             <h6>Waiter Name</h6>
-                        </Col>
+                            <h6>08:02</h6>
+                        </Col> */}
                     </Row>
                     <Row className="h-85">
                         <OrderItems></OrderItems>
