@@ -1,9 +1,8 @@
 import { Col, Row, Button } from "react-bootstrap";
-import { ProductCard } from "../components/bill-create/ProductCard";
-import { CategoryButton } from "../components/bill-create/sub-components/CategoryButton";
 import { BillTable } from "../components/bill-create/BillTable";
 import { OrderItems } from "../components/bill-create/OrderItems";
 import { Categories } from "../components/bill-create/Categories";
+import { Products } from "../components/bill-create/Products";
 
 export function BillPage() {
 
@@ -16,45 +15,7 @@ export function BillPage() {
                         <Categories/>
                     </Row>
                     <Row className="position-absolute h-75 overflow-auto w-100">
-                        <Col className="bg-light pt-4">
-                            <Row className="justify-content-center">
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                                <ProductCard name="title" price={350.00} />
-                            </Row>
-                        </Col>
+                        <Products/>
                     </Row>
 
                 </Col>
