@@ -1,8 +1,9 @@
 import { Col, Row, Button } from "react-bootstrap";
 import { ProductCard } from "../components/bill-create/ProductCard";
-import { CategoryButton } from "../components/bill-create/CategoryButton";
+import { CategoryButton } from "../components/bill-create/sub-components/CategoryButton";
 import { BillTable } from "../components/bill-create/BillTable";
-import { OrderItem } from "../components/bill-create/OrderItem";
+import { OrderItems } from "../components/bill-create/OrderItems";
+import { Categories } from "../components/bill-create/Categories";
 
 export function BillPage() {
 
@@ -12,19 +13,7 @@ export function BillPage() {
             <Row className="bg-light h-95">
                 <Col xs={8}>
                     <Row className="h-25 bg-warning pb-3">
-                        <Col>
-                            <Row className="h-50">
-
-                            </Row>
-                            <Row className="h-50">
-                                <CategoryButton>Pice</CategoryButton>
-                                <CategoryButton>Pice</CategoryButton>
-                                <CategoryButton>Pice</CategoryButton>
-                                <CategoryButton>Pice</CategoryButton>
-                                <CategoryButton>Pice</CategoryButton>
-                                <CategoryButton>Pice</CategoryButton>
-                            </Row>
-                        </Col>
+                        <Categories/>
                     </Row>
                     <Row className="position-absolute h-75 overflow-auto w-100">
                         <Col className="bg-light pt-4">
@@ -78,14 +67,14 @@ export function BillPage() {
                                 </Col>
                             </Row>
                             <Row className="h-85">
-                                <OrderItem></OrderItem>
+                                <OrderItems></OrderItems>
                             </Row>
-                            <Row className="h-15 text-light mt-1 align-self-center">
+                            <Row className="h-10 text-dark mx-2 rounded-pill align-self-center bg-light">
                                 <Col className="text-center align-self-center h-50">
                                     <h5>Order Total: 500</h5>
                                 </Col>
                                 <Col className="text-center align-self-center" sm={3}>
-                                    <Button variant='light' size="sm">clear</Button>
+                                    <h7 type="button">clear</h7>
                                 </Col>
                             </Row>
                         </Col>

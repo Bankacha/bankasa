@@ -1,6 +1,6 @@
 import { Row, Col } from 'react-bootstrap';
 
-export function OrderItem() {
+export function OrderItems() {
 
     return (
         <Col className="h-100 overflow-auto px-3">
