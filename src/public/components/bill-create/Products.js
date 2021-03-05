@@ -1,51 +1,31 @@
 import { ProductCard } from "./sub-components/ProductCard"
 import { Row, Col } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { setOrderItem } from "../../../store/actions"
 
 export function Products() {
 
-    // const products = useSelector(s=>s.products.data)
+    const dispatch = useDispatch()
+    const products = useSelector(s => s.products.products)
 
-    // console.log(products)
+    const addItem = (item) => {
+        // dispatch(setOrderItem({
+        //     item,
+        //     quantity: 1
+        // }))
+        return console.log("baki",item)
+    }
 
     return (
         <Col className="bg-light pt-4">
             <Row className="justify-content-center">
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
-                <ProductCard name="title" price={350.00} />
+                {
+                    (products || []).map((p, i) => {
+                        return (
+                            <ProductCard onClick={()=> addItem(p)} key={i} name={p.name} price={p.price} />
+                        )
+                    })
+                }
             </Row>
         </Col>
     )
