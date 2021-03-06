@@ -56,15 +56,33 @@ const initialState = {
 
 };
 
-const productReducer = ( state = initialState, action) => {
+const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_ORDER_ITEM':
-            return {
-                ...state,
-                order: [...state.order, action.payload]
-            };
+            const alreadyInOrder = state.order.find(item => item.name === action.payload.name);
+
+            if (alreadyInOrder) {
+                return {
+                    ...state,
+                    order: state.order.find( item => {
+                        if(item.name === action.payload.name) {
+                            return {
+                                ...state.order.item, quantity: item.quantity + 1
+                            }
+                        } else {
+                            return item
+                        }
+                    })
+                }
+            } else {
+                return {
+                    ...state,
+                    order: [...state.order, action.payload]
+                };
+            }
+
     }
-     return state
+    return state
 }
 
 
