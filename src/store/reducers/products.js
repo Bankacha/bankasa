@@ -1,108 +1,52 @@
-const initialState = {
-    products: [
-        {
-            name: "Koka Kola",
-            price: 130,
-            category: 'juices'
-        },
-        {
-            name: "Orangina",
-            price: 140,
-            category: 'juices'
-        },
-        {
-            name: "Squeezed",
-            price: 170,
-            category: 'juices'
-        },
-        {
-            name: "Apple",
-            price: 130,
-            category: 'juices'
-        },
-        {
-            name: "Peach",
-            price: 140,
-            category: 'juices'
-        },
-        {
-            name: "Apricot",
-            price: 170,
-            category: 'juices'
-        },
-        {
-            name: "Fanta",
-            price: 120,
-            category: 'juices'
-        },
-        {
-            name: "Sprite",
-            price: 120,
-            category: 'juices'
-        },
-        {
-            name: "Tonic",
-            price: 140,
-            category: 'juices'
-        },
-        {
-            name: "Lemonade",
-            price: 170,
-            category: 'juices'
-        },
-    ],
+import { products } from "../../data/products";
 
+const initialState = {
+    products: products,
     order: [],
     onTable: [],
-
+    finished: []
 };
 
 const productReducer = (state = initialState, action) => {
+    const { payload } = action;
+
     switch (action.type) {
         case 'SET_ORDER_ITEM':
-            const alreadyInOrder = state.order.find(item => item.item.name === action.payload.item.name);
-            // console.log(state, action.payload)
-            // console.log(alreadyInOrder ? 'yes' : 'no')
+            const order = [...state.order];
+            const fromOrder = order.find(item => item.item.name === payload.item.name);
 
-            if (alreadyInOrder) {
-                return {
-                    ...state,
-                    order: state.order.map(orderItem => orderItem.item.name === action.payload.item.name ? { ...orderItem, quantity: orderItem.quantity + 1 } : orderItem)
-                }
+            if (fromOrder) {
+                fromOrder.quantity += 1;
             } else {
-                return {
-                    ...state, order: [...state.order, action.payload]
-                };
+                order.push(payload);
             }
+
+            return { ...state, order };
 
         case 'DELETE_ORDER_ITEM':
             return {
                 ...state,
-                order: state.order.filter(item => item.item.name !== action.payload.item.name)
+                order: state.order.filter(item => item.item.name !== payload.item.name)
             }
 
         case 'SAVE_AND_PRINT_ORDER':
-            // state.onTable.length === 0 &&
-            const ifAlreadyOnTable = state.onTable.some(element => element.item.name === action.payload.forEach(item => item.item.name))
+            const onTable = [...state.onTable];
 
-            console.log(ifAlreadyOnTable)
+            for (let payloadOrderItem of payload) {
+                const existing = onTable.find(oi => oi.item.name === payloadOrderItem.item.name);
 
-            return {
-                ...state,
-                order: [],
-                onTable: state.onTable.length === 0 && ifAlreadyOnTable === false ? [...state.onTable.concat(state.order)] : state.onTable.map(item => {
-                    for(let element of action.payload) {
-                        if(item.item.name === element.item.name) {
-                            return {...item, quantity: item.quantity + element.quantity}
-                        } else {
-                            return {...state.onTable.push(action.payload)}
-                        }
-                    }
-                    }
-                )
+                if (existing) {
+                    existing.quantity += payloadOrderItem.quantity;
+                } else {
+                    onTable.push(payloadOrderItem);
+                }
             }
+
+            return { ...state, onTable, order: [] };
+
+        default:
+            return state;
     }
-    return state
 }
 
 

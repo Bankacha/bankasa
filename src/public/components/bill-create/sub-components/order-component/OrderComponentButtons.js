@@ -8,8 +8,8 @@ export function OrderComponentButtons() {
     const order = useSelector(state => state.products.order)
     const onTable = useSelector(state => state.products.onTable)
 
-    const saveOrder = (ord) => {
-        return dispatch(saveAndPrintOrder(ord))
+    const saveOrder = (order) => {
+        dispatch(saveAndPrintOrder(order))
     }
 
     return (

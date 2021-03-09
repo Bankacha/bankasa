@@ -5,7 +5,7 @@ export function BillTable() {
 
     const onTable = useSelector(state => state.products.onTable)
 
-    console.log(onTable)
+    const total = (quantity, price) => price * quantity;
 
     return (
         <Row>
@@ -18,7 +18,7 @@ export function BillTable() {
                                     <tr key={i} className='row w-100'>
                                         <td className='col-sm-7'>{el.item?.name}</td>
                                         <td className='col-sm-3'>{el?.quantity}</td>
-                                        <td className='col-sm-2 text-right'>{el.item?.price}</td>
+                                        <td className='col-sm-2 text-right'>{total(el.quantity, el.item.price)}</td>
                                     </tr>
                                 )
                             })
