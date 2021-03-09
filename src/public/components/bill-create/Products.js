@@ -9,11 +9,10 @@ export function Products() {
     const products = useSelector(s => s.products.products)
 
     const addItem = (item) => {
-        // dispatch(setOrderItem({
-        //     item,
-        //     quantity: 1
-        // }))
-        return console.log("baki",item)
+        dispatch(setOrderItem({
+            item,
+            quantity: 1
+        }))
     }
 
     return (

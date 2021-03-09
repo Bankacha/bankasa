@@ -53,34 +53,54 @@ const initialState = {
     ],
 
     order: [],
+    onTable: [],
 
 };
 
 const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_ORDER_ITEM':
-            const alreadyInOrder = state.order.find(item => item.name === action.payload.name);
+            const alreadyInOrder = state.order.find(item => item.item.name === action.payload.item.name);
+            // console.log(state, action.payload)
+            // console.log(alreadyInOrder ? 'yes' : 'no')
 
             if (alreadyInOrder) {
                 return {
                     ...state,
-                    order: state.order.find( item => {
-                        if(item.name === action.payload.name) {
-                            return {
-                                ...state.order.item, quantity: item.quantity + 1
-                            }
-                        } else {
-                            return item
-                        }
-                    })
+                    order: state.order.map(orderItem => orderItem.item.name === action.payload.item.name ? { ...orderItem, quantity: orderItem.quantity + 1 } : orderItem)
                 }
             } else {
                 return {
-                    ...state,
-                    order: [...state.order, action.payload]
+                    ...state, order: [...state.order, action.payload]
                 };
             }
 
+        case 'DELETE_ORDER_ITEM':
+            return {
+                ...state,
+                order: state.order.filter(item => item.item.name !== action.payload.item.name)
+            }
+
+        case 'SAVE_AND_PRINT_ORDER':
+            // state.onTable.length === 0 &&
+            const ifAlreadyOnTable = state.onTable.some(element => element.item.name === action.payload.forEach(item => item.item.name))
+
+            console.log(ifAlreadyOnTable)
+
+            return {
+                ...state,
+                order: [],
+                onTable: state.onTable.length === 0 && ifAlreadyOnTable === false ? [...state.onTable.concat(state.order)] : state.onTable.map(item => {
+                    for(let element of action.payload) {
+                        if(item.item.name === element.item.name) {
+                            return {...item, quantity: item.quantity + element.quantity}
+                        } else {
+                            return {...state.onTable.push(action.payload)}
+                        }
+                    }
+                    }
+                )
+            }
     }
     return state
 }
