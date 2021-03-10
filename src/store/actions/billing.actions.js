@@ -25,3 +25,9 @@ export const clearOrder = () => {
         type: actionTypes.clearOrder
     }
 }
+
+export const chargeBill = () => {
+    return {
+        type: actionTypes.chargeBill
+    }
+}
