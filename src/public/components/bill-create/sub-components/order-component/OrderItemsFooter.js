@@ -1,9 +1,11 @@
 import { Col, Row } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { clearOrder } from "../../../../../store/actions"
 
 
 export function OrderItemsFooter() {
 
+    const dispatch = useDispatch()
     const order = useSelector(state => state.billing.order)
 
     const countOrderTotal = () => {
@@ -18,7 +20,7 @@ export function OrderItemsFooter() {
         <Col className="mx-2 w-100">
             <Row className="d-flex justify-content-between pt-2">
                 <h5>Order Total : {countOrderTotal()}</h5>
-                <p type="button">clear</p>
+                <p onClick={() => dispatch(clearOrder())} type="button">clear</p>
             </Row>
         </Col>
     )

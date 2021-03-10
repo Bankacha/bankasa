@@ -1,3 +1,5 @@
+import * as actionTypes from '../actions/types'
+
 const initialState = {
     order: [],
     billItems: [],
@@ -7,7 +9,7 @@ const billingReducer = (state = initialState, action) => {
     const { payload } = action;
 
     switch (action.type) {
-        case 'SET_ORDER_ITEM':
+        case actionTypes.setOrderItem:
             const order = [...state.order]
             const alreadyInOrder = order.find(item => item.product.name === payload.product.name);
 
@@ -19,13 +21,11 @@ const billingReducer = (state = initialState, action) => {
 
             return { ...state, order }
 
-        case 'DELETE_ORDER_ITEM':
-            return {
-                ...state,
-                order: state.order.filter(item => item.product.name !== payload.product.name)
-            }
+        case actionTypes.deleteOrderItem:
+            const newOrder = state.order.filter(item => item.product.name !== payload.product.name)
+            return {...state, order: newOrder}
 
-        case 'SAVE_AND_PRINT_ORDER':
+        case actionTypes.saveAndPrintOrder:
             const billItems = [...state.billItems]
 
             for (let orderItem of state.order) {
@@ -38,13 +38,14 @@ const billingReducer = (state = initialState, action) => {
                 }
             }
 
-            return {
-                ...state,
-                billItems,
-                order: []
-            }
+            return { ...state, billItems, order: [] }
+
+        case actionTypes.clearOrder:
+            return { ...state, order: [] }
+
+        default:
+            return state
     }
-    return state
 }
 
 
