@@ -20,33 +20,33 @@ export const products = [
         category: 'juices'
     },
     {
-        name: "Peach",
+        name: "Capuchino",
         price: 140,
-        category: 'juices'
+        category: 'coffees'
     },
     {
-        name: "Apricot",
+        name: "Turkish",
         price: 170,
-        category: 'juices'
+        category: 'coffees'
     },
     {
-        name: "Fanta",
+        name: "Espresso",
         price: 120,
-        category: 'juices'
+        category: 'coffees'
     },
     {
-        name: "Sprite",
+        name: "Coctails",
         price: 120,
-        category: 'juices'
+        category: 'alcohol'
     },
     {
-        name: "Tonic",
+        name: "Vodka",
         price: 140,
-        category: 'juices'
+        category: 'alcohol'
     },
     {
-        name: "Lemonade",
+        name: "Whiskey",
         price: 170,
-        category: 'juices'
+        category: 'alcohol'
     },
 ]

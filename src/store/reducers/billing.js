@@ -51,7 +51,7 @@ const billingReducer = (state = initialState, action) => {
                 total: sumItems(state.billItems),
                 issued: new Date()
             }
-
+            
             return {
                 ...state,
                 billItems: [],
