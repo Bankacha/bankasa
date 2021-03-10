@@ -4,12 +4,12 @@ import { useSelector } from "react-redux"
 
 export function OrderItemsFooter() {
 
-    const order = useSelector(state => state.products.order)
+    const order = useSelector(state => state.billing.order)
 
     const countOrderTotal = () => {
         let total = 0;
         order.forEach(element => {
-            total += element.item.price * element.quantity
+            total += element.product.price * element.quantity
         });
         return total
     }

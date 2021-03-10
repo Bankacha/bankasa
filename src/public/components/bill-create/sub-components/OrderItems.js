@@ -5,7 +5,7 @@ import { deleteOrderItem } from '../../../../store/actions';
 export function OrderItems(props) {
 
     const dispatch = useDispatch();
-    const orderItems = useSelector(state => state.products.order);
+    const orderItems = useSelector(state => state.billing.order);
     
     const multiply = (price, quantity) => {
         return price*quantity
@@ -21,16 +21,16 @@ export function OrderItems(props) {
                     return (
                         <Row key={i} className="bg-warning mx-1 mb-1 rounded">
                             <Col sm={6}>
-                                {o.item.name}
+                                {o.product.name}
                             </Col>
                             <Col sm={1} className="text-center">
                                 {o.quantity}
                             </Col>
                             <Col sm={2} className="text-right">
-                                {o.item.price}
+                                {o.product.price}
                             </Col>
                             <Col sm={2} className="text-right">
-                                {multiply(o.quantity,o.item.price)}
+                                {multiply(o.quantity,o.product.price)}
                             </Col>
                             <Col onClick={()=> deleteItem(o)} sm={1} className="text-left" type='button'>
                                 -

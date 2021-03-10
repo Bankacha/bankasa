@@ -8,9 +8,9 @@ export function Products() {
     const dispatch = useDispatch()
     const products = useSelector(s => s.products.products)
 
-    const addItem = (item) => {
+    const addItem = (product) => {
         dispatch(setOrderItem({
-            item,
+            product,
             quantity: 1
         }))
     }
@@ -19,7 +19,7 @@ export function Products() {
         <Col className="bg-light pt-4">
             <Row className="justify-content-center">
                 {
-                    (products || []).map((p, i) => {
+                    products.map((p, i) => {
                         return (
                             <ProductCard onClick={()=> addItem(p)} key={i} name={p.name} price={p.price} />
                         )

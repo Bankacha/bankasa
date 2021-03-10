@@ -8,7 +8,7 @@ export function ProductCard(props) {
 
     const addItem = (item) => {
         dispatch(setOrderItem({
-            item: item,
+            product: item,
             quantity: 1
         }))
     }

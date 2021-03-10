@@ -1,7 +1,7 @@
-export const setOrderItem = (item) => {
+export const setOrderItem = (product) => {
     return {
         type: 'SET_ORDER_ITEM',
-        payload: item
+        payload: product
     }
 }
 
@@ -12,9 +12,8 @@ export const deleteOrderItem = (itemIdx) => {
     }
 }
 
-export const saveAndPrintOrder = (order) => {
+export const saveAndPrintOrder = () => {
     return {
         type: 'SAVE_AND_PRINT_ORDER',
-        payload: order
     }
 }

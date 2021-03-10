@@ -3,9 +3,12 @@ import { useSelector } from "react-redux"
 
 export function BillTable() {
 
-    const onTable = useSelector(state => state.products.onTable)
+    const billItems = useSelector(state => {
+        console.log(state.billing)
+        return state.billing.billItems
+    }
+    )
 
-    console.log(onTable)
 
     return (
         <Row>
@@ -13,12 +16,12 @@ export function BillTable() {
                 <Table striped hover size="sm" variant=''>
                     <tbody className="text-light w-100 position-absolute px-3">
                         {
-                            (onTable.length ? onTable : []).map((el, i) => {
+                            billItems.map((el, i) => {
                                 return (
                                     <tr key={i} className='row w-100'>
-                                        <td className='col-sm-7'>{el.item?.name}</td>
+                                        <td className='col-sm-7'>{el.product?.name}</td>
                                         <td className='col-sm-3'>{el?.quantity}</td>
-                                        <td className='col-sm-2 text-right'>{el.item?.price}</td>
+                                        <td className='col-sm-2 text-right'>{el.product?.price}</td>
                                     </tr>
                                 )
                             })

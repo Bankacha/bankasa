@@ -5,8 +5,8 @@ import { saveAndPrintOrder } from "../../../../../store/actions"
 export function OrderComponentButtons() {
 
     const dispatch = useDispatch()
-    const order = useSelector(state => state.products.order)
-    const onTable = useSelector(state => state.products.onTable)
+    const order = useSelector(state => state.billing.order)
+    const onTable = useSelector(state => state.billing.billItems)
 
     const saveOrder = (ord) => {
         return dispatch(saveAndPrintOrder(ord))

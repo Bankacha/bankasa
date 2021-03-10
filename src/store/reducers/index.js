@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import productReducer from "./products";
+import products from './products';
+import billing from "./billing";
 
 const allReducers = combineReducers({
-    products: productReducer,
+    products,
+    billing
 
 })
 
