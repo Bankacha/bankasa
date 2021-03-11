@@ -7,7 +7,6 @@ const allReducers = combineReducers({
     products,
     billing,
     categories
-
 })
 
 export default allReducers;

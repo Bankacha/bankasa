@@ -1,9 +1,12 @@
-import { Table, Row, Col } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { Table, Row, Col, Button } from "react-bootstrap"
+import { useSelector, useDispatch } from "react-redux"
+import { deleteProduct } from "../../store/actions"
 
 export const Products = () => {
 
+    const dispatch = useDispatch()
     const products = useSelector(state => state.products.products)
+
     console.log(products)
 
     return (
@@ -30,6 +33,7 @@ export const Products = () => {
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>Price</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,6 +46,7 @@ export const Products = () => {
                                             <td>{p.name}</td>
                                             <td>{p.category}</td>
                                             <td>{p.price}</td>
+                                            <td><Button onClick={() => dispatch(deleteProduct(p.id))}>del</Button></td>
                                         </tr>
                                     )
                                 })
