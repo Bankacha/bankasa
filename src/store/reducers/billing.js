@@ -1,10 +1,11 @@
-import { sumItems } from '../../utils';
+import { calculateItems, sumItems } from '../../utils';
 import * as actionTypes from '../actions/types'
 
 const initialState = {
     order: [],
     billItems: [],
-    closedBills: []
+    closedBills: [],
+    billsTotal: 0
 };
 
 const billingReducer = (state = initialState, action) => {
@@ -48,14 +49,23 @@ const billingReducer = (state = initialState, action) => {
         case actionTypes.chargeBill:
             const bill = {
                 items: [...state.billItems],
-                total: sumItems(state.billItems),
+                total: calculateItems(state.billItems),
                 issued: new Date()
             }
-            
+
             return {
                 ...state,
                 billItems: [],
                 closedBills: [...state.closedBills, bill]
+            }
+
+        case 'SUM_TOTAL':
+            const closedBills = [...state.closedBills]
+
+            return {
+                ...state,
+                billsTotal: sumItems(closedBills),
+                // closedBills: []
             }
 
         default:
