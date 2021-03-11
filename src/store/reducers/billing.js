@@ -68,6 +68,7 @@ const billingReducer = (state = initialState, action) => {
                 // closedBills: []
             }
 
+            
         default:
             return state
     }
