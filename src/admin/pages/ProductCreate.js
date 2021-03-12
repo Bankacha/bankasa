@@ -25,8 +25,8 @@ export const ProductCreate = () => {
     }
 
     return (
-        <Row className="h-100">
-            <Col>
+        <Row className="h-100 bg-warning align-items-center justify-content-center">
+            <Col sm={6}>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Form.Group>
                         <Form.Label>Product Name</Form.Label>
