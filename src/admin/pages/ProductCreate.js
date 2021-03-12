@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addNewProduct } from "../../store/actions";
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { getCategories } from "../../store/selectors";
-import { useEffect } from "react";
 
 export const ProductCreate = () => {
 
@@ -26,32 +25,38 @@ export const ProductCreate = () => {
     }
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)}>
-            <Form.Group>
-                <Form.Label>Product Name</Form.Label>
-                <Form.Control name='name' type="text" placeholder="Name" ref={register({ required: true })} />
-                {errors.name ? <span>This is invalid</span> : ''}
-            </Form.Group>
+        <Row className="h-100">
+            <Col>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                    <Form.Group>
+                        <Form.Label>Product Name</Form.Label>
+                        <Form.Control name='name' type="text" placeholder="Name" ref={register({ required: true })} />
+                        {errors.name ? <span>This is invalid</span> : ''}
+                    </Form.Group>
 
-            <Form.Group>
-                <Form.Label>Price</Form.Label>
-                <Form.Control name='price' type="number" placeholder="price" ref={register({ required: true })} />
-            </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control name='price' type="number" placeholder="price" ref={register({ required: true })} />
+                    </Form.Group>
 
-            <Form.Group controlId="exampleForm.ControlSelect1">
-                <Form.Label>Category select</Form.Label>
-                <Form.Control name='category' as="select" defaultValue="pick one" ref={register({ required: true })}>
-                    {
-                        categories?.map((c, i) => <option value={c.value}>{c.name}</option>)
-                    }
+                    <Form.Group controlId="exampleForm.ControlSelect1">
+                        <Form.Label>Category select</Form.Label>
+                        <Form.Control name='category' as="select" defaultValue="pick one" ref={register({ required: true })}>
+                            {
+                                categories?.map((c, i) => <option value={c.value}>{c.name}</option>)
+                            }
 
-                </Form.Control>
-            </Form.Group>
+                        </Form.Control>
+                    </Form.Group>
 
 
-            <Button variant="seccondary" className='w-100' type="submit">
-                Submit
-  </Button>
-        </Form>
+                    <Button variant="seccondary" className='w-100' type="submit">
+                        Submit
+                </Button>
+                </Form>
+            </Col>
+
+        </Row>
+
     )
 }

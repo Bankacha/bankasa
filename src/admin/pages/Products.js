@@ -7,16 +7,12 @@ export const Products = () => {
     const dispatch = useDispatch()
     const products = useSelector(state => state.products.products)
 
-    console.log(products)
-
     return (
-        <div className="h-100 bg-warning">
-            <Row className="bg-primary h-5 text-light shadow-sm">
-                <Col>
+        <div className="h-100 bg-warning row">
+                <Col className="bg-primary h-5 text-light shadow-sm" sm={12}>
                     <h1>Bankasa</h1>
                 </Col>
-            </Row>
-            <Row className="p-0 justify-content-center">
+            <Row className="p-0 justify-content-center w-100">
                 <Col sm={10}>
                     <Row className="m-auto">
                         <Col className="c-pointer rounded bg-dark my-2 text-light text-center">
@@ -40,7 +36,7 @@ export const Products = () => {
                             {
                                 products.map((p, i) => {
                                     return (
-                                        <tr key={i}>
+                                        <tr key={p.id}>
                                             <td>{i + 1}</td>
                                             <td>{p.id}</td>
                                             <td>{p.name}</td>

@@ -1,13 +1,11 @@
 import { Row, Col, Button } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { saveAndPrintOrder } from "../../../../../store/actions"
 import { chargeBill } from "../../../../../store/actions"
 
 export function OrderComponentButtons() {
 
     const dispatch = useDispatch()
-    const order = useSelector(state => state.billing.order)
-    const onTable = useSelector(state => state.billing.billItems)
 
     return (
         <Row className="justify-content-around m-0">
