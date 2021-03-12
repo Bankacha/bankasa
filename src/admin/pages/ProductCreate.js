@@ -41,7 +41,7 @@ export const ProductCreate = () => {
                         <Form.Label>Price</Form.Label>
                         <Form.Control className='' name='price' type="number" placeholder="price" ref={register({ required: true })} />
                         <small id="passwordHelp" className="text-danger">
-                            {errors.name && "product price is required!"}
+                            {errors.price && "product price is required!"}
                         </small>
                     </Form.Group>
 
