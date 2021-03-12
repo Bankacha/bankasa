@@ -30,15 +30,15 @@ export const ProductCreate = () => {
             <Row>
                 <Col sm={12} className="h-5">
                     <Row className="">
-                        <Col className="bg-primary h-5 text-light shadow-sm" sm={12}>
-                            <h1>Bankasa</h1>
+                        <Col className="bg-primary h-5 text-light shadow-sm py-3" sm={12}>
+                            <h1 className="m-0">Bankasa</h1>
                         </Col>
                     </Row>
                 </Col>
             </Row>
 
-            <Row className="h-95 bg-warning align-items-center justify-content-center">
-                <Col sm={6}>
+            <Row className="align-items-center justify-content-center mt-5">
+                <Col sm={6} className="p-3 bg-white rounded shadow-sm">
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group className=''>
                             <Form.Label>Product Name</Form.Label>

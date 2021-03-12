@@ -14,13 +14,13 @@ function App() {
     return (
         <Container className="h-100 bg-light" fluid>
             {/* <LoginPage></LoginPage> */}
-             <HomePage></HomePage> 
+            {/* <HomePage></HomePage> */}
             {/* <BillPage></BillPage> */}
 
             {/* ADMIN PAGES */}
 
              {/*<Products></Products> */}
-            {/*<ProductCreate></ProductCreate>*/}
+            <ProductCreate></ProductCreate>
         </Container>
     );
 }
