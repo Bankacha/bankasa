@@ -26,43 +26,57 @@ export const ProductCreate = () => {
 
     watch("name")
     return (
-        <Row className="h-100 bg-warning align-items-center justify-content-center">
-            <Col sm={6}>
-                <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Form.Group className=''>
-                        <Form.Label>Product Name</Form.Label>
-                        <Form.Control name='name' type="text" placeholder="Name" ref={register({ required: true })} />
-                        <Form.Text className="text-danger text-muted">
-                            {errors.name && "product name is required!"}
-                        </Form.Text>
-                    </Form.Group>
+        <div className="h-100">
+            <Row>
+                <Col sm={12} className="h-5">
+                    <Row className="">
+                        <Col className="bg-primary h-5 text-light shadow-sm" sm={12}>
+                            <h1>Bankasa</h1>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
 
-                    <Form.Group className=''>
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control className='' name='price' type="number" placeholder="price" ref={register({ required: true })} />
-                        <small id="passwordHelp" className="text-danger">
-                            {errors.price && "product price is required!"}
-                        </small>
-                    </Form.Group>
+            <Row className="h-95 bg-warning align-items-center justify-content-center">
+                <Col sm={6}>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                        <Form.Group className=''>
+                            <Form.Label>Product Name</Form.Label>
+                            <Form.Control name='name' type="text" placeholder="Name" ref={register({ required: true })} />
+                            <Form.Text className="text-danger">
+                                {errors.name && "product name is required!"}
+                            </Form.Text>
+                        </Form.Group>
 
-                    <Form.Group className=''>
-                        <Form.Label>Category select</Form.Label>
-                        <Form.Control name='category' as="select" defaultValue="pick one" ref={register({ required: true })}>
-                            {
-                                categories?.map((c, i) => <option key={i} value={c.value}>{c.name}</option>)
-                            }
+                        <Form.Group className=''>
+                            <Form.Label>Price</Form.Label>
+                            <Form.Control className='' name='price' type="number" placeholder="price" ref={register({ required: true })} />
+                            <Form.Text className="text-danger">
+                                {errors.price && "product name is required!"}
+                            </Form.Text>
+                        </Form.Group>
 
-                        </Form.Control>
-                    </Form.Group>
+                        <Form.Group className=''>
+                            <Form.Label>Category select</Form.Label>
+                            <Form.Control name='category' as="select" defaultValue="pick one" ref={register({ required: true })}>
+                                {
+                                    categories?.map((c, i) => <option key={i} value={c.value}>{c.name}</option>)
+                                }
+
+                            </Form.Control>
+                        </Form.Group>
 
 
-                    <Button variant="seccondary" className='w-100' type="submit">
-                        Submit
+                        <Button variant="primary" className='w-100 my-3' type="submit">
+                            Submit
                 </Button>
-                </Form>
-            </Col>
+                    </Form>
+                </Col>
 
-        </Row>
+            </Row>
+
+        </div>
+
 
     )
 }
