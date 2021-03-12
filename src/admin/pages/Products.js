@@ -9,7 +9,7 @@ export const Products = () => {
     const products = useSelector(getProducts)
 
     return (
-        <div className="h-100 bg-warning row">
+        <div className="row">
             <Col sm={12} className="h-5">
                 <Row className="">
                     <Col className="bg-primary h-5 text-light shadow-sm" sm={12}>
@@ -19,8 +19,8 @@ export const Products = () => {
             </Col>
 
 
-            <Col className="w-100 h-85">
-                <Row className="w-100">
+            <Col className="my-5">
+                <Row className="">
                     <Col sm={12} className=" h-5">
                         <Row className="p-0 m-auto justify-content-around">
                             <Col sm={10} className="c-pointer rounded bg-dark text-light text-center">
