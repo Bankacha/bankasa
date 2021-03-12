@@ -13,7 +13,7 @@ export const ProductCreate = () => {
     const { register, handleSubmit, watch, errors, reset } = useForm({
         defaultValues: {
             name: null,
-            price: 0,
+            price: null,
             category: categories[0].value
         }
     });
@@ -24,26 +24,32 @@ export const ProductCreate = () => {
         reset()
     }
 
+    watch("name")
     return (
         <Row className="h-100 bg-warning align-items-center justify-content-center">
             <Col sm={6}>
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Form.Group>
+                    <Form.Group className=''>
                         <Form.Label>Product Name</Form.Label>
                         <Form.Control name='name' type="text" placeholder="Name" ref={register({ required: true })} />
-                        {errors.name ? <span>This is invalid</span> : ''}
+                        <Form.Text className="text-danger text-muted">
+                            {errors.name && "product name is required!"}
+                        </Form.Text>
                     </Form.Group>
 
-                    <Form.Group>
+                    <Form.Group className=''>
                         <Form.Label>Price</Form.Label>
-                        <Form.Control name='price' type="number" placeholder="price" ref={register({ required: true })} />
+                        <Form.Control className='' name='price' type="number" placeholder="price" ref={register({ required: true })} />
+                        <small id="passwordHelp" className="text-danger">
+                            {errors.name && "product price is required!"}
+                        </small>
                     </Form.Group>
 
-                    <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Group className=''>
                         <Form.Label>Category select</Form.Label>
                         <Form.Control name='category' as="select" defaultValue="pick one" ref={register({ required: true })}>
                             {
-                                categories?.map((c, i) => <option value={c.value}>{c.name}</option>)
+                                categories?.map((c, i) => <option key={i} value={c.value}>{c.name}</option>)
                             }
 
                         </Form.Control>

@@ -19,8 +19,8 @@ function App() {
 
             {/* ADMIN PAGES */}
 
-            <Products></Products>
-            {/* <ProductCreate></ProductCreate> */}
+            {/* <Products></Products> */}
+            <ProductCreate></ProductCreate>
         </Container>
     );
 }
