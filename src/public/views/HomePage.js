@@ -5,7 +5,7 @@ import {HomeButton} from "../components/home/HomeButton";
 export function HomePage() {
 
     return (
-        <Row className="h-95">
+        <Row className="h-85">
             <Col xs={12} className="h-25">
                 <Row className='bg-info text-dark align-content-center h-100'>
                     <Col xs={10}>
