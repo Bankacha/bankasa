@@ -4,7 +4,7 @@ import {Col, Row, Form, Button} from "react-bootstrap";
 export function LoginPage() {
 
     return (
-        <Row className="h-100 bg-light">
+        <Row className="h-95 bg-light">
             <div className="col-8 align-self-center">
                 <Row className="justify-content-center">
                     <Col xs={6}>

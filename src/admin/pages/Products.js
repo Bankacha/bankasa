@@ -10,15 +10,6 @@ export const Products = () => {
 
     return (
         <div className="row">
-            <Col sm={12} className="h-5">
-                <Row className="">
-                    <Col className="bg-primary h-5 text-light shadow-sm" sm={12}>
-                        <h1>Bankasa</h1>
-                    </Col>
-                </Row>
-            </Col>
-
-
             <Col className="my-5">
                 <Row className="">
                     <Col sm={12} className=" h-5">
@@ -66,7 +57,6 @@ export const Products = () => {
                     </Col>
                 </Row>
             </Col>
-
         </div >
     )
 }

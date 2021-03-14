@@ -7,7 +7,6 @@ import { getCategories } from "../../store/selectors";
 export const ProductCreate = () => {
 
     const dispatch = useDispatch()
-
     const categories = useSelector(getCategories)
 
     const { register, handleSubmit, watch, errors, reset } = useForm({
@@ -19,24 +18,11 @@ export const ProductCreate = () => {
     });
 
     const onSubmit = data => {
-
         dispatch(addNewProduct({ ...data, price: +data.price }));
         reset()
     }
 
-    watch("name")
     return (
-        <div className="h-100">
-            <Row>
-                <Col sm={12} className="h-5">
-                    <Row className="">
-                        <Col className="bg-primary h-5 text-light shadow-sm py-3" sm={12}>
-                            <h1 className="m-0">Bankasa</h1>
-                        </Col>
-                    </Row>
-                </Col>
-            </Row>
-
             <Row className="align-items-center justify-content-center mt-5">
                 <Col sm={6} className="p-3 bg-white rounded shadow-sm">
                     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -62,21 +48,14 @@ export const ProductCreate = () => {
                                 {
                                     categories?.map((c, i) => <option key={i} value={c.value}>{c.name}</option>)
                                 }
-
                             </Form.Control>
                         </Form.Group>
 
-
                         <Button variant="primary" className='w-100 my-3' type="submit">
                             Submit
-                </Button>
+                        </Button>
                     </Form>
                 </Col>
-
             </Row>
-
-        </div>
-
-
     )
 }
