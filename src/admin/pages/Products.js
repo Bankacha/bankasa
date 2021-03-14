@@ -30,6 +30,7 @@ export const Products = () => {
                                             <th>Name</th>
                                             <th>Category</th>
                                             <th>Price</th>
+                                            <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
@@ -43,6 +44,7 @@ export const Products = () => {
                                                         <td>{p.name}</td>
                                                         <td>{p.category}</td>
                                                         <td>{p.price}</td>
+                                                        <td><Button onClick=''>edit</Button></td>
                                                         <td><Button onClick={() => dispatch(deleteProduct(p.id))}>del</Button></td>
                                                     </tr>
                                                 )
