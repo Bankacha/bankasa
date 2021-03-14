@@ -46,19 +46,7 @@ function App() {
                 </Switch>
             </Layout>
         </Router>
-
-
     );
 }
 
 export default App;
-
-{/* <LoginPage></LoginPage>
-                <HomePage></HomePage>
-                <BillPage></BillPage>
-
-                ADMIN PAGES
-
-                <Products></Products>
-                
-                <ProductCreate></ProductCreate> */}
