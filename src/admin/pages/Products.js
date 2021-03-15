@@ -1,13 +1,14 @@
 import { Table, Row, Col, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { deleteProduct } from "../../store/actions"
 import { getProducts } from '../../store/selectors/products.selectors'
 
 export const Products = () => {
 
-    const dispatch = useDispatch()
-    const products = useSelector(getProducts)
+    const dispatch = useDispatch();
+    const products = useSelector(getProducts);
+    const history = useHistory();
 
     return (
         <div className="row mt-1">
@@ -45,7 +46,7 @@ export const Products = () => {
                                                         <td>{p.name}</td>
                                                         <td>{p.category}</td>
                                                         <td>{p.price}</td>
-                                                        <td><Button onClick=''>edit</Button></td>
+                                                        <td><Button onClick={() => history.push(`edit/${p.id}`)}>edit</Button></td>
                                                         <td><Button onClick={() => dispatch(deleteProduct(p.id))}>del</Button></td>
                                                     </tr>
                                                 )

@@ -27,8 +27,11 @@ function App() {
                     <Route path='/admin/products'>
                         <Products />
                     </Route>
-                    <Route exact path='/admin/create'>
-                        <ProductCreate />
+                    <Route exact path='/admin/:create'>
+                        <ProductCreate type={'create'} />
+                    </Route>
+                    <Route exact path='/admin/:edit/:id'>
+                        <ProductCreate type={'edit'}/>
                     </Route>
 
                     {/* PUBLIC PAGES */}
