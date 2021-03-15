@@ -6,7 +6,7 @@ import { BillPage } from './public/views/BillPage';
 import { HomePage } from './public/views/HomePage';
 import { LoginPage } from './public/views/LoginPage'
 import { Products } from './admin/pages/Products';
-import { ProductCreate } from './admin/pages/ProductCreate';
+import { ProductPage } from './admin/pages/ProductPage';
 import { Layout } from './layout/Layout';
 
 import {
@@ -27,10 +27,10 @@ function App() {
                         <Products />
                     </Route>
                     <Route path='/admin/products/create'>
-                        <ProductCreate type={'create'} />
+                        <ProductPage type={'create'} />
                     </Route>
                     <Route path='/admin/products/:id'>
-                        <ProductCreate type={'edit'}/>
+                        <ProductPage type={'edit'}/>
                     </Route>
 
                     {/* PUBLIC PAGES */}

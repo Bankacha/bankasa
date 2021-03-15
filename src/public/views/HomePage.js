@@ -28,7 +28,7 @@ export function HomePage() {
                             <HomeButton>Quick</HomeButton>
                         </Col>
                     </Link>
-                    <Link to='/admin/products'>
+                    <Link to='/admin/products/'>
                         <Col className="mx-5" sm={12}>
                             <HomeButton>Admin</HomeButton>
                         </Col>
