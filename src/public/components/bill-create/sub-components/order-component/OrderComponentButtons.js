@@ -10,10 +10,10 @@ export function OrderComponentButtons() {
     return (
         <Row className="justify-content-around m-0">
             <Col sm={6}>
-                <Button onClick={() => dispatch(saveAndPrintOrder())} className="w-100" variant='outline-light'>Print &amp; Save</Button>
+                <Button onClick={() => dispatch(saveAndPrintOrder())} className="w-100 py-3 mt-2" variant='outline-light'>Print &amp; Save</Button>
             </Col>
             <Col sm={6}>
-                <Button onClick={() => dispatch(chargeBill())} className="w-100" variant='danger'>Charge</Button>
+                <Button onClick={() => dispatch(chargeBill())} className="w-100 py-3 mt-2" variant='danger'>Charge</Button>
             </Col>
         </Row>
     )

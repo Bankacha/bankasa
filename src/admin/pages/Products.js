@@ -1,5 +1,6 @@
 import { Table, Row, Col, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
 import { deleteProduct } from "../../store/actions"
 import { getProducts } from '../../store/selectors/products.selectors'
 
@@ -9,17 +10,17 @@ export const Products = () => {
     const products = useSelector(getProducts)
 
     return (
-        <div className="row">
-            <Col className="my-5">
-                <Row className="">
-                    <Col sm={12} className=" h-5">
+        <div className="row mt-1">
+            <Col className="my-3">
+                <Row>
+                    <Col sm={12}>
                         <Row className="p-0 m-auto justify-content-around">
                             <Col sm={10} className="c-pointer rounded bg-dark text-light text-center">
-                                <h5 className="m-0 my-1">add new product</h5>
+                                <Link to='create' className='link'><h5 className="m-0 my-1">add new product</h5></Link>
                             </Col>
                         </Row>
                     </Col>
-                    <Col sm={12} className="mt-3 align-items-top h-95">
+                    <Col sm={12} className="mt-3">
                         <Row className="justify-content-around">
                             <Col sm={10}>
                                 <Table striped bordered hover size="sm" variant='light' className="m-0 my-1">

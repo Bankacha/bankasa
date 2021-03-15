@@ -6,9 +6,9 @@ import { HomeButton } from "../components/home/HomeButton";
 export function HomePage() {
 
     return (
-        <Row className="h-85">
-            <Col sm={12} className="h-25">
-                <Row className='bg-info text-dark align-content-center h-100'>
+        <Row>
+            <Col sm={12} className="mb-5">
+                <Row className='bg-info text-dark align-content-center h-100 py-5'>
                     <Col xs={10}>
                         <h1 className="m-0 ml-5">Hello, *User!</h1>
                     </Col>
@@ -16,7 +16,7 @@ export function HomePage() {
                     </Col>
                 </Row>
             </Col>
-            <Col sm={12} className="h-75">
+            <Col sm={12} className="mt-5">
                 <Row className="pr-5 mr-5 h-100 align-content-center justify-content-around">
                     <Link to=''>
                         <Col className="mx-5" sm={12}>
