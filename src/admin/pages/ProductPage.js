@@ -8,7 +8,7 @@ import { getProducts } from "../../store/selectors/products.selectors";
 import { useEffect } from "react";
 import { editProduct } from "../../store/actions";
 
-export const ProductCreate = ({ type }) => {
+export const ProductPage = ({ type }) => {
 
     const dispatch = useDispatch();
     const categories = useSelector(getCategories);
