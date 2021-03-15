@@ -6,3 +6,4 @@ export const chargeBill = 'CHARGE_BILL';
 export const setActiveCategory = 'SET_ACTIVE_CATEGORY';
 export const addNewProduct = 'ADD_NEW_PRODUCT';
 export const deleteProduct = 'DELETE_PRODUCT';
+export const editProduct = 'EDIT_PRODUCT';

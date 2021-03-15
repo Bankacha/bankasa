@@ -30,8 +30,8 @@ body {
 }
 
 .h-20 {
-    height: 20%;
-  }
+  height: 20%;
+}
 
 .h-80 {
   height: 80%;
@@ -43,4 +43,12 @@ body {
 
 .h-95 {
   height: 95%;
+}
+
+.link {
+  color: white;
+}
+
+.link:hover {
+  color: whitesmoke
 }

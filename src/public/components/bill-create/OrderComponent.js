@@ -9,7 +9,7 @@ import { OrderComponentButtons } from "./sub-components/order-component/OrderCom
 export function OrderComponent() {
 
     return (
-        <div className="h-100">
+        <div className="h-95">
             <Row className="h-50">
                 <Col className="h-85">
                     <Row className="text-light h-10">

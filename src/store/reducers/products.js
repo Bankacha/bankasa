@@ -26,6 +26,13 @@ const productsReducer = (state = initialState, action) => {
                 products: state.products.filter(product => product.id !== payload)
             }
 
+        case actionTypes.editProduct:
+
+            return {
+                ...state,
+                products: state.products.map(product => product.id === payload.id ? payload : product)
+            }
+            
         default:
             return state
     }
@@ -33,3 +40,4 @@ const productsReducer = (state = initialState, action) => {
 
 
 export default productsReducer;
+

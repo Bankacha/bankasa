@@ -11,7 +11,7 @@ export function OrderItemsFooter() {
 
     return (
         <Col className="mx-2 w-100">
-            <Row className="d-flex justify-content-between pt-2">
+            <Row className="d-flex justify-content-between py-2">
                 <h5>Order Total : {total}</h5>
                 <p onClick={() => dispatch(clearOrder())} type="button">clear</p>
             </Row>
