@@ -3,9 +3,10 @@ import { addNewProduct } from "../../store/actions";
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { getCategories } from "../../store/selectors";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { getProducts } from "../../store/selectors/products.selectors";
 import { useEffect } from "react";
+import { editProduct } from "../../store/actions";
 
 export const ProductCreate = ({ type }) => {
 
@@ -13,18 +14,9 @@ export const ProductCreate = ({ type }) => {
     const categories = useSelector(getCategories);
     const products = useSelector(getProducts);
     const params = useParams();
+    const history = useHistory();
 
-    const productToEdit = products.find(product => product.id === params?.id)
-
-    useEffect(() => {
-        if (type === 'edit') {
-            setValue('name', `${productToEdit.name}`)
-            setValue('price', `${productToEdit.price}`)
-            setValue('category', `${productToEdit.category}`)
-        } 
-    }, [])
-
-    const { register, handleSubmit, watch, errors, reset, setValue } = useForm({
+    const { register, handleSubmit, errors, reset, setValue } = useForm({
         defaultValues: {
             name: null,
             price: null,
@@ -32,11 +24,25 @@ export const ProductCreate = ({ type }) => {
         }
     });
 
-    console.log(type, params.id, productToEdit)
+    useEffect(() => {
+        if (type === 'edit') {
+            const productToEdit = products.find(product => product.id === params?.id)
+            setValue('name', `${productToEdit.name}`)
+            setValue('price', `${productToEdit.price}`)
+            setValue('category', `${productToEdit.category}`)
+        }
+
+    }, [type, params, setValue, products])
 
     const onSubmit = data => {
-        dispatch(addNewProduct({ ...data, price: +data.price }));
-        reset()
+        if (type === 'create') {
+            dispatch(addNewProduct({ ...data, price: +data.price }));
+            reset()
+        }
+        if (type === 'edit') {
+            dispatch(editProduct({ ...data, id: params.id }))
+            history.push('.')
+        }
     }
 
     return (

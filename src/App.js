@@ -12,8 +12,7 @@ import { Layout } from './layout/Layout';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 
 function App() {
@@ -24,13 +23,13 @@ function App() {
 
                     {/* ADMIN PAGES */}
 
-                    <Route path='/admin/products'>
+                    <Route exact path='/admin/products'>
                         <Products />
                     </Route>
-                    <Route exact path='/admin/:create'>
+                    <Route path='/admin/products/create'>
                         <ProductCreate type={'create'} />
                     </Route>
-                    <Route exact path='/admin/:edit/:id'>
+                    <Route path='/admin/products/:id'>
                         <ProductCreate type={'edit'}/>
                     </Route>
 

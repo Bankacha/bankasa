@@ -46,7 +46,7 @@ export const Products = () => {
                                                         <td>{p.name}</td>
                                                         <td>{p.category}</td>
                                                         <td>{p.price}</td>
-                                                        <td><Button onClick={() => history.push(`edit/${p.id}`)}>edit</Button></td>
+                                                        <td><Button onClick={() => history.push(`${p.id}`)}>edit</Button></td>
                                                         <td><Button onClick={() => dispatch(deleteProduct(p.id))}>del</Button></td>
                                                     </tr>
                                                 )
