@@ -8,6 +8,7 @@ import { LoginPage } from './public/views/LoginPage'
 import { Products } from './admin/pages/Products';
 import { ProductPage } from './admin/pages/ProductPage';
 import { Layout } from './layout/Layout';
+import { CategoryPage } from './admin/pages/CategoryPage';
 
 import {
     BrowserRouter as Router,
@@ -31,6 +32,9 @@ function App() {
                     </Route>
                     <Route path='/admin/products/:id'>
                         <ProductPage type={'edit'}/>
+                    </Route>
+                    <Route path='/admin/category'>
+                        <CategoryPage />
                     </Route>
 
                     {/* PUBLIC PAGES */}
