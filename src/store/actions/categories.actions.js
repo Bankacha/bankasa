@@ -13,3 +13,10 @@ export const editCategory = (category) => {
         payload: category
     }
 }
+
+export const createCategory = (category) => {
+    return {
+        type: actionTypes.createCategory,
+        payload: category
+    }
+}

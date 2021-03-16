@@ -11,7 +11,7 @@ export const CategoryPage = () => {
 
     const [editing, setEditing] = useState(false)
     const [forEdit, setForEdit] = useState()
-    const [newCategory, setNewCategory] = useState(false)
+    const [creation, setCreation] = useState(false)
 
     const handleEdit = (category) => {
         setForEdit(category);
@@ -19,20 +19,21 @@ export const CategoryPage = () => {
     }
     const close = () => {
         setEditing(false)
-        setNewCategory(false)
+        setCreation(false)
     }
     return (
         <div>
             <CategoryModal
-                show={editing ? true : false || newCategory ? true : false}
+                show={editing ? true : false || creation ? true : false}
                 onClose={close}
                 isEditing={editing}
+                isCreation={creation}
                 category={forEdit}
             ></CategoryModal>
 
             <Row className="align-items-center justify-content-center mt-5">
                 <Col sm={6} className='p-0'>
-                    <Button onClick={()=> setNewCategory(true)} className="w-100">Add new category</Button>
+                    <Button onClick={()=> setCreation(true)} className="w-100">Create new category</Button>
                 </Col>
             </Row>
 

@@ -18,6 +18,11 @@ export const categoriesReducer = (state = initialState, action) => {
                 ...state,
                     categories: state.categories.map(category => category.id === payload.id ? payload : category),
             }    
+        case actionTypes.createCategory:
+            return {
+                ...state,
+                    categories: [...state.categories, payload]
+            }   
 
         default:
             return state

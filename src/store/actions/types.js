@@ -7,4 +7,5 @@ export const setActiveCategory = 'SET_ACTIVE_CATEGORY';
 export const addNewProduct = 'ADD_NEW_PRODUCT';
 export const deleteProduct = 'DELETE_PRODUCT';
 export const editProduct = 'EDIT_PRODUCT';
+export const createCategory = 'CREATE_CATEGORY';
 export const editCategory = 'EDIT_CATEGORY';

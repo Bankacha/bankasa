@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { editCategory } from "../../store/actions";
+import { createCategory, editCategory } from "../../store/actions";
 import { getCategories } from "../../store/selectors";
 
 export const CategoryModal = (props) => {
 
+    const categories = useSelector(getCategories)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -26,17 +27,25 @@ export const CategoryModal = (props) => {
             const newData = { ...props.category, name: data.category }
             dispatch(editCategory(newData))
         }
+        if (props.isCreation) {
+            const newData = {
+                name: data.category,
+                value: data.category.toLowerCase(),
+                id: data.category.toLowerCase().replace(' ', '_')
+            }
+            dispatch(createCategory(newData))
+        }
     }
 
-
+    console.log(categories)
 
     return (
         <Modal show={props.show} onHide={props.onClose}>
 
-            <Modal.Dialog>
+            <Modal.Dialog className='w-100 p-2'>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Modal.Header closeButton>
-                        <Modal.Title>{props.category ? props.category?.name : 'Category name'}</Modal.Title>
+                        <Modal.Title>{props.isEditing ? props.category?.name : 'Category name'}</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body>
