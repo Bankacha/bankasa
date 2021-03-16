@@ -6,3 +6,10 @@ export const setActiveCategory = (category) => {
         payload: category
     }
 }
+
+export const editCategory = (category) => {
+    return {
+        type: actionTypes.editCategory,
+        payload: category
+    }
+}
