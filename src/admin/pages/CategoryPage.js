@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Row, Col, Card, Button } from "react-bootstrap"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCategory } from "../../store/actions";
 import { getCategories } from "../../store/selectors";
 import { CategoryModal } from "../components/CategoryModal";
 
 export const CategoriesPage = () => {
 
     const categories = useSelector(getCategories);
+    const dispatch = useDispatch();
 
     const [editing, setEditing] = useState(false)
     const [forEdit, setForEdit] = useState()
@@ -44,11 +46,14 @@ export const CategoriesPage = () => {
                             return (
                                 <Card key={i} className="my-2">
                                     <Row className=" align-items-center">
-                                        <Col sm={10} >
+                                        <Col sm={9} >
                                             <Card.Body value={c.value}>{c.name}</Card.Body>
                                         </Col>
-                                        <Col sm={2}>
+                                        <Col sm={1}>
                                             <Button onClick={() => handleEdit(c)}>edit</Button>
+                                        </Col>
+                                        <Col sm={1}>
+                                            <Button onClick={() => dispatch(deleteCategory(c.id))}>delete</Button>
                                         </Col>
                                     </Row>
                                 </Card>

@@ -20,3 +20,10 @@ export const createCategory = (category) => {
         payload: category
     }
 }
+
+export const deleteCategory = (id) => {
+    return {
+        type: actionTypes.deleteCategory,
+        payload: id
+    }
+}

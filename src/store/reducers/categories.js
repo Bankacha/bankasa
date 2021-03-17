@@ -23,7 +23,11 @@ export const categoriesReducer = (state = initialState, action) => {
                 ...state,
                     categories: [...state.categories, payload]
             }   
-
+        case actionTypes.deleteCategory:
+            return {
+                ...state,
+                    categories: state.categories.filter(category => category.id !== payload)
+            }
         default:
             return state
     }
