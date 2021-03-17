@@ -14,13 +14,13 @@ export const Products = () => {
     const [search, setSearch] = useState(products)
 
     const searchProducts = (event) => {
-        const filtered = products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()))
+        const filtered = products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()) || product.category.toLowerCase().includes(event.toLowerCase()))
         setSearch(filtered)
     }
 
     useEffect(() => {
         setSearch(products)
-    },[products])
+    }, [products])
 
     return (
         <div className="row mt-1">
