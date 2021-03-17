@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Row, Col, Card, Button } from "react-bootstrap"
 import { useSelector } from "react-redux";
 import { getCategories } from "../../store/selectors";
-import { CategoryModal } from "./CategoryModal";
+import { CategoryModal } from "../components/CategoryModal";
 
-export const CategoryPage = () => {
+export const CategoriesPage = () => {
 
     const categories = useSelector(getCategories);
 
