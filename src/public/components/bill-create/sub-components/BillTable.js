@@ -4,7 +4,6 @@ import { useSelector } from "react-redux"
 export function BillTable() {
 
     const billItems = useSelector(state => {
-        console.log(state.billing)
         return state.billing.billItems
     }
     )

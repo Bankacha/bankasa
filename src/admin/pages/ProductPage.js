@@ -27,9 +27,9 @@ export const ProductPage = ({ type }) => {
     useEffect(() => {
         if (type === 'edit') {
             const productToEdit = products.find(product => product.id === params?.id)
-            setValue('name', `${productToEdit.name}`)
-            setValue('price', `${productToEdit.price}`)
-            setValue('category', `${productToEdit.category}`)
+            setValue('name', `${productToEdit?.name}`)
+            setValue('price', `${productToEdit?.price}`)
+            setValue('category', `${productToEdit?.category}`)
         }
 
     }, [type, params, setValue, products])

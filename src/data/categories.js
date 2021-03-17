@@ -1,14 +1,17 @@
 export const categories = [
     {
         name: 'Alcohol',
-        value: 'alcohol'
+        value: 'alcohol',
+        id: 'alcohol'
     },
     {
         name: 'Coffees',
-        value: 'coffees'
+        value: 'coffees',
+        id: 'coffees'
     },
     {
         name: 'Juices',
-        value: 'juices'
+        value: 'juices',
+        id: 'juices'
     }
 ]

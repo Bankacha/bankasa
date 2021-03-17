@@ -6,3 +6,24 @@ export const setActiveCategory = (category) => {
         payload: category
     }
 }
+
+export const editCategory = (category) => {
+    return {
+        type: actionTypes.editCategory,
+        payload: category
+    }
+}
+
+export const createCategory = (category) => {
+    return {
+        type: actionTypes.createCategory,
+        payload: category
+    }
+}
+
+export const deleteCategory = (id) => {
+    return {
+        type: actionTypes.deleteCategory,
+        payload: id
+    }
+}
