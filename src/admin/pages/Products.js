@@ -1,4 +1,5 @@
-import { Table, Row, Col, Button } from "react-bootstrap"
+import { useState } from "react"
+import { Table, Row, Col, Button, Form } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { Link, useHistory } from "react-router-dom"
 import { deleteProduct } from "../../store/actions"
@@ -10,12 +11,25 @@ export const Products = () => {
     const products = useSelector(getProducts);
     const history = useHistory();
 
+    const [search, setSearch] = useState(products)
+
+    const searchProducts = (event) => {
+        const filtered = products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()))
+        setSearch(filtered)
+    }
+    // onChange={(e) => searchProducts(e.target.value)}
+    console.log(products)
     return (
         <div className="row mt-1">
             <Col className="my-3">
                 <Row>
                     <Col sm={12}>
                         <Row className="p-0 m-auto justify-content-around">
+
+                            <Col className="offset-sm-8 p-0 mb-3" sm={2}>
+                                <Form.Control placeholder='Search' onChange={(e) => searchProducts(e.target.value)} size='sm'></Form.Control>
+                            </Col>
+
                             <Col sm={10} className="c-pointer rounded bg-dark text-light text-center">
                                 <Link to='create' className='link'><h5 className="m-0 my-1">add new product</h5></Link>
                             </Col>
@@ -38,7 +52,7 @@ export const Products = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            products.map((p, i) => {
+                                            search.map((p, i) => {
                                                 return (
                                                     <tr key={p.id}>
                                                         <td>{i + 1}</td>
