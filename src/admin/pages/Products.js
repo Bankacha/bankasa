@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Table, Row, Col, Button, Form } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { Link, useHistory } from "react-router-dom"
@@ -8,8 +8,8 @@ import { getProducts } from '../../store/selectors/products.selectors'
 export const Products = () => {
 
     const dispatch = useDispatch();
-    const products = useSelector(getProducts);
     const history = useHistory();
+    const products = useSelector(getProducts);
 
     const [search, setSearch] = useState(products)
 
@@ -17,8 +17,11 @@ export const Products = () => {
         const filtered = products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()))
         setSearch(filtered)
     }
-    // onChange={(e) => searchProducts(e.target.value)}
-    console.log(products)
+
+    useEffect(() => {
+        setSearch(products)
+    },[products])
+
     return (
         <div className="row mt-1">
             <Col className="my-3">
