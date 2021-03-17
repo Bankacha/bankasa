@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Row, Col, Card, Button } from "react-bootstrap"
-import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getCategories } from "../../store/selectors";
 import { CategoryModal } from "./CategoryModal";
 
@@ -29,11 +28,12 @@ export const CategoryPage = () => {
                 isEditing={editing}
                 isCreation={creation}
                 category={forEdit}
+                closeModal={() => setEditing(false)}
             ></CategoryModal>
 
             <Row className="align-items-center justify-content-center mt-5">
                 <Col sm={6} className='p-0'>
-                    <Button onClick={()=> setCreation(true)} className="w-100">Create new category</Button>
+                    <Button onClick={() => setCreation(true)} className="w-100">Create new category</Button>
                 </Col>
             </Row>
 

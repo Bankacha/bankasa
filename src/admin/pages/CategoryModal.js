@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,6 +26,7 @@ export const CategoryModal = (props) => {
         if (props.isEditing) {
             const newData = { ...props.category, name: data.category }
             dispatch(editCategory(newData))
+            props.closeModal()
         }
         if (props.isCreation) {
             const newData = {
@@ -34,6 +35,8 @@ export const CategoryModal = (props) => {
                 id: data.category.toLowerCase().replace(' ', '_')
             }
             dispatch(createCategory(newData))
+            reset()
+
         }
     }
 
@@ -47,18 +50,16 @@ export const CategoryModal = (props) => {
                     <Modal.Header closeButton>
                         <Modal.Title>{props.isEditing ? props.category?.name : 'Category name'}</Modal.Title>
                     </Modal.Header>
-
                     <Modal.Body>
-
-                        <Form.Group className=''>
+                        <Form.Group>
                             <p>{props.isEditing ? 'Change Category name' : 'Enter Category name'}</p>
-                            <Form.Control name='category' ref={register()}></Form.Control>
+                            <Form.Control name='category' ref={register({ required: true })}></Form.Control>
+                            <Form.Text className="text-danger">
+                                {errors.category && "category name is required!"}
+                            </Form.Text>
                         </Form.Group>
-
                     </Modal.Body>
-
                     <Modal.Footer>
-                        <Button variant="secondary">Close</Button>
                         <Button variant="primary" type='submit'>Save changes</Button>
                     </Modal.Footer>
                 </Form>
