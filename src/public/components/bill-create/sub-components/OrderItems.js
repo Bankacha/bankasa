@@ -1,11 +1,12 @@
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux"
 import { deleteOrderItem } from '../../../../store/actions';
+import { getOrderItems } from '../../../../store/selectors';
 
 export function OrderItems(props) {
 
     const dispatch = useDispatch();
-    const orderItems = useSelector(state => state.billing.order);
+    const orderItems = useSelector(getOrderItems);
     
     const multiply = (price, quantity) => {
         return price*quantity

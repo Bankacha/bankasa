@@ -1,13 +1,10 @@
 import { Row, Table, Col } from "react-bootstrap";
 import { useSelector } from "react-redux"
+import { getBillItems } from "../../../../store/selectors";
 
 export function BillTable() {
 
-    const billItems = useSelector(state => {
-        return state.billing.billItems
-    }
-    )
-
+    const billItems = useSelector(getBillItems)
 
     return (
         <Row>
@@ -28,8 +25,6 @@ export function BillTable() {
                     </tbody>
                 </Table>
             </Col>
-
         </Row>
-
     )
 }

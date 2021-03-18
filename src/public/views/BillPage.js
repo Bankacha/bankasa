@@ -19,9 +19,7 @@ export function BillPage() {
 
             <Col className="bg-primary">
                 <OrderComponent />
-
             </Col>
-
         </Row>
     )
 }

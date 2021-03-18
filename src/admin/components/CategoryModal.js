@@ -36,15 +36,11 @@ export const CategoryModal = (props) => {
             }
             dispatch(createCategory(newData))
             reset()
-
         }
     }
 
-    console.log(categories)
-
     return (
         <Modal show={props.show} onHide={props.onClose}>
-
             <Modal.Dialog className='w-100 p-2'>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Modal.Header closeButton>
@@ -65,6 +61,5 @@ export const CategoryModal = (props) => {
                 </Form>
             </Modal.Dialog>
         </Modal>
-
     )
 }

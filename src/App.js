@@ -21,7 +21,6 @@ function App() {
         <Router>
             <Layout>
                 <Switch>
-
                     {/* ADMIN PAGES */}
 
                     <Route exact path='/admin/products'>
@@ -31,7 +30,7 @@ function App() {
                         <ProductPage type={'create'} />
                     </Route>
                     <Route path='/admin/products/:id'>
-                        <ProductPage type={'edit'}/>
+                        <ProductPage type={'edit'} />
                     </Route>
                     <Route path='/admin/categories'>
                         <CategoriesPage />

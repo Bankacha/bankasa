@@ -1,13 +1,14 @@
-import { ProductCard } from "./sub-components/ProductCard"
-import { Row, Col } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import { setOrderItem } from "../../../store/actions"
-import { getActiveCategory } from "../../../store/selectors"
+import { ProductCard } from "./sub-components/ProductCard";
+import { Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { setOrderItem } from "../../../store/actions";
+import { getActiveCategory } from "../../../store/selectors";
+import { getProducts } from "../../../store/selectors/products.selectors";
 
 export function Products() {
 
     const dispatch = useDispatch()
-    const products = useSelector(s => s.products.products)
+    const products = useSelector(getProducts)
     const activeCategory = useSelector(getActiveCategory)
 
     const addItem = (product) => {
@@ -25,7 +26,7 @@ export function Products() {
                 {
                     newProducts.map((p, i) => {
                         return (
-                            <ProductCard onClick={()=> addItem(p)} key={i} name={p.name} price={p.price} />
+                            <ProductCard onClick={() => addItem(p)} key={i} name={p.name} price={p.price} />
                         )
                     })
                 }

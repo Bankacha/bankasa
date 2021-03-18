@@ -83,7 +83,6 @@ export const Products = () => {
                                                 )
                                             })
                                         }
-
                                     </tbody>
                                 </Table>
                             </Col>
