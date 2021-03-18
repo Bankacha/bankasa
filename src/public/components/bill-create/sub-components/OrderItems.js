@@ -1,15 +1,28 @@
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux"
 import { deleteOrderItem } from '../../../../store/actions';
+<<<<<<< HEAD
+import { IoAddCircleOutline } from "react-icons/io5";
+import { useState } from 'react';
+import { BiX } from "react-icons/bi";
+=======
 import { getOrderItems } from '../../../../store/selectors';
+>>>>>>> master
 
 export function OrderItems(props) {
 
     const dispatch = useDispatch();
+<<<<<<< HEAD
+    const orderItems = useSelector(state => state.billing.order);
+
+    const [clicked , setClicked] = useState(false);
+
+=======
     const orderItems = useSelector(getOrderItems);
     
+>>>>>>> master
     const multiply = (price, quantity) => {
-        return price*quantity
+        return price * quantity
     }
 
     const deleteItem = (idx) => {
@@ -18,7 +31,7 @@ export function OrderItems(props) {
     return (
         <Col className="h-100 overflow-auto px-3">
             {
-                (orderItems ? orderItems : []).map((o, i) => {
+                orderItems.length ? orderItems.map((o, i) => {
                     return (
                         <Row key={i} className="bg-warning mx-1 mb-1 rounded">
                             <Col sm={6}>
@@ -31,14 +44,22 @@ export function OrderItems(props) {
                                 {o.product.price}
                             </Col>
                             <Col sm={2} className="text-right">
-                                {multiply(o.quantity,o.product.price)}
+                                {multiply(o.quantity, o.product.price)}
                             </Col>
-                            <Col onClick={()=> deleteItem(o)} sm={1} className="text-left" type='button'>
-                                -
+                            <Col onClick={() => deleteItem(o)} sm={1} className="text-left" type='button'>
+                                <BiX size='1.5em'/>
                             </Col>
                         </Row>
                     )
-                })
+                }) : (<Row>
+                    <Col className='text-center'>
+                        <IoAddCircleOutline onClick={() => setClicked(true)} className="text-light mt-5" size='5em'></IoAddCircleOutline>
+                        {
+                            clicked ? <h5 className="text-light my-2">no, no, click on item</h5> : <h5 className="text-light my-2">your order</h5>
+                        }
+                        
+                    </Col>
+                </Row>)
             }
         </Col>
     )

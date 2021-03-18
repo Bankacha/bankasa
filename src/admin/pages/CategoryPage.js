@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteCategory } from "../../store/actions";
 import { getCategories } from "../../store/selectors";
 import { CategoryModal } from "../components/CategoryModal";
+import { BiEditAlt, BiTrash } from "react-icons/bi";
+
 
 export const CategoriesPage = () => {
 
@@ -47,15 +49,15 @@ export const CategoriesPage = () => {
                         categories?.map((c, i) => {
                             return (
                                 <Card key={i} className="my-2">
-                                    <Row className=" align-items-center">
-                                        <Col sm={9} >
+                                    <Row className="align-items-center pr-2">
+                                        <Col sm={10} >
                                             <Card.Body value={c.value}>{c.name}</Card.Body>
                                         </Col>
                                         <Col sm={1}>
-                                            <Button onClick={() => handleEdit(c)}>edit</Button>
+                                            <BiEditAlt size='1.5em'  onClick={() => handleEdit(c)} />
                                         </Col>
                                         <Col sm={1}>
-                                            <Button onClick={() => dispatch(deleteCategory(c.id))}>delete</Button>
+                                            <BiTrash size='1.5em' onClick={() => dispatch(deleteCategory(c.id))} />
                                         </Col>
                                     </Row>
                                 </Card>
