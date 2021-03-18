@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Link, useHistory } from "react-router-dom"
 import { deleteProduct } from "../../store/actions"
 import { getProducts } from '../../store/selectors/products.selectors'
+import { IoPencilSharp, IoTrashSharp, IoSearchSharp } from "react-icons/io5";
 
 export const Products = () => {
 
@@ -12,14 +13,20 @@ export const Products = () => {
     const products = useSelector(getProducts);
 
     const [search, setSearch] = useState(products)
+    const [newEvent, setNewEvent] = useState('')
 
+    const localFilter = (products, event) => {
+        return products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()) || product.category.toLowerCase().includes(event.toLowerCase()))
+    }
+    
     const searchProducts = (event) => {
-        const filtered = products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()) || product.category.toLowerCase().includes(event.toLowerCase()))
+        setNewEvent(event)
+        const filtered = localFilter(products, event)
         setSearch(filtered)
     }
 
     useEffect(() => {
-        setSearch(products)
+        setSearch(localFilter(products, newEvent))
     }, [products])
 
     return (
@@ -30,7 +37,14 @@ export const Products = () => {
                         <Row className="p-0 m-auto justify-content-around">
 
                             <Col className="offset-sm-8 p-0 mb-3" sm={2}>
-                                <Form.Control placeholder='Search' onChange={(e) => searchProducts(e.target.value)} size='sm'></Form.Control>
+                                <Row>
+                                    <Col sm={2}>
+                                        <IoSearchSharp />
+                                    </Col>
+                                    <Col sm={10}>
+                                        <Form.Control placeholder='Search' onChange={(e) => searchProducts(e.target.value)} size='sm'></Form.Control>
+                                    </Col>
+                                </Row>
                             </Col>
 
                             <Col sm={10} className="c-pointer rounded bg-dark text-light text-center">
@@ -48,9 +62,9 @@ export const Products = () => {
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Category</th>
-                                            <th>Price</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th className='text-right'>Price</th>
+                                            <th className='text-center'>Edit</th>
+                                            <th className='text-center'>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -62,9 +76,9 @@ export const Products = () => {
                                                         <td>{p.id}</td>
                                                         <td>{p.name}</td>
                                                         <td>{p.category}</td>
-                                                        <td>{p.price}</td>
-                                                        <td><Button onClick={() => history.push(`${p.id}`)}>edit</Button></td>
-                                                        <td><Button onClick={() => dispatch(deleteProduct(p.id))}>del</Button></td>
+                                                        <td className='text-right'>{p.price}</td>
+                                                        <td className='text-center'><IoPencilSharp size='1.5em' onClick={() => history.push(`${p.id}`)} /></td>
+                                                        <td className='text-center'><IoTrashSharp size='1.5em' onClick={() => dispatch(deleteProduct(p.id))} /></td>
                                                     </tr>
                                                 )
                                             })
