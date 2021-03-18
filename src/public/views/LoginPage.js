@@ -1,6 +1,5 @@
 import {Col, Row, Form, Button} from "react-bootstrap";
 
-
 export function LoginPage() {
 
     return (

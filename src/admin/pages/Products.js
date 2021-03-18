@@ -1,8 +1,8 @@
-import { Table, Row, Col, Button } from "react-bootstrap"
-import { useSelector, useDispatch } from "react-redux"
-import { Link, useHistory } from "react-router-dom"
-import { deleteProduct } from "../../store/actions"
-import { getProducts } from '../../store/selectors/products.selectors'
+import { Table, Row, Col, Button } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { deleteProduct } from "../../store/actions";
+import { getProducts } from '../../store/selectors/products.selectors';
 
 export const Products = () => {
 
@@ -52,7 +52,6 @@ export const Products = () => {
                                                 )
                                             })
                                         }
-
                                     </tbody>
                                 </Table>
                             </Col>

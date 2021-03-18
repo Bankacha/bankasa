@@ -1,5 +1,5 @@
 import { calculateItems, sumItems } from '../../utils';
-import * as actionTypes from '../actions/types'
+import * as actionTypes from '../actions/types';
 
 const initialState = {
     order: [],
@@ -68,7 +68,7 @@ const billingReducer = (state = initialState, action) => {
                 // closedBills: []
             }
 
-            
+
         default:
             return state
     }

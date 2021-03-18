@@ -1,5 +1,5 @@
 import { products } from "../../data/products";
-import * as actionTypes from '../actions/types'
+import * as actionTypes from '../actions/types';
 
 
 const initialState = {
@@ -32,12 +32,11 @@ const productsReducer = (state = initialState, action) => {
                 ...state,
                 products: state.products.map(product => product.id === payload.id ? payload : product)
             }
-            
+
         default:
             return state
     }
 }
-
 
 export default productsReducer;
 
