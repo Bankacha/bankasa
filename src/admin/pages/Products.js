@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { Table, Row, Col, Button, Form } from "react-bootstrap"
+import { Table, Row, Col, Form } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { Link, useHistory } from "react-router-dom"
 import { deleteProduct } from "../../store/actions"
 import { getProducts } from '../../store/selectors/products.selectors'
-import { IoPencilSharp, IoTrashSharp, IoSearchSharp } from "react-icons/io5";
+import { BiEditAlt, BiTrash, BiSearchAlt } from "react-icons/bi";
 
 export const Products = () => {
 
@@ -33,7 +33,7 @@ export const Products = () => {
                             <Col className="offset-sm-8 p-0 mb-3" sm={2}>
                                 <Row>
                                     <Col sm={2}>
-                                        <IoSearchSharp />
+                                        <BiSearchAlt className="ml-2 mt-1" size='1.5em' />
                                     </Col>
                                     <Col sm={10}>
                                         <Form.Control placeholder='Search' onChange={(e) => searchProducts(e.target.value)} size='sm'></Form.Control>
@@ -71,13 +71,12 @@ export const Products = () => {
                                                         <td>{p.name}</td>
                                                         <td>{p.category}</td>
                                                         <td className='text-right'>{p.price}</td>
-                                                        <td className='text-center'><IoPencilSharp size='1.5em' onClick={() => history.push(`${p.id}`)} /></td>
-                                                        <td className='text-center'><IoTrashSharp size='1.5em' onClick={() => dispatch(deleteProduct(p.id))} /></td>
+                                                        <td className='text-center'><BiEditAlt size='2em' onClick={() => history.push(`${p.id}`)} /></td>
+                                                        <td className='text-center'><BiTrash size='2em' onClick={() => dispatch(deleteProduct(p.id))} /></td>
                                                     </tr>
                                                 )
                                             })
                                         }
-
                                     </tbody>
                                 </Table>
                             </Col>

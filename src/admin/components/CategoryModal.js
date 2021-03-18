@@ -36,7 +36,6 @@ export const CategoryModal = (props) => {
             }
             dispatch(createCategory(newData))
             reset()
-
         }
     }
 
