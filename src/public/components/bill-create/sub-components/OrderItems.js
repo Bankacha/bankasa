@@ -1,26 +1,18 @@
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux"
 import { deleteOrderItem } from '../../../../store/actions';
-<<<<<<< HEAD
 import { IoAddCircleOutline } from "react-icons/io5";
 import { useState } from 'react';
 import { BiX } from "react-icons/bi";
-=======
 import { getOrderItems } from '../../../../store/selectors';
->>>>>>> master
 
 export function OrderItems(props) {
 
     const dispatch = useDispatch();
-<<<<<<< HEAD
-    const orderItems = useSelector(state => state.billing.order);
+    const [clicked, setClicked] = useState(false);
 
-    const [clicked , setClicked] = useState(false);
-
-=======
     const orderItems = useSelector(getOrderItems);
-    
->>>>>>> master
+
     const multiply = (price, quantity) => {
         return price * quantity
     }
@@ -47,7 +39,7 @@ export function OrderItems(props) {
                                 {multiply(o.quantity, o.product.price)}
                             </Col>
                             <Col onClick={() => deleteItem(o)} sm={1} className="text-left" type='button'>
-                                <BiX size='1.5em'/>
+                                <BiX size='1.5em' />
                             </Col>
                         </Row>
                     )
@@ -57,7 +49,7 @@ export function OrderItems(props) {
                         {
                             clicked ? <h5 className="text-light my-2">no, no, click on item</h5> : <h5 className="text-light my-2">your order</h5>
                         }
-                        
+
                     </Col>
                 </Row>)
             }
