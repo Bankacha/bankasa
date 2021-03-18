@@ -1,10 +1,10 @@
-import { Row, Col } from "react-bootstrap"
-import { BillTable } from "./sub-components/BillTable"
-import { OrderItems } from "./sub-components/OrderItems"
-import { OrderItemsHeader } from "./sub-components/order-component/OrderItemsHeader"
-import { OrderItemsFooter } from "./sub-components/order-component/OrderItemsFooter"
-import { BillTableFooter } from "./sub-components/order-component/BillTableFooter"
-import { OrderComponentButtons } from "./sub-components/order-component/OrderComponentButtons"
+import { Row, Col } from "react-bootstrap";
+import { BillTable } from "./sub-components/BillTable";
+import { OrderItems } from "./sub-components/OrderItems";
+import { OrderItemsHeader } from "./sub-components/order-component/OrderItemsHeader";
+import { OrderItemsFooter } from "./sub-components/order-component/OrderItemsFooter";
+import { BillTableFooter } from "./sub-components/order-component/BillTableFooter";
+import { OrderComponentButtons } from "./sub-components/order-component/OrderComponentButtons";
 
 export function OrderComponent() {
 
@@ -39,6 +39,5 @@ export function OrderComponent() {
                 </Col>
             </Row>
         </div>
-
     )
 }

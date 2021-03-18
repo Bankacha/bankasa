@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 import { Col, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { clearOrder } from "../../../../../store/actions"
 import { orderTotalSelector } from "../../../../../store/selectors"
 import { BiXCircle } from "react-icons/bi";
 
+=======
+import { Col, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { clearOrder } from "../../../../../store/actions";
+import { orderTotalSelector } from "../../../../../store/selectors";
+>>>>>>> master
 
 export function OrderItemsFooter() {
 
@@ -22,5 +29,4 @@ export function OrderItemsFooter() {
             </Row>
         </Col>
     )
-
 }

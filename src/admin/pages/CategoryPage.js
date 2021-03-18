@@ -20,10 +20,12 @@ export const CategoriesPage = () => {
         setForEdit(category);
         setEditing(true)
     }
+
     const close = () => {
         setEditing(false)
         setCreation(false)
     }
+
     return (
         <div>
             <CategoryModal
@@ -65,6 +67,5 @@ export const CategoriesPage = () => {
                 </Col>
             </Row>
         </div>
-
     )
 }

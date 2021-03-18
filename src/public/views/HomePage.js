@@ -2,7 +2,6 @@ import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HomeButton } from "../components/home/HomeButton";
 
-
 export function HomePage() {
 
     return (
@@ -36,6 +35,5 @@ export function HomePage() {
                 </Row>
             </Col>
         </Row>
-
     )
 }

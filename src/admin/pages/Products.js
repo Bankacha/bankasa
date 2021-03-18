@@ -13,14 +13,20 @@ export const Products = () => {
     const products = useSelector(getProducts);
 
     const [search, setSearch] = useState(products)
+    const [newEvent, setNewEvent] = useState('')
 
+    const localFilter = (products, event) => {
+        return products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()) || product.category.toLowerCase().includes(event.toLowerCase()))
+    }
+    
     const searchProducts = (event) => {
-        const filtered = products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()) || product.category.toLowerCase().includes(event.toLowerCase()))
+        setNewEvent(event)
+        const filtered = localFilter(products, event)
         setSearch(filtered)
     }
 
     useEffect(() => {
-        setSearch(products)
+        setSearch(localFilter(products, newEvent))
     }, [products])
 
     return (

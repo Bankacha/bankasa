@@ -1,17 +1,26 @@
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux"
 import { deleteOrderItem } from '../../../../store/actions';
+<<<<<<< HEAD
 import { IoAddCircleOutline } from "react-icons/io5";
 import { useState } from 'react';
 import { BiX } from "react-icons/bi";
+=======
+import { getOrderItems } from '../../../../store/selectors';
+>>>>>>> master
 
 export function OrderItems(props) {
 
     const dispatch = useDispatch();
+<<<<<<< HEAD
     const orderItems = useSelector(state => state.billing.order);
 
     const [clicked , setClicked] = useState(false);
 
+=======
+    const orderItems = useSelector(getOrderItems);
+    
+>>>>>>> master
     const multiply = (price, quantity) => {
         return price * quantity
     }
