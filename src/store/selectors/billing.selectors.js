@@ -5,3 +5,4 @@ export const billTotalSelector = (states) => calculateItems(states.billing.billI
 
 export const getBillItems = (states) => states.billing.billItems;
 export const getOrderItems = (states) => states.billing.order;
+export const getClosedBills = (states) => states.billing.closedBills;

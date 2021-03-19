@@ -27,7 +27,7 @@ export function AdminPage() {
                             <AdminButton className='bg-primary'>Categories</AdminButton>
                         </Col>
                     </Link>
-                    <Link to='admin/accounting'>
+                    <Link to='/admin/accounting'>
                         <Col className="mx-5" sm={12}>
                             <AdminButton className='bg-primary'>Accounting</AdminButton>
                         </Col>

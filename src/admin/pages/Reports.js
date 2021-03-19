@@ -1,12 +1,17 @@
 import { Col, Form, Row, Button, Table } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { getClosedBills } from "../../store/selectors/billing.selectors";
 
 export function Reports() {
 
+    const closedBills = useSelector(getClosedBills);
+
+    console.log(closedBills)
     return (
         <Row>
             <Col>
 
-                <Row className='mt-1'>
+                <Row className='mt-2'>
                     <Col sm={12}>
                         <Row className='d-flex align-items-center py-2 m-0 bg-secondary'>
                             <Col sm={3}>
