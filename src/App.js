@@ -9,6 +9,7 @@ import { Products } from './admin/pages/Products';
 import { ProductPage } from './admin/pages/ProductPage';
 import { Layout } from './layout/Layout';
 import { CategoriesPage } from './admin/pages/CategoryPage';
+import { AdminPage } from './admin/pages/AdminPage';
 
 import {
     BrowserRouter as Router,
@@ -34,6 +35,9 @@ function App() {
                     </Route>
                     <Route path='/admin/categories'>
                         <CategoriesPage />
+                    </Route>
+                    <Route path='/admin'>
+                        <AdminPage />
                     </Route>
 
                     {/* PUBLIC PAGES */}
