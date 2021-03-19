@@ -11,6 +11,7 @@ import { Layout } from './layout/Layout';
 import { CategoriesPage } from './admin/pages/CategoryPage';
 import { AdminPage } from './admin/pages/AdminPage';
 import { AccountingPage } from './admin/pages/AccountingPage';
+import { Reports } from './admin/pages/Reports';
 
 import {
     BrowserRouter as Router,
@@ -37,7 +38,10 @@ function App() {
                     <Route path='/admin/categories'>
                         <CategoriesPage />
                     </Route>
-                    <Route path='/admin'>
+                    <Route path='/admin/accounting/reports'>
+                        <Reports />
+                    </Route>
+                    <Route path='/admin/accounting'>
                         <AccountingPage />
                     </Route>
                     <Route path='/admin'>
