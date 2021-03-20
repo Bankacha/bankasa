@@ -5,7 +5,8 @@ const initialState = {
     order: [],
     billItems: [],
     closedBills: [],
-    billsTotal: 0
+    billsTotal: 0,
+    billNo: 0
 };
 
 const billingReducer = (state = initialState, action) => {
@@ -50,13 +51,15 @@ const billingReducer = (state = initialState, action) => {
             const bill = {
                 items: [...state.billItems],
                 total: calculateItems(state.billItems),
-                issued: new Date()
+                issued: new Date(),
+                id: state.billNo
             }
 
             return {
                 ...state,
                 billItems: [],
-                closedBills: [...state.closedBills, bill]
+                closedBills: [...state.closedBills, {...bill, id: state.billNo + 1}],
+                billNo: state.billNo + 1
             }
 
         case 'SUM_TOTAL':

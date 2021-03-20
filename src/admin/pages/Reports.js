@@ -1,6 +1,7 @@
 import { Col, Form, Row, Button, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { getClosedBills } from "../../store/selectors/billing.selectors";
+import { BiChevronsRight } from "react-icons/bi";
 
 export function Reports() {
 
@@ -102,37 +103,27 @@ export function Reports() {
                                         <tr>
                                             <th>id</th>
                                             <th>Time</th>
-                                            <th>Table</th>
-                                            <th>Total</th>
-                                            <th>Active?</th>
-                                            <th>Waiter Name</th>
+                                            <th className='text-center'>Table</th>
+                                            <th className='text-right'>Total</th>
+                                            <th className='text-center'>Waiter</th>
+                                            <th className='text-center'>View</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>21322</td>
-                                            <td>08:05</td>
-                                            <td>5</td>
-                                            <td>1.250</td>
-                                            <td>No</td>
-                                            <td>Jeca</td>
-                                        </tr>
-                                        <tr>
-                                            <td>21322</td>
-                                            <td>08:05</td>
-                                            <td>5</td>
-                                            <td>1.250</td>
-                                            <td>No</td>
-                                            <td>Meca</td>
-                                        </tr>
-                                        <tr>
-                                            <td>21322</td>
-                                            <td>08:05</td>
-                                            <td>5</td>
-                                            <td>1.250</td>
-                                            <td>No</td>
-                                            <td>Jeca</td>
-                                        </tr>
+                                        {
+                                            (closedBills || []).map((b, i) => {
+                                                return (
+                                                    <tr key={b.id}>
+                                                        <td>{b.id}</td>
+                                                        <td>{`${b.issued}`.split(' ')[4]}</td>
+                                                        <td className='text-center'>quick</td>
+                                                        <td className='text-right'>{b.total}</td>
+                                                        <td className='text-center'>Jeca</td>
+                                                        <th className='text-center'><BiChevronsRight size='1.2em'/></th>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
                                     </tbody>
                                 </Table>
                             </Col>
