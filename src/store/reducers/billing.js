@@ -6,7 +6,8 @@ const initialState = {
     billItems: [],
     closedBills: [],
     billsTotal: 0,
-    billNo: 0
+    billNo: 0,
+    currentBill: []
 };
 
 const billingReducer = (state = initialState, action) => {
@@ -61,6 +62,9 @@ const billingReducer = (state = initialState, action) => {
                 closedBills: [...state.closedBills, {...bill, id: state.billNo + 1}],
                 billNo: state.billNo + 1
             }
+        
+        case actionTypes.addCurrentBill:
+            return {...state, currentBill: payload}
 
         case 'SUM_TOTAL':
             const closedBills = [...state.closedBills]

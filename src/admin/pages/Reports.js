@@ -1,11 +1,14 @@
 import { Col, Form, Row, Button, Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { getClosedBills } from "../../store/selectors/billing.selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { getClosedBills, getCurrentBill } from "../../store/selectors/billing.selectors";
 import { BiChevronsRight } from "react-icons/bi";
+import { addCurrentBill } from "../../store/actions/billing.actions";
 
 export function Reports() {
 
+    const dispatch = useDispatch();
     const closedBills = useSelector(getClosedBills);
+    const currentBill = useSelector(getCurrentBill);
 
     console.log(closedBills)
     return (
@@ -100,26 +103,26 @@ export function Reports() {
                             <Col className='p-0'>
                                 <Table striped bordered hover size="sm" className='bg-light m-0'>
                                     <thead>
-                                        <tr>
+                                        <tr className='text-center'>
                                             <th>id</th>
                                             <th>Time</th>
-                                            <th className='text-center'>Table</th>
+                                            <th>Table</th>
                                             <th className='text-right'>Total</th>
-                                            <th className='text-center'>Waiter</th>
-                                            <th className='text-center'>View</th>
+                                            <th>Waiter</th>
+                                            <th>View</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {
                                             (closedBills || []).map((b, i) => {
                                                 return (
-                                                    <tr key={b.id}>
+                                                    <tr className='text-center' key={b.id}>
                                                         <td>{b.id}</td>
                                                         <td>{`${b.issued}`.split(' ')[4]}</td>
-                                                        <td className='text-center'>quick</td>
+                                                        <td>quick</td>
                                                         <td className='text-right'>{b.total}</td>
-                                                        <td className='text-center'>Jeca</td>
-                                                        <th className='text-center'><BiChevronsRight size='1.2em'/></th>
+                                                        <td>Jeca</td>
+                                                        <th><BiChevronsRight onClick={() => dispatch(addCurrentBill(b.items))} size='1.2em' /></th>
                                                     </tr>
                                                 )
                                             })
@@ -143,42 +146,18 @@ export function Reports() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Pivo</td>
-                                            <td>3</td>
-                                            <td>140</td>
-                                            <td>420</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Breskva</td>
-                                            <td>2</td>
-                                            <td>120</td>
-                                            <td>240</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vino</td>
-                                            <td>4</td>
-                                            <td>200</td>
-                                            <td>800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Radza</td>
-                                            <td>3</td>
-                                            <td>140</td>
-                                            <td>420</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ds</td>
-                                            <td>2</td>
-                                            <td>120</td>
-                                            <td>240</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vino</td>
-                                            <td>4</td>
-                                            <td>200</td>
-                                            <td>800</td>
-                                        </tr>
+                                        {
+                                            (currentBill || []).map((c, i) => {
+                                                return (
+                                                    <tr key={i}>
+                                                        <td>{c.product.name}</td>
+                                                        <td>{c.quantity}</td>
+                                                        <td>{c.product.price}</td>
+                                                        <td>{c.quantity * c.product.price}</td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
                                     </tbody>
                                 </Table>
                             </Col>

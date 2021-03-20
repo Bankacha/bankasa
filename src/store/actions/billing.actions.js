@@ -31,3 +31,10 @@ export const chargeBill = () => {
         type: actionTypes.chargeBill
     }
 }
+
+export const addCurrentBill = (bill) => {
+    return {
+        payload: bill,
+        type: actionTypes.addCurrentBill
+    }
+}
