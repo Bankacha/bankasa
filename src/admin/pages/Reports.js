@@ -32,13 +32,14 @@ export function Reports() {
                             </Col>
                             <Col sm={3} className='d-flex align-items-center'>
                                 Waiter: <Form.Control size='sm' as='select'>
+                                    <option>All</option>
                                     <option>Jeca</option>
                                     <option>Meca</option>
                                     <option>Peca</option>
                                 </Form.Control>
                             </Col>
-                            <Col className='text-right'>
-                                <Button size='sm'>Show</Button>
+                            <Col sm={2}>
+                                <Button className='w-100' size='sm'>Show</Button>
                             </Col>
                         </Row>
                     </Col>
@@ -139,7 +140,7 @@ export function Reports() {
                                 <Table striped bordered hover size="sm" className='bg-light m-0'>
                                     <thead>
                                         <tr>
-                                            <th>Product Name</th>
+                                            <th>Product</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
                                             <th>Total</th>
@@ -158,6 +159,7 @@ export function Reports() {
                                                 )
                                             })
                                         }
+
                                     </tbody>
                                 </Table>
                             </Col>
