@@ -48,7 +48,7 @@ export const Products = () => {
                             </Col>
 
                             <Col sm={10} className="c-pointer rounded bg-dark text-light text-center">
-                                <Link to='create' className='link'><h5 className="m-0 my-1">add new product</h5></Link>
+                                <Link to='products/create' ><h5 className="text-light m-0 my-1">add new product</h5></Link>
                             </Col>
                         </Row>
                     </Col>
