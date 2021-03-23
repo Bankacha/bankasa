@@ -23,7 +23,7 @@ export function HomePage() {
             </Col>
             <Col sm={12} className="mt-5">
                 <Row className="pr-5 mr-5 h-100 align-content-center justify-content-around">
-                    <Link to=''>
+                    <Link to='/'>
                         <Col className="mx-5" sm={12}>
                             <HomeButton>Map</HomeButton>
                         </Col>
