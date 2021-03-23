@@ -6,12 +6,12 @@ export function AdminRoute(props) {
 
     const currentUser = useSelector(getCurrentUser);
 
-    const { component: Component, ...rest } = props;
+    const { component: Component, path, ...rest } = props;
 
     return (
-        <Route>
+        <Route path={path}>
             {
-                currentUser ? <Component {...rest} /> : <Redirect to='/auth' />
+                currentUser?.role === 'admin' ? <Component {...rest} /> : <Redirect to='/auth' />
             }
         </Route>
     )

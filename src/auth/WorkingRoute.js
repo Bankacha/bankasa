@@ -6,12 +6,12 @@ export function WorkingRoute(props) {
 
     const currentUser = useSelector(getCurrentUser);
 
-    const { component: Component, ...rest } = props;
+    const { component: Component, path, ...rest } = props;
 
     return (
-        <Route>
+        <Route path={path}>
             {
-                currentUser?.role === 'waiter' ? <Component {...rest} /> : <Redirect to='/auth' />
+                currentUser ? <Component {...rest} /> : <Redirect to='/auth' />
             }
         </Route>
     )

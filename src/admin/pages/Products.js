@@ -77,7 +77,7 @@ export const Products = () => {
                                                         <td>{p.name}</td>
                                                         <td>{p.category}</td>
                                                         <td className='text-right'>{p.price}</td>
-                                                        <td className='text-center'><BiEditAlt size='2em' onClick={() => history.push(`${p.id}`)} /></td>
+                                                        <td className='text-center'><BiEditAlt size='2em' onClick={() => history.push(`products/${p.id}`)} /></td>
                                                         <td className='text-center'><BiTrash size='2em' onClick={() => dispatch(deleteProduct(p.id))} /></td>
                                                     </tr>
                                                 )

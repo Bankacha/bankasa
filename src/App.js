@@ -21,13 +21,8 @@ import {
 
 import { AdminRoute } from './auth/AdminRoute';
 import { WorkingRoute } from './auth/WorkingRoute';
-import { useSelector } from 'react-redux';
-import { getCurrentUser } from './store/selectors/users.selectors';
-
 
 function App() {
-    const currentUser = useSelector(getCurrentUser)
-
     return (
         <Router>
             <Layout>
@@ -44,19 +39,9 @@ function App() {
                     <Route exact path='/auth'>
                         <LoginPage />
                     </Route>
-                    {
-                        currentUser?.role === 'waiter' ? (
-                            <Switch>
-                                <WorkingRoute path='/bill' component={BillPage} />
-                                <WorkingRoute path='/' component={HomePage} />
-                            </Switch>
-                        ) : (
-                            <Switch>
-                                <AdminRoute path='/bill' component={BillPage} />
-                                <AdminRoute path='/' component={HomePage} />
-                            </Switch>
-                        )
-                    }
+
+                    <WorkingRoute path='/bill' component={BillPage} />
+                    <WorkingRoute path='/' component={HomePage} />
 
 
                 </Switch>
