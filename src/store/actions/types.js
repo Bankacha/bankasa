@@ -12,3 +12,4 @@ export const editCategory = 'EDIT_CATEGORY';
 export const deleteCategory = 'DELETE_CATEGORY';
 export const addCurrentBill = 'ADD_CURRENT_BILL';
 export const setLogInUser = 'SET_LOG_IN_USER';
+export const logOut = 'LOG_OUT';

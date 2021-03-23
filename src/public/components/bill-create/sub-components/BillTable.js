@@ -1,11 +1,13 @@
 import { Row, Table, Col } from "react-bootstrap";
 import { useSelector } from "react-redux"
-import { getBillItems } from "../../../../store/selectors";
+import { getBillItems, getClosedBills } from "../../../../store/selectors";
 
 export function BillTable() {
 
     const billItems = useSelector(getBillItems)
-
+    console.log(billItems)
+    const closedBills = useSelector(getClosedBills)
+    console.log(closedBills)
     return (
         <Row>
             <Col className="w-100 h-100 position-absolute overflow-auto">

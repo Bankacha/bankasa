@@ -3,7 +3,10 @@ import * as actionTypes from '../actions/types';
 
 const initialState = {
     order: [],
-    billItems: [],
+    billItems: {
+        user: '',
+        items: []
+    },
     closedBills: [],
     billsTotal: 0,
     billNo: 0,
@@ -31,15 +34,18 @@ const billingReducer = (state = initialState, action) => {
             return { ...state, order: newOrder }
 
         case actionTypes.saveAndPrintOrder:
-            const billItems = [...state.billItems]
+            const billItems = {
+                user: payload,
+                items: [...state.billItems.items]
+            }
 
             for (let orderItem of state.order) {
-                const existing = billItems.find(item => item.product.name === orderItem.product.name);
+                const existing = billItems.items.find(item => item.product.name === orderItem.product.name);
 
                 if (existing) {
                     existing.quantity += orderItem.quantity;
                 } else {
-                    billItems.push(orderItem);
+                    billItems.items.push(orderItem);
                 }
             }
 
@@ -50,21 +56,25 @@ const billingReducer = (state = initialState, action) => {
 
         case actionTypes.chargeBill:
             const bill = {
-                items: [...state.billItems],
-                total: calculateItems(state.billItems),
+                items: [...state.billItems.items],
+                total: calculateItems(state.billItems.items),
+                user: state.billItems.waiter,
                 issued: new Date(),
                 id: state.billNo
             }
 
             return {
                 ...state,
-                billItems: [],
-                closedBills: [...state.closedBills, {...bill, id: state.billNo + 1}],
+                billItems: {
+                    user: '',
+                    items: []
+                },
+                closedBills: [...state.closedBills, { ...bill, id: state.billNo + 1 }],
                 billNo: state.billNo + 1
             }
-        
+
         case actionTypes.addCurrentBill:
-            return {...state, currentBill: payload}
+            return { ...state, currentBill: payload }
 
         case 'SUM_TOTAL':
             const closedBills = [...state.closedBills]

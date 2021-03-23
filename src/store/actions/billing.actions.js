@@ -14,9 +14,10 @@ export const deleteOrderItem = (itemIdx) => {
     }
 }
 
-export const saveAndPrintOrder = () => {
+export const saveAndPrintOrder = (waiterName) => {
     return {
-        type: actionTypes.saveAndPrintOrder
+        type: actionTypes.saveAndPrintOrder,
+        payload: waiterName
     }
 }
 

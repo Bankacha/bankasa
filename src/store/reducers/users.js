@@ -15,7 +15,8 @@ const usersReducer = (state = initialState, action) => {
             const currentUser = state.users.find( user => payload === user.password ? {user} : null)
         return {...state, currentUser: currentUser}
             
-
+        case actionTypes.logOut:
+            return {...state, currentUser: null}
 
         default:
             return state

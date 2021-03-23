@@ -6,3 +6,8 @@ export const setLogUser = (password) => {
         payload: password
     }
 }
+export const logOut = () => {
+    return {
+        type: actionTypes.logOut
+    }
+}
