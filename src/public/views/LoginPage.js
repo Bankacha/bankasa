@@ -1,24 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setLogUser } from "../../store/actions/users.actions";
-import { getCurrentUser } from "../../store/selectors/users.selectors";
 
 
 export function LoginPage() {
 
     const dispatch = useDispatch();
     const [password, setPassword] = useState(null);
-
-    // const [to, setTo] = useState('/auth')
-    // const currentUser = useSelector(getCurrentUser)
-
-    // useEffect(() => {
-    //     if (currentUser) {
-    //         currentUser?.role === 'waiter' ? setTo('/') : setTo('/admin')
-    //     }
-    // }, [currentUser])
 
     return (
         <Row className="h-95 bg-light">

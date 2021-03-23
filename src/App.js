@@ -19,7 +19,7 @@ import {
     Route
 } from "react-router-dom";
 
-import { PrivateRoute } from './auth/PrivateRoute';
+import { AdminRoute } from './auth/AdminRoute';
 import { WorkingRoute } from './auth/WorkingRoute';
 import { useSelector } from 'react-redux';
 import { getCurrentUser } from './store/selectors/users.selectors';
@@ -33,13 +33,13 @@ function App() {
             <Layout>
                 <Switch>
 
-                    <PrivateRoute exact path='/admin/products' component={Products} />
-                    <PrivateRoute path='/admin/products/create' component={ProductPage} type={'create'} />
-                    <PrivateRoute path='/admin/products/:id' component={ProductPage} type={'edit'} />
-                    <PrivateRoute path='/admin/categories' component={CategoriesPage} />
-                    <PrivateRoute path='/admin/accounting/reports' component={Reports} />
-                    <PrivateRoute path='/admin/accounting' component={AccountingPage} />
-                    <PrivateRoute path='/admin' component={AdminPage} />
+                    <AdminRoute exact path='/admin/products' component={Products} />
+                    <AdminRoute path='/admin/products/create' component={ProductPage} type={'create'} />
+                    <AdminRoute path='/admin/products/:id' component={ProductPage} type={'edit'} />
+                    <AdminRoute path='/admin/categories' component={CategoriesPage} />
+                    <AdminRoute path='/admin/accounting/reports' component={Reports} />
+                    <AdminRoute path='/admin/accounting' component={AccountingPage} />
+                    <AdminRoute path='/admin' component={AdminPage} />
 
                     <Route exact path='/auth'>
                         <LoginPage />
@@ -52,8 +52,8 @@ function App() {
                             </Switch>
                         ) : (
                             <Switch>
-                                <PrivateRoute path='/bill' component={BillPage} />
-                                <PrivateRoute path='/' component={HomePage} />
+                                <AdminRoute path='/bill' component={BillPage} />
+                                <AdminRoute path='/' component={HomePage} />
                             </Switch>
                         )
                     }

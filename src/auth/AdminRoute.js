@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Redirect, Route } from "react-router";
 import { getCurrentUser } from './../store/selectors/users.selectors'
 
-export function PrivateRoute(props) {
+export function AdminRoute(props) {
 
     const currentUser = useSelector(getCurrentUser);
 
