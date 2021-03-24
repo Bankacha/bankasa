@@ -18,7 +18,7 @@ export const CategoryModal = (props) => {
         if (props.isEditing) {
             setValue('category', `${props.category.name}`)
         }
-    }, [props.isEditing, props.category.name, setValue])
+    }, [props.isEditing, props.category?.name, setValue])
 
     const onSubmit = (data) => {
         if (props.isEditing) {
