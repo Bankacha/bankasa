@@ -50,7 +50,7 @@ export const ProductPage = ({ type }) => {
     return (
         <Row className="align-items-center justify-content-center mt-5">
             <Col sm={6} className="p-3 bg-white rounded shadow-sm">
-                <Form onSubmit={handleSubmit(onSubmit)}>
+                <Form onSubmit={handleSubmit(onSubmit)} data-netlify="true" >
                     <Form.Group className=''>
                         <Form.Label>Product Name</Form.Label>
                         <Form.Control name='name' type="text" placeholder="Name" ref={register({ required: true })} />
