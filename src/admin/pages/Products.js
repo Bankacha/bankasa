@@ -27,7 +27,7 @@ export const Products = () => {
 
     useEffect(() => {
         setSearch(localFilter(products, newEvent))
-    }, [products])
+    }, [products, newEvent])
 
     return (
         <div className="row mt-1">

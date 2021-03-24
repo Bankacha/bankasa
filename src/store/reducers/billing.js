@@ -62,7 +62,7 @@ const billingReducer = (state = initialState, action) => {
                 issued: new Date(),
                 id: state.billNo
             }
-            if(bill.items.length){
+            if (bill.items.length) {
                 return {
                     ...state,
                     billItems: {
@@ -72,8 +72,8 @@ const billingReducer = (state = initialState, action) => {
                     closedBills: [...state.closedBills, { ...bill, id: state.billNo + 1 }],
                     billNo: state.billNo + 1
                 }
-            }  
-            
+            }
+            break;
 
         case actionTypes.addCurrentBill:
             return { ...state, currentBill: payload }

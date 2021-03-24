@@ -1,26 +1,24 @@
 import { useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createCategory, editCategory } from "../../store/actions";
-import { getCategories } from "../../store/selectors";
 
 export const CategoryModal = (props) => {
 
-    const categories = useSelector(getCategories)
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        if (props.isEditing) {
-            setValue('category', `${props.category.name}`)
-        }
-    }, [props.isEditing])
 
     const { register, handleSubmit, errors, reset, setValue } = useForm({
         defaultValues: {
             category: null
         }
     });
+
+    useEffect(() => {
+        if (props.isEditing) {
+            setValue('category', `${props.category.name}`)
+        }
+    }, [props.isEditing, props.category.name, setValue])
 
     const onSubmit = (data) => {
         if (props.isEditing) {
