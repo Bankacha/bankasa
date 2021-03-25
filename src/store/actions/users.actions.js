@@ -1,9 +1,9 @@
 import *as actionTypes from './types';
 
-export const setLogUser = (password) => {
+export const setLogUser = (user) => {
     return {
         type: actionTypes.setLogInUser,
-        payload: password
+        payload: user
     }
 }
 export const logOut = () => {

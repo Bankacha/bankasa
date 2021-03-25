@@ -12,11 +12,10 @@ const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case actionTypes.setLogInUser:
-            const currentUser = state.users.find( user => payload === user.password ? {user} : null)
-        return {...state, currentUser: currentUser}
-            
+            return { ...state, currentUser: payload }
+
         case actionTypes.logOut:
-            return {...state, currentUser: null}
+            return { ...state, currentUser: null }
 
         default:
             return state

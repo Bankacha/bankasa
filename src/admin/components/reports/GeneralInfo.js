@@ -30,7 +30,7 @@ export function GeneralInfo({ bills, setUncheckedUser }) {
 
     useEffect(()=> {
         setUncheckedUser(userRows)
-    }, [userRows])
+    }, [userRows, setUncheckedUser])
 
     return (
         <Col sm={12} className='p-0'>
