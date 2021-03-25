@@ -35,7 +35,7 @@ export function GeneralInfo({ bills }) {
                             return (
                                 <tr key={i} className='text-center'>
                                     <td>{i + 1}</td>
-                                    <td><Form.Check onChange={()=>console.log(i)}></Form.Check></td>
+                                    <td><Form.Check onChange={()=>console.log(u.name)}></Form.Check></td>
                                     <td>{u.name}</td>
                                     <td>*</td>
                                     <td>*</td>

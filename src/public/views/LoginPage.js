@@ -29,7 +29,7 @@ export function LoginPage() {
                     </Col>
                 </Row>
             </div>
-            <div className="col-4 bg-success shadow-sm">
+            <div className="col-4 bg-primary shadow-sm">
                 <Row className="h-100">
                     <Col className="align-self-center">
                     </Col>
