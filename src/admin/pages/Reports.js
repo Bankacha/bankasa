@@ -5,11 +5,28 @@ import { Filter } from "../components/reports/Filter";
 import { GeneralInfo } from "../components/reports/GeneralInfo";
 import { BillsInfo } from "../components/reports/BillsInfo";
 import { CurrentBillInfo } from "../components/reports/CurrentBillInfo";
+import { useState } from "react";
 
 export function Reports() {
 
     const closedBills = useSelector(getClosedBills);
     const currentBill = useSelector(getCurrentBill);
+
+    const [uncheckedUser, setUncheckedUser] = useState([])
+
+    const billsByUser = (users) => {
+        const userBills = [];
+        closedBills.forEach(bill => {
+            uncheckedUser.forEach( user => {
+                if(user.checked === true) {
+                    if(bill.user === user.name) {
+                        userBills.push(bill)
+                    }
+                }
+            })
+        })
+        return userBills
+    }
 
     return (
         <Row>
@@ -20,12 +37,12 @@ export function Reports() {
                 </Row>
 
                 <Row className='mt-3 p-2 bg-secondary m-0'>
-                    <GeneralInfo bills={closedBills}/>
+                    <GeneralInfo bills={closedBills} setUncheckedUser={setUncheckedUser}/>
                 </Row>
 
                 <Row>
                     <Col sm={8}>
-                        <BillsInfo bills={closedBills} />
+                        <BillsInfo bills={billsByUser()} />
                     </Col>
                     <Col sm={4}>
                         <CurrentBillInfo currentBill={currentBill} />
