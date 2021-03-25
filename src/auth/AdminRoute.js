@@ -11,7 +11,8 @@ export function AdminRoute(props) {
     return (
         <Route path={path}>
             {
-                currentUser?.role === 'admin' ? <Component {...rest} /> : <Redirect to='/auth' />
+                // currentUser?.role === 'admin' ? <Component {...rest} /> : <Redirect to='/auth' />
+                <Component {...rest} />
             }
         </Route>
     )
