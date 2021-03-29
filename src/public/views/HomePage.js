@@ -6,9 +6,7 @@ import { useSelector } from "react-redux";
 
 export function HomePage() {
 
-
     const currentUser = useSelector(getCurrentUser)
-    console.log(currentUser)
 
     return (
         <Row>

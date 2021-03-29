@@ -33,6 +33,12 @@ const productsReducer = (state = initialState, action) => {
                 products: state.products.map(product => product.id === payload.id ? payload : product)
             }
 
+        case actionTypes.addToStock:
+            
+            return {
+                ...state,
+                products: state.products.map(product => product.id === payload.id ? {...product, stock: product.stock + payload.quantity} : product)
+            }
         default:
             return state
     }

@@ -20,3 +20,10 @@ export const editProduct = (product) => {
         payload: product
     }
 }
+
+export const addToStock = (quantity) => {
+    return {
+        type: actionTypes.addToStock,
+        payload: quantity
+    }
+}

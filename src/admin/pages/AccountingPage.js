@@ -10,14 +10,18 @@ export function AccountingPage() {
                     <Card.Header className='bg-secondary' as="h3">Reports</Card.Header>
                     <Card.Body>
                         <Card.Title>Menage bills and daily reports</Card.Title>
-                        <Link to='/admin/accounting/reports'><Button variant="primary">Manage</Button></Link>
+                        <Link to='/admin/accounting/reports'>
+                            <Button variant="primary">Manage</Button>
+                        </Link>
                     </Card.Body>
                 </Card>
                 <Card className='my-3'>
                     <Card.Header className='bg-secondary' as="h3">Supplies</Card.Header>
                     <Card.Body>
                         <Card.Title>View product supplies and import new supply</Card.Title>
-                        <Button variant="primary">Manage</Button>
+                        <Link to='/admin/accounting/supplies'>
+                            <Button variant="primary">Manage</Button>
+                        </Link>
                     </Card.Body>
                 </Card>
                 <Card className='my-3'>

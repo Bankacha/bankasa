@@ -12,6 +12,7 @@ import { CategoriesPage } from './admin/pages/CategoryPage';
 import { AdminPage } from './admin/pages/AdminPage';
 import { AccountingPage } from './admin/pages/AccountingPage';
 import { Reports } from './admin/pages/Reports';
+import { Supplies } from './admin/pages/Supplies';
 
 import {
     BrowserRouter as Router,
@@ -32,6 +33,7 @@ function App() {
                     <AdminRoute path='/admin/products/create' component={ProductPage} type={'create'} />
                     <AdminRoute path='/admin/products/:id' component={ProductPage} type={'edit'} />
                     <AdminRoute path='/admin/categories' component={CategoriesPage} />
+                    <AdminRoute path='/admin/accounting/supplies' component={Supplies} />
                     <AdminRoute path='/admin/accounting/reports' component={Reports} />
                     <AdminRoute path='/admin/accounting' component={AccountingPage} />
                     <AdminRoute path='/admin' component={AdminPage} />
