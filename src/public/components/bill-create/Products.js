@@ -11,7 +11,6 @@ export function Products() {
     const products = useSelector(getProducts)
     const activeCategory = useSelector(getActiveCategory)
 
-    console.log(products)
     const addItem = (product) => {
         if (product.stock > 0) {
             dispatch(setOrderItem({
@@ -29,7 +28,7 @@ export function Products() {
                 {
                     newProducts.map((p, i) => {
                         return (
-                            <ProductCard onClick={() => addItem(p)} key={i} name={p.name} price={p.price} />
+                            <ProductCard onClick={() => addItem(p)} key={p.id} name={p.name} stock={p.stock} price={p.price} />
                         )
                     })
                 }

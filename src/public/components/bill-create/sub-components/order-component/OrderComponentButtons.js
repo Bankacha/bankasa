@@ -10,8 +10,6 @@ export function OrderComponentButtons() {
     const currentUser = useSelector(getCurrentUser)
     const orderItems = useSelector(getOrderItems)
 
-    console.log(orderItems)
-
     const handleOrder = () => {
         const oi = [...orderItems]
         dispatch(saveAndPrintOrder(currentUser.name))

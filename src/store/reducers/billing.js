@@ -8,201 +8,201 @@ const initialState = {
         items: []
     },
     closedBills: [
-        {
-            items: [
-                {
-                    product: {
-                        name: 'Orangina',
-                        price: 140
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Turkish',
-                        price: 170
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Espresso',
-                        price: 120
-                    },
-                    quantity: 2
-                },
-                {
-                    product: {
-                        name: 'Squeezed',
-                        price: 170
-                    },
-                    quantity: 2
-                },
-                {
-                    product: {
-                        name: 'Coctails',
-                        price: 120
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Apple',
-                        price: 130
-                    },
-                    quantity: 1
-                }
-            ],
-            total: 1140,
-            user: 'Jeca',
-            issued: '2021-03-25T15:33:50.872Z',
-            id: 1
-        },
-        {
-            items: [
-                {
-                    product: {
-                        name: 'Espresso',
-                        price: 120
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Squeezed',
-                        price: 170
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Orangina',
-                        price: 140
-                    },
-                    quantity: 1
-                }
-            ],
-            total: 430,
-            user: 'Jeca',
-            issued: '2021-03-25T15:33:52.906Z',
-            id: 2
-        },
-        {
-            items: [
-                {
-                    product: {
-                        name: 'Espresso',
-                        price: 120
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Squeezed',
-                        price: 170
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Orangina',
-                        price: 140
-                    },
-                    quantity: 1
-                }
-            ],
-            total: 430,
-            user: 'Jeca',
-            issued: '2021-03-25T15:33:54.922Z',
-            id: 3
-        },
-        {
-            items: [
-                {
-                    product: {
-                        name: 'Turkish',
-                        price: 170
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Orangina',
-                        price: 140
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Espresso',
-                        price: 120
-                    },
-                    quantity: 1
-                }
-            ],
-            total: 430,
-            user: 'Meca',
-            issued: '2021-03-25T15:34:03.937Z',
-            id: 4
-        },
-        {
-            items: [
-                {
-                    product: {
-                        name: 'Coctails',
-                        price: 120
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Apple',
-                        price: 130
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Squeezed',
-                        price: 170
-                    },
-                    quantity: 1
-                },
-                {
-                    product: {
-                        name: 'Orangina',
-                        price: 140
-                    },
-                    quantity: 1
-                }
-            ],
-            total: 560,
-            user: 'Meca',
-            issued: '2021-03-25T15:34:05.892Z',
-            id: 5
-        },
-        {
-            items: [
-                {
-                    product: {
-                        name: 'Turkish',
-                        price: 170
-                    },
-                    quantity: 2
-                },
-                {
-                    product: {
-                        name: 'Orangina',
-                        price: 140
-                    },
-                    quantity: 1
-                }
-            ],
-            total: 480,
-            user: 'Meca',
-            issued: '2021-03-25T15:34:07.791Z',
-            id: 6
-        }
+        // {
+        //     items: [
+        //         {
+        //             product: {
+        //                 name: 'Orangina',
+        //                 price: 140
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Turkish',
+        //                 price: 170
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Espresso',
+        //                 price: 120
+        //             },
+        //             quantity: 2
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Squeezed',
+        //                 price: 170
+        //             },
+        //             quantity: 2
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Coctails',
+        //                 price: 120
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Apple',
+        //                 price: 130
+        //             },
+        //             quantity: 1
+        //         }
+        //     ],
+        //     total: 1140,
+        //     user: 'Jeca',
+        //     issued: '2021-03-25T15:33:50.872Z',
+        //     id: 1
+        // },
+        // {
+        //     items: [
+        //         {
+        //             product: {
+        //                 name: 'Espresso',
+        //                 price: 120
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Squeezed',
+        //                 price: 170
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Orangina',
+        //                 price: 140
+        //             },
+        //             quantity: 1
+        //         }
+        //     ],
+        //     total: 430,
+        //     user: 'Jeca',
+        //     issued: '2021-03-25T15:33:52.906Z',
+        //     id: 2
+        // },
+        // {
+        //     items: [
+        //         {
+        //             product: {
+        //                 name: 'Espresso',
+        //                 price: 120
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Squeezed',
+        //                 price: 170
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Orangina',
+        //                 price: 140
+        //             },
+        //             quantity: 1
+        //         }
+        //     ],
+        //     total: 430,
+        //     user: 'Jeca',
+        //     issued: '2021-03-25T15:33:54.922Z',
+        //     id: 3
+        // },
+        // {
+        //     items: [
+        //         {
+        //             product: {
+        //                 name: 'Turkish',
+        //                 price: 170
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Orangina',
+        //                 price: 140
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Espresso',
+        //                 price: 120
+        //             },
+        //             quantity: 1
+        //         }
+        //     ],
+        //     total: 430,
+        //     user: 'Meca',
+        //     issued: '2021-03-25T15:34:03.937Z',
+        //     id: 4
+        // },
+        // {
+        //     items: [
+        //         {
+        //             product: {
+        //                 name: 'Coctails',
+        //                 price: 120
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Apple',
+        //                 price: 130
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Squeezed',
+        //                 price: 170
+        //             },
+        //             quantity: 1
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Orangina',
+        //                 price: 140
+        //             },
+        //             quantity: 1
+        //         }
+        //     ],
+        //     total: 560,
+        //     user: 'Meca',
+        //     issued: '2021-03-25T15:34:05.892Z',
+        //     id: 5
+        // },
+        // {
+        //     items: [
+        //         {
+        //             product: {
+        //                 name: 'Turkish',
+        //                 price: 170
+        //             },
+        //             quantity: 2
+        //         },
+        //         {
+        //             product: {
+        //                 name: 'Orangina',
+        //                 price: 140
+        //             },
+        //             quantity: 1
+        //         }
+        //     ],
+        //     total: 480,
+        //     user: 'Meca',
+        //     issued: '2021-03-25T15:34:07.791Z',
+        //     id: 6
+        // }
     ],
     billsTotal: 0,
     billNo: 0,

@@ -27,3 +27,10 @@ export const deleteCategory = (id) => {
         payload: id
     }
 }
+
+export const deactivateCategory = (category) => {
+    return {
+        type: actionTypes.deactivateCategory,
+        payload: category
+    }
+}

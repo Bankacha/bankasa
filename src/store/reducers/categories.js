@@ -13,6 +13,9 @@ export const categoriesReducer = (state = initialState, action) => {
         case actionTypes.setActiveCategory:
             return { ...state, active: payload }
 
+        case actionTypes.deactivateCategory:
+            return { ...state, active: null }
+
         case actionTypes.editCategory:
             return {
                 ...state,
