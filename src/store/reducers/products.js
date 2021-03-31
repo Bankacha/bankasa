@@ -7,8 +7,10 @@ const initialState = {
     sequencer: 10
 };
 
+
 const productsReducer = (state = initialState, action) => {
     const { payload, type } = action;
+
 
     switch (type) {
 
@@ -34,10 +36,23 @@ const productsReducer = (state = initialState, action) => {
             }
 
         case actionTypes.addToStock:
-            
+
             return {
                 ...state,
-                products: state.products.map(product => product.id === payload.id ? {...product, stock: product.stock + payload.quantity} : product)
+                products: state.products.map(product => product.id === payload.id ? { ...product, stock: product.stock + payload.quantity } : product)
+            }
+
+        case actionTypes.reduceStock:
+            const products = [...state.products]
+
+            payload.forEach(oi => {
+                const product = products.find(p => p.name === oi.product.name)
+                product.stock -= oi.quantity
+            })
+
+            return {
+                ...state,
+                products
             }
         default:
             return state

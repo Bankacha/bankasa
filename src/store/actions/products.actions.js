@@ -27,3 +27,9 @@ export const addToStock = (quantity) => {
         payload: quantity
     }
 }
+export const reduceStock = (items) => {
+    return {
+        type: actionTypes.reduceStock,
+        payload: items
+    }
+}

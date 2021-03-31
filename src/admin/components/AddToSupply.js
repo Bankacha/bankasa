@@ -20,7 +20,7 @@ export function AddToSupply(props) {
     return (
         <Row className='justify-content-center'>
             <Col sm={3}>
-                <FormControl name='name' onChange={(e) => setQuantity(parseInt(e.target.value))} value={quantity} type='number'></FormControl>
+                <FormControl onChange={(e) => setQuantity(parseInt(e.target.value))} value={quantity} type='number'></FormControl>
             </Col>
             <Col sm={2}>
                 <IoAddCircle onClick={() => handleAdd(quantity, props.id)} size='2em' />

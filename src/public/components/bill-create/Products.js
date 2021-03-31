@@ -11,11 +11,14 @@ export function Products() {
     const products = useSelector(getProducts)
     const activeCategory = useSelector(getActiveCategory)
 
+    console.log(products)
     const addItem = (product) => {
-        dispatch(setOrderItem({
-            product,
-            quantity: 1
-        }))
+        if (product.stock > 0) {
+            dispatch(setOrderItem({
+                product,
+                quantity: 1
+            }))
+        }
     }
 
     const newProducts = products.filter(product => activeCategory ? product.category === activeCategory.value : products)
