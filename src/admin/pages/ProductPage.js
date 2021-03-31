@@ -7,6 +7,8 @@ import { useHistory, useParams } from "react-router";
 import { getProducts } from "../../store/selectors/products.selectors";
 import { useEffect } from "react";
 import { editProduct } from "../../store/actions";
+import { IoArrowBackCircle } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export const ProductPage = ({ type }) => {
 
@@ -15,8 +17,6 @@ export const ProductPage = ({ type }) => {
     const products = useSelector(getProducts);
     const params = useParams();
     const history = useHistory();
-    
-    console.log(type,params)
 
     const { register, handleSubmit, errors, reset, setValue } = useForm({
         defaultValues: {
@@ -48,7 +48,12 @@ export const ProductPage = ({ type }) => {
     }
 
     return (
-        <Row className="align-items-center justify-content-center mt-5">
+        <Row className="align-items-start justify-content-center mt-5 pr-5">
+            <Col sm={1} className="pl-5">
+                <Link to='../products'>
+                    <IoArrowBackCircle size='2.5em' />
+                </Link>
+            </Col>
             <Col sm={6} className="p-3 bg-white rounded shadow-sm">
                 <Form onSubmit={handleSubmit(onSubmit)} data-netlify="true" >
                     <Form.Group className=''>
