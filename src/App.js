@@ -6,13 +6,14 @@ import { BillPage } from './public/views/BillPage';
 import { HomePage } from './public/views/HomePage';
 import { LoginPage } from './public/views/LoginPage'
 import { Products } from './admin/pages/Products';
-import { ProductPage } from './admin/pages/ProductPage';
+import { ProductCreatePage } from './admin/pages/ProductCreatePage';
 import { Layout } from './layout/Layout';
 import { CategoriesPage } from './admin/pages/CategoryPage';
 import { AdminPage } from './admin/pages/AdminPage';
 import { AccountingPage } from './admin/pages/AccountingPage';
 import { Reports } from './admin/pages/Reports';
 import { Supplies } from './admin/pages/Supplies';
+import { AccountsAndPermissions } from './admin/pages/AccountsAndPermissions';
 
 import {
     BrowserRouter as Router,
@@ -30,9 +31,10 @@ function App() {
                 <Switch>
 
                     <AdminRoute exact path='/admin/products' component={Products} />
-                    <AdminRoute path='/admin/products/create' component={ProductPage} type={'create'} />
-                    <AdminRoute path='/admin/products/:id' component={ProductPage} type={'edit'} />
+                    <AdminRoute path='/admin/products/create' component={ProductCreatePage} type={'create'} />
+                    <AdminRoute path='/admin/products/:id' component={ProductCreatePage} type={'edit'} />
                     <AdminRoute path='/admin/categories' component={CategoriesPage} />
+                    <AdminRoute path='/admin/accounting/accounts' component={AccountsAndPermissions} />
                     <AdminRoute path='/admin/accounting/supplies' component={Supplies} />
                     <AdminRoute path='/admin/accounting/reports' component={Reports} />
                     <AdminRoute path='/admin/accounting' component={AccountingPage} />

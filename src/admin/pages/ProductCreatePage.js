@@ -10,7 +10,7 @@ import { editProduct } from "../../store/actions";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-export const ProductPage = ({ type }) => {
+export const ProductCreatePage = ({ type }) => {
 
     const dispatch = useDispatch();
     const categories = useSelector(getCategories);

@@ -28,7 +28,9 @@ export function AccountingPage() {
                     <Card.Header className='bg-secondary' as="h3">Accounts and permissions</Card.Header>
                     <Card.Body>
                         <Card.Title>Create access accounts, manage them and assign roles</Card.Title>
-                        <Button variant="primary">Manage</Button>
+                        <Link to='/admin/accounting/accounts'>
+                            <Button variant="primary">Manage</Button>
+                        </Link>
                     </Card.Body>
                 </Card>
             </Col>

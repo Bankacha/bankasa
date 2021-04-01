@@ -13,6 +13,7 @@ export const users = [
         name: 'Meca',
         password: '321',
         role: 'waiter'
-    }
+    },
+    
 
 ]
