@@ -11,7 +11,7 @@ export function OrderItemsHeader() {
 
     setTimeout(()=> setTime(new Date()), 55000)
 
-    const [h , m , s] = `${time}`.split(' ')[4].split(':')
+    const [h , m ] = `${time}`.split(' ')[4].split(':')
 
     return (
         <Col className="text-light my-1 px-4 d-flex justify-content-between">

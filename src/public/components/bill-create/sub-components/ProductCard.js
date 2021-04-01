@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import {Col, Row} from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { setOrderItem } from '../../../../store/actions';
 
@@ -19,7 +18,7 @@ export function ProductCard(props) {
     return (
         <Col xs={3}>
             <Row>
-                <Col onClick={()=> addItem(props)} className={`${style}`}>
+                <Col onClick={() => addItem(props)} className={`${style}`}>
                     <p className="m-0 mb-2">{props.name}</p>
                     <p className="m-0">{props.price}</p>
                 </Col>
