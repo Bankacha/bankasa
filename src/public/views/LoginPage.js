@@ -35,6 +35,7 @@ export function LoginPage() {
                         <Row>
                             <Col xs={8}>
                                 <Form.Control onChange={e => setPassword(e.target.value)} placeholder="12345" />
+                                <p>Password for presentation is: <strong>777</strong></p>
                             </Col>
                             <Col>
                                 <Button onClick={() => handleLogIn()} variant="success" type="button" className="w-100">Go</Button>
