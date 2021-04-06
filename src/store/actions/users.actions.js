@@ -11,3 +11,10 @@ export const logOut = () => {
         type: actionTypes.logOut
     }
 }
+
+export const addNewUser = (newUser) => {
+    return {
+        type: actionTypes.addNewUser,
+        payload: newUser
+    }
+}
