@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getUsers } from "../../store/selectors/users.selectors";
 
-export function AccountsAndPermissions() {
+export function UserProfiles() {
 
     const users = useSelector(getUsers);
 
@@ -41,7 +41,7 @@ export function AccountsAndPermissions() {
                     }
                     <Col xs={6} sm={4} md={3} lg={2}>
                         <Card className='mt-2'>
-                            <Link to='/admin/accounting/accounts/create'>
+                            <Link to='/admin/accounting/users/create'>
                                 <Card.Img variant="top" src='https://png.pngitem.com/pimgs/s/521-5215100_people-icons-3-800-free-files-in-png.png' />
                             </Link>
                         </Card>
