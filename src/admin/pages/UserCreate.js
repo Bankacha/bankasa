@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Card, Row, Form, Col } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { addNewUser } from "../../store/actions";
 import { IoSave } from "react-icons/io5";
+import { getUsers } from "../../store/selectors/users.selectors";
+
 export function UserCreate() {
 
     const uploadedImage = React.useRef(null);
@@ -11,6 +13,8 @@ export function UserCreate() {
 
     const history = useHistory();
     const dispatch = useDispatch();
+
+    const users = useSelector(getUsers)
 
     const [userName, setUserName] = useState();
     const [role, setRole] = useState('waiter');
@@ -33,18 +37,22 @@ export function UserCreate() {
 
     const handleUserCreate = () => {
         if (userName && password) {
-            dispatch(addNewUser({
-                name: userName,
-                password,
-                role,
-                img: imageURL
-            }))
-            history.push('./')
+            const exiting = users.find(user => user.name === userName)
+            if (!exiting) {
+                dispatch(addNewUser({
+                    name: userName,
+                    password,
+                    role,
+                    img: imageURL
+                }))
+                history.push('./')
+            }
+
         }
     }
 
     return (
-        <Row className='justify-content-center'>
+        <Row className='justify-content-center mt-3'>
             <Col sm={8}>
                 <Card className='mt-3'>
                     <Row className='w-100 align-items-center'>
@@ -71,7 +79,7 @@ export function UserCreate() {
                             <Card.Body>
                                 <Row className='align-items-center'>
                                     <Col sm={10}>
-                                        <Card.Title className='mt-2'>Card Title</Card.Title>
+                                        <Card.Title className='mt-2'>User Profile</Card.Title>
                                     </Col>
                                     <Col sm={2} className='ml-0'>
                                         <Row>
@@ -97,7 +105,6 @@ export function UserCreate() {
                                         <Form.Control type='number' onChange={(e) => setPassword(e.target.value)} placeholder='123...'></Form.Control>
                                     </Col>
                                 </Row>
-
                             </Card.Body>
                         </Col>
                     </Row>

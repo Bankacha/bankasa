@@ -18,3 +18,10 @@ export const addNewUser = (newUser) => {
         payload: newUser
     }
 }
+
+export const deleteUser = (name) => {
+    return {
+        type: actionTypes.deleteUser,
+        payload: name
+    }
+}

@@ -2,6 +2,7 @@ import { Card, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getUsers } from "../../store/selectors/users.selectors";
+import { DropdownButton } from "../components/DropdownButton";
 
 export function UserProfiles() {
 
@@ -26,12 +27,20 @@ export function UserProfiles() {
                                     <Card className='mt-2'>
                                         <Card.Img variant="top" src={u.img ? u.img : `${selectUserImg(u.role)}`} />
                                         <Card.Body>
-                                            <Card.Title>{u.name}</Card.Title>
+                                            <Row>
+                                                <Col sm={9}>
+                                                    <Card.Title>{u.name}</Card.Title>
+                                                </Col>
+                                                <Col sm={2}>
+                                                    <DropdownButton name={u.name} />
+                                                </Col>
+                                            </Row>
+
                                             <Card.Text>
-                                                Role: {u.role}
+                                                Role: <strong>{u.role}</strong>
                                             </Card.Text>
                                             <Card.Text>
-                                                Password: {u.password}
+                                                Password: <strong>{u.password}</strong>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
