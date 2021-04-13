@@ -39,3 +39,17 @@ export const addCurrentBill = (bill) => {
         type: actionTypes.addCurrentBill
     }
 }
+
+export const clearActiveBillItem = (bill) => {
+    return {
+        payload: bill,
+        type: actionTypes.clearActiveBillItem
+    }
+}
+
+export const setActiveBillItem = (bill) => {
+    return {
+        payload: bill,
+        type: actionTypes.setActiveBillItem
+    }
+}

@@ -13,7 +13,9 @@ import { AdminPage } from './admin/pages/AdminPage';
 import { AccountingPage } from './admin/pages/AccountingPage';
 import { Reports } from './admin/pages/Reports';
 import { Supplies } from './admin/pages/Supplies';
-import { AccountsAndPermissions } from './admin/pages/AccountsAndPermissions';
+import { UserProfiles } from './admin/pages/UserProfiles';
+import { UserCreate } from './admin/pages/UserCreate';
+import { ActiveBills } from './public/components/ActiveBills';
 
 import {
     BrowserRouter as Router,
@@ -34,7 +36,8 @@ function App() {
                     <AdminRoute path='/admin/products/create' component={ProductCreatePage} type={'create'} />
                     <AdminRoute path='/admin/products/:id' component={ProductCreatePage} type={'edit'} />
                     <AdminRoute path='/admin/categories' component={CategoriesPage} />
-                    <AdminRoute path='/admin/accounting/accounts' component={AccountsAndPermissions} />
+                    <AdminRoute path='/admin/accounting/users/create' component={UserCreate} />
+                    <AdminRoute path='/admin/accounting/users' component={UserProfiles} />
                     <AdminRoute path='/admin/accounting/supplies' component={Supplies} />
                     <AdminRoute path='/admin/accounting/reports' component={Reports} />
                     <AdminRoute path='/admin/accounting' component={AccountingPage} />
@@ -43,7 +46,7 @@ function App() {
                     <Route exact path='/auth'>
                         <LoginPage />
                     </Route>
-
+                    <WorkingRoute path='/active' component={ActiveBills} />
                     <WorkingRoute path='/bill' component={BillPage} />
                     <WorkingRoute path='/' component={HomePage} />
 

@@ -1,216 +1,19 @@
-import { calculateItems, sumItems } from '../../utils';
+import {calculateItems, sumItems} from '../../utils';
 import * as actionTypes from '../actions/types';
 
 const initialState = {
     order: [],
-    billItems: {
-        user: '',
-        items: []
-    },
-    closedBills: [
-        // {
-        //     items: [
-        //         {
-        //             product: {
-        //                 name: 'Orangina',
-        //                 price: 140
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Turkish',
-        //                 price: 170
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Espresso',
-        //                 price: 120
-        //             },
-        //             quantity: 2
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Squeezed',
-        //                 price: 170
-        //             },
-        //             quantity: 2
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Coctails',
-        //                 price: 120
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Apple',
-        //                 price: 130
-        //             },
-        //             quantity: 1
-        //         }
-        //     ],
-        //     total: 1140,
-        //     user: 'Jeca',
-        //     issued: '2021-03-25T15:33:50.872Z',
-        //     id: 1
-        // },
-        // {
-        //     items: [
-        //         {
-        //             product: {
-        //                 name: 'Espresso',
-        //                 price: 120
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Squeezed',
-        //                 price: 170
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Orangina',
-        //                 price: 140
-        //             },
-        //             quantity: 1
-        //         }
-        //     ],
-        //     total: 430,
-        //     user: 'Jeca',
-        //     issued: '2021-03-25T15:33:52.906Z',
-        //     id: 2
-        // },
-        // {
-        //     items: [
-        //         {
-        //             product: {
-        //                 name: 'Espresso',
-        //                 price: 120
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Squeezed',
-        //                 price: 170
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Orangina',
-        //                 price: 140
-        //             },
-        //             quantity: 1
-        //         }
-        //     ],
-        //     total: 430,
-        //     user: 'Jeca',
-        //     issued: '2021-03-25T15:33:54.922Z',
-        //     id: 3
-        // },
-        // {
-        //     items: [
-        //         {
-        //             product: {
-        //                 name: 'Turkish',
-        //                 price: 170
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Orangina',
-        //                 price: 140
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Espresso',
-        //                 price: 120
-        //             },
-        //             quantity: 1
-        //         }
-        //     ],
-        //     total: 430,
-        //     user: 'Meca',
-        //     issued: '2021-03-25T15:34:03.937Z',
-        //     id: 4
-        // },
-        // {
-        //     items: [
-        //         {
-        //             product: {
-        //                 name: 'Coctails',
-        //                 price: 120
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Apple',
-        //                 price: 130
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Squeezed',
-        //                 price: 170
-        //             },
-        //             quantity: 1
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Orangina',
-        //                 price: 140
-        //             },
-        //             quantity: 1
-        //         }
-        //     ],
-        //     total: 560,
-        //     user: 'Meca',
-        //     issued: '2021-03-25T15:34:05.892Z',
-        //     id: 5
-        // },
-        // {
-        //     items: [
-        //         {
-        //             product: {
-        //                 name: 'Turkish',
-        //                 price: 170
-        //             },
-        //             quantity: 2
-        //         },
-        //         {
-        //             product: {
-        //                 name: 'Orangina',
-        //                 price: 140
-        //             },
-        //             quantity: 1
-        //         }
-        //     ],
-        //     total: 480,
-        //     user: 'Meca',
-        //     issued: '2021-03-25T15:34:07.791Z',
-        //     id: 6
-        // }
-    ],
+    billItems: [],
+    closedBills: [],
     billsTotal: 0,
     billNo: 0,
-    currentBill: []
+    currentBill: [],
+    activeBillItem: null,
+    billItemId: 0,
 };
 
 const billingReducer = (state = initialState, action) => {
-    const { payload } = action;
+    const {payload} = action;
 
     switch (action.type) {
         case actionTypes.setOrderItem:
@@ -223,56 +26,76 @@ const billingReducer = (state = initialState, action) => {
                 order.push(payload)
             }
 
-            return { ...state, order }
+            return {...state, order}
 
         case actionTypes.deleteOrderItem:
             const newOrder = state.order.filter(item => item.product.name !== payload.product.name)
-            return { ...state, order: newOrder }
+            return {...state, order: newOrder}
 
         case actionTypes.saveAndPrintOrder:
-            const billItems = {
+            const hasActiveBillItem = !!state.activeBillItem;
+            const billItem = hasActiveBillItem ? { ...state.activeBillItem } : {
                 user: payload,
-                items: [...state.billItems.items]
+                items: [],
+                id: state.billItemId
             }
 
             for (let orderItem of state.order) {
-                const existing = billItems.items.find(item => item.product.name === orderItem.product.name);
+                const existing = billItem.items.find(item => item.product.name === orderItem.product.name);
 
                 if (existing) {
                     existing.quantity += orderItem.quantity;
                 } else {
-                    billItems.items.push(orderItem);
+                    billItem.items.push(orderItem);
                 }
             }
 
-            return { ...state, billItems, order: [] }
+            return {
+                ...state,
+                billItems: [...state.billItems.filter(i => i.id !== billItem.id), billItem],
+                order: [],
+                activeBillItem: billItem,
+                billItemId: !hasActiveBillItem ? state.billItemId + 1: state.billItemId
+            }
 
         case actionTypes.clearOrder:
-            return { ...state, order: [] }
+            return {...state, order: []}
 
         case actionTypes.chargeBill:
+            const current = {...state.activeBillItem}
+
             const bill = {
-                items: [...state.billItems.items],
-                total: calculateItems(state.billItems.items),
-                user: state.billItems.user,
+                items: current.items,
+                total: calculateItems(current.items),
+                user: current.user,
                 issued: new Date(),
                 id: state.billNo
             }
-            if (bill.items.length) {
+            if (bill.items?.length) {
                 return {
                     ...state,
-                    billItems: {
-                        user: '',
-                        items: []
-                    },
-                    closedBills: [...state.closedBills, { ...bill, id: state.billNo + 1 }],
-                    billNo: state.billNo + 1
+                    closedBills: [...state.closedBills, {...bill, id: state.billNo + 1}],
+                    billNo: state.billNo + 1,
+                    billItems: state.billItems.filter((item) => item.id !== current.id),
+                    activeBillItem: null
                 }
             }
             break;
 
+        case actionTypes.setActiveBillItem:
+            return {
+                ...state,
+                activeBillItem: payload
+            }
+
+        case actionTypes.clearActiveBillItem:
+            return {
+                ...state,
+                activeBillItem: null
+            }
+
         case actionTypes.addCurrentBill:
-            return { ...state, currentBill: payload }
+            return {...state, currentBill: payload}
 
         case 'SUM_TOTAL':
             const closedBills = [...state.closedBills]
@@ -280,7 +103,6 @@ const billingReducer = (state = initialState, action) => {
             return {
                 ...state,
                 billsTotal: sumItems(closedBills),
-                // closedBills: []
             }
 
 

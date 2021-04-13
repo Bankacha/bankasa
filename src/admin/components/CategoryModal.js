@@ -56,6 +56,7 @@ export const CategoryModal = (props) => {
                     <Modal.Footer>
                         <Button variant="primary" type='submit'>Save changes</Button>
                     </Modal.Footer>
+
                 </Form>
             </Modal.Dialog>
         </Modal>

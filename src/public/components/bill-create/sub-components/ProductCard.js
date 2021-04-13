@@ -7,10 +7,12 @@ export function ProductCard(props) {
     const dispatch = useDispatch()
 
     const addItem = (item) => {
-        dispatch(setOrderItem({
-            product: item,
-            quantity: 1
-        }))
+        if (item.stock > 0) {
+            dispatch(setOrderItem({
+                product: item,
+                quantity: 1
+            }))
+        }
     }
 
     const style = props.stock > 0 ? "c-pointer p-3 m-2 mx-4 bg-dark text-center text-light rounded shadow-sm" : "p-3 m-2 mx-4 bg-info text-center text-light rounded shadow-sm"

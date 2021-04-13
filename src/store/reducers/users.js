@@ -17,6 +17,15 @@ const usersReducer = (state = initialState, action) => {
         case actionTypes.logOut:
             return { ...state, currentUser: null }
 
+        case actionTypes.addNewUser:
+            return { ...state, users: [...state.users, payload]}
+
+        case actionTypes.deleteUser:
+            return {
+                ...state,
+                users: state.users.filter( user => user.name !== payload)
+            }   
+
         default:
             return state
     }

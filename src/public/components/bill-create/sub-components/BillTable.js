@@ -1,10 +1,10 @@
 import { Row, Table, Col } from "react-bootstrap";
 import { useSelector } from "react-redux"
-import { getBillItems } from "../../../../store/selectors";
+import { getActiveBillItem } from "../../../../store/selectors";
 
 export function BillTable() {
 
-    const billItems = useSelector(getBillItems)
+    const activeBillItem = useSelector(getActiveBillItem);
 
     return (
         <Row>
@@ -12,7 +12,7 @@ export function BillTable() {
                 <Table striped hover size="sm" variant=''>
                     <tbody className="text-light w-100 position-absolute px-3">
                         {
-                            billItems.map((el, i) => {
+                            (activeBillItem ? activeBillItem.items : []).map((el, i) => {
                                 return (
                                     <tr key={i} className='row w-100'>
                                         <td className='col-sm-7'>{el.product?.name}</td>
