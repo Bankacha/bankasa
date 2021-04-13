@@ -14,8 +14,7 @@ export const Layout = ({ children }) => {
 
     const handleClick = () => {
         if (activeBillItem) {
-            const bill = {...activeBillItem}
-            dispatch(clearActiveBillItem(bill))
+            dispatch(clearActiveBillItem(activeBillItem))
         }
     }
 

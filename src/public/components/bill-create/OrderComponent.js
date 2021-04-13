@@ -5,8 +5,19 @@ import { OrderItemsHeader } from "./sub-components/order-component/OrderItemsHea
 import { OrderItemsFooter } from "./sub-components/order-component/OrderItemsFooter";
 import { BillTableFooter } from "./sub-components/order-component/BillTableFooter";
 import { OrderComponentButtons } from "./sub-components/order-component/OrderComponentButtons";
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {clearActiveBillItem} from "../../../store/actions";
 
 export function OrderComponent() {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        return () => {
+            dispatch(clearActiveBillItem());
+        }
+    }, []);
 
     return (
         <div className="h-95">

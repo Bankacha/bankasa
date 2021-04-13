@@ -4,7 +4,6 @@ import { Products } from "../components/bill-create/Products";
 import { OrderComponent } from "../components/bill-create/OrderComponent";
 
 export function BillPage() {
-
     return (
         <Row className="bg-light h-95">
             <Col xs={8}>

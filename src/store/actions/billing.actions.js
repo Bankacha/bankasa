@@ -53,10 +53,3 @@ export const setActiveBillItem = (bill) => {
         type: actionTypes.setActiveBillItem
     }
 }
-
-export const removeFromActiveBIlls = (bill) => {
-    return {
-        payload: bill,
-        type: actionTypes.removeFromActiveBIlls
-    }
-}
