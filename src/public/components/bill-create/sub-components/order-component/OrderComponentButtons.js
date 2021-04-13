@@ -2,14 +2,13 @@ import { Row, Col, Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { reduceStock, saveAndPrintOrder } from "../../../../../store/actions"
 import { chargeBill } from "../../../../../store/actions"
-import { getActiveBillItem, getCurrentUser, getOrderItems } from "../../../../../store/selectors"
+import { getCurrentUser, getOrderItems } from "../../../../../store/selectors"
 
 export function OrderComponentButtons() {
 
     const dispatch = useDispatch()
     const currentUser = useSelector(getCurrentUser)
     const orderItems = useSelector(getOrderItems)
-    const activeBillItems = useSelector(getActiveBillItem)
 
     const handleOrder = () => {
         const oi = [...orderItems]
