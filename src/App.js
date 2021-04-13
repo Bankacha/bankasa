@@ -15,6 +15,7 @@ import { Reports } from './admin/pages/Reports';
 import { Supplies } from './admin/pages/Supplies';
 import { UserProfiles } from './admin/pages/UserProfiles';
 import { UserCreate } from './admin/pages/UserCreate';
+import { ActiveBills } from './public/components/ActiveBills';
 
 import {
     BrowserRouter as Router,
@@ -45,7 +46,7 @@ function App() {
                     <Route exact path='/auth'>
                         <LoginPage />
                     </Route>
-
+                    <WorkingRoute path='/active' component={ActiveBills} />
                     <WorkingRoute path='/bill' component={BillPage} />
                     <WorkingRoute path='/' component={HomePage} />
 

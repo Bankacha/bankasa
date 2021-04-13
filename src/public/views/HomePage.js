@@ -26,6 +26,11 @@ export function HomePage() {
                             <HomeButton>Map</HomeButton>
                         </Col>
                     </Link>
+                    <Link to='/active'>
+                        <Col className="mx-5" sm={12}>
+                            <HomeButton>Active</HomeButton>
+                        </Col>
+                    </Link>
                     <Link to='/bill'>
                         <Col className="mx-5" sm={12}>
                             <HomeButton>Quick</HomeButton>

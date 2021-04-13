@@ -18,3 +18,6 @@ export const addToStock = 'ADD_TO_STOCK';
 export const reduceStock = 'REDUCE_STOCK';
 export const addNewUser = 'ADD_NEW_USER';
 export const deleteUser = 'DELETE_USER';
+export const clearActiveBillItem = 'CLEAR_ACTIVE_BILL_ITEM';
+export const setActiveBillItem = 'SET_ACTIVE_BILL_ITEM';
+export const removeFromActiveBIlls = 'DELETE_FROM_ACTIVE_BILLS';

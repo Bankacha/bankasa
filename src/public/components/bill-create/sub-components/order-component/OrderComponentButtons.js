@@ -1,25 +1,29 @@
 import { Row, Col, Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { reduceStock, saveAndPrintOrder } from "../../../../../store/actions"
+import { reduceStock, saveAndPrintOrder, removeFromActiveBIlls} from "../../../../../store/actions"
 import { chargeBill } from "../../../../../store/actions"
-import { getBillItems, getCurrentUser, getOrderItems } from "../../../../../store/selectors"
+import { getActiveBillItem, getCurrentUser, getOrderItems } from "../../../../../store/selectors"
 
 export function OrderComponentButtons() {
 
     const dispatch = useDispatch()
     const currentUser = useSelector(getCurrentUser)
     const orderItems = useSelector(getOrderItems)
-    const billItems = useSelector(getBillItems)
+    const activeBillItems = useSelector(getActiveBillItem)
 
     const handleOrder = () => {
         const oi = [...orderItems]
-        dispatch(saveAndPrintOrder(currentUser.name))
-        dispatch(reduceStock(oi))
+        if (orderItems.length) {
+            dispatch(saveAndPrintOrder(currentUser.name))
+            dispatch(reduceStock(oi))
+        }
     }
-    console.log(billItems)
+
     const handleChargeBill = () => {
-        if (billItems.length) {
+        const bill = { ...activeBillItems }
+        if (activeBillItems) {
             dispatch(chargeBill())
+            dispatch(removeFromActiveBIlls(bill))
         }
     }
 
