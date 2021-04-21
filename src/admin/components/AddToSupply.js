@@ -8,12 +8,12 @@ import React from "react";
 export function AddToSupply(props) {
 
     const dispatch = useDispatch()
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState('');
 
     const handleAdd = (quantity, id) => {
-        if (quantity !== 0) {
+        if (quantity !== '') {
             dispatch(addToStock({ quantity, id }))
-            setQuantity(0)
+            setQuantity('')
         }
     }
 

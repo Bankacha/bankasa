@@ -15,7 +15,7 @@ export function ProductCard(props) {
         }
     }
 
-    const style = props.stock > 0 ? "c-pointer p-3 m-2 mx-4 bg-dark text-center text-light rounded shadow-sm" : "p-3 m-2 mx-4 bg-info text-center text-light rounded shadow-sm"
+    const style = props.stock >= 0 ? "c-pointer p-3 m-2 mx-4 bg-dark text-center text-light rounded shadow-sm" : "p-3 m-2 mx-4 bg-info text-center text-light rounded shadow-sm"
 
     return (
         <Col xs={3}>

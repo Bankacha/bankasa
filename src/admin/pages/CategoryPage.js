@@ -5,6 +5,7 @@ import { deleteCategory } from "../../store/actions";
 import { getCategories } from "../../store/selectors";
 import { CategoryModal } from "../components/CategoryModal";
 import { BiEditAlt, BiTrash } from "react-icons/bi";
+import { pushNotification } from "../../notifications";
 
 
 export const CategoriesPage = () => {
@@ -26,6 +27,10 @@ export const CategoriesPage = () => {
         setCreation(false)
     }
 
+    const handleDelete = (id) => {
+        dispatch(deleteCategory(id))
+        pushNotification('', 'Category have been deleted!', 'danger')
+    }
     return (
         <div>
             <CategoryModal
@@ -57,7 +62,7 @@ export const CategoriesPage = () => {
                                             <BiEditAlt size='1.5em'  onClick={() => handleEdit(c)} />
                                         </Col>
                                         <Col sm={1}>
-                                            <BiTrash size='1.5em' onClick={() => dispatch(deleteCategory(c.id))} />
+                                            <BiTrash size='1.5em' onClick={() => handleDelete(c.id)} />
                                         </Col>
                                     </Row>
                                 </Card>
