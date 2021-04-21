@@ -16,6 +16,8 @@ import { Supplies } from './admin/pages/Supplies';
 import { UserProfiles } from './admin/pages/UserProfiles';
 import { UserCreate } from './admin/pages/UserCreate';
 import { ActiveBills } from './public/components/ActiveBills';
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 import {
     BrowserRouter as Router,
@@ -29,6 +31,8 @@ import { WorkingRoute } from './auth/WorkingRoute';
 function App() {
     return (
         <Router>
+            <ReactNotification />
+
             <Layout>
                 <Switch>
 

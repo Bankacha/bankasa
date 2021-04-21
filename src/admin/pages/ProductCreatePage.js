@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { editProduct } from "../../store/actions";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { pushNotification } from "../../notifications";
 
 export const ProductCreatePage = ({ type }) => {
 
@@ -40,9 +41,11 @@ export const ProductCreatePage = ({ type }) => {
         if (type === 'create') {
             dispatch(addNewProduct({ ...data, price: +data.price }));
             reset()
+            pushNotification('', 'The new product is created', 'success' )
         }
         if (type === 'edit') {
             dispatch(editProduct({ ...data, id: params.id }))
+            pushNotification('', 'Product successfully edited', 'info' )
             history.push('.')
         }
     }

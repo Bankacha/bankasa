@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { pushNotification } from "../../notifications";
 import { setLogUser } from "../../store/actions/users.actions";
 import { getUserByPasword } from "../../store/selectors";
 
@@ -20,7 +21,7 @@ export function LoginPage() {
             history.push('/')
         } else {
             if (password) {
-                alert('no password')
+                pushNotification('Error', 'No user with this password!', 'danger')
             }
         }
 

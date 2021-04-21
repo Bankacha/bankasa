@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom"
 import { deleteProduct } from "../../store/actions"
 import { getProducts } from '../../store/selectors/products.selectors'
 import { BiEditAlt, BiTrash, BiSearchAlt } from "react-icons/bi";
+import { pushNotification } from "../../notifications"
 
 export const Products = () => {
 
@@ -29,6 +30,11 @@ export const Products = () => {
         setSearch(localFilter(products, newEvent))
     }, [products, newEvent])
 
+    const handleDelete = (id) => {
+        dispatch(deleteProduct(id));
+        pushNotification('', 'Product is deleted!', 'danger')
+    }
+    
     return (
         <div className="row mt-1">
             <Col className="my-3">
@@ -78,7 +84,7 @@ export const Products = () => {
                                                         <td>{p.category}</td>
                                                         <td className='text-right'>{p.price}</td>
                                                         <td className='text-center'><BiEditAlt size='2em' onClick={() => history.push(`products/${p.id}`)} /></td>
-                                                        <td className='text-center'><BiTrash size='2em' onClick={() => dispatch(deleteProduct(p.id))} /></td>
+                                                        <td className='text-center'><BiTrash size='2em' onClick={() => handleDelete(p.id)} /></td>
                                                     </tr>
                                                 )
                                             })

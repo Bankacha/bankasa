@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { pushNotification } from "../../notifications";
 import { createCategory, editCategory } from "../../store/actions";
 
 export const CategoryModal = (props) => {
@@ -24,6 +25,7 @@ export const CategoryModal = (props) => {
         if (props.isEditing) {
             const newData = { ...props.category, name: data.category }
             dispatch(editCategory(newData))
+            pushNotification('', 'Category name is changed', 'info')
             props.closeModal()
         }
         if (props.isCreation) {
@@ -33,6 +35,7 @@ export const CategoryModal = (props) => {
                 id: data.category.toLowerCase().replace(' ', '_')
             }
             dispatch(createCategory(newData))
+            pushNotification('', 'New category successfully created!', 'success')
             reset()
         }
     }

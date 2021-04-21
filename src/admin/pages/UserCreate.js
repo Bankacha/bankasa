@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import { addNewUser } from "../../store/actions";
 import { IoSave } from "react-icons/io5";
 import { getUsers } from "../../store/selectors/users.selectors";
+import { pushNotification } from "../../notifications";
 
 export function UserCreate() {
 
@@ -37,7 +38,8 @@ export function UserCreate() {
 
     const handleUserCreate = () => {
         if (userName && password) {
-            const exiting = users.find(user => user.name === userName)
+            const exiting = users.find(user => user.name === userName || user.password === password)
+            pushNotification('', 'The password or user name is already existing', 'danger')
             if (!exiting) {
                 dispatch(addNewUser({
                     name: userName,
@@ -46,6 +48,7 @@ export function UserCreate() {
                     img: imageURL
                 }))
                 history.push('./')
+                pushNotification('', 'You created a new user successfully', 'success')
             }
 
         }
