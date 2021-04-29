@@ -25,3 +25,10 @@ export const deleteUser = (name) => {
         payload: name
     }
 }
+
+export const setLoggedInDuration = (userName) => {
+    return {
+        type: actionTypes.setLoggedInDuration,
+        payload: userName
+    }
+}

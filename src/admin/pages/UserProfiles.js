@@ -16,6 +16,18 @@ export function UserProfiles() {
         }
     }
 
+    const millsToTime = (milliseconds) => {
+        const dayLength = 1000 * 60 * 60 * 24;
+        const percentOfDay = milliseconds / dayLength;
+        const h = Math.floor(percentOfDay * 24);
+        const m = Math.floor(percentOfDay * 24 * 60) % 60;
+        const s = Math.floor(percentOfDay * 24 * 60 * 60) % 60;
+
+        return `${h}:${m}:${s}`
+    }
+
+    console.log(millsToTime(5465455))
+
     return (
         <Row className='h-85'>
             <Col sm={12} className='h-100 overflow-auto'>
@@ -41,6 +53,9 @@ export function UserProfiles() {
                                             </Card.Text>
                                             <Card.Text>
                                                 Password: <strong>{u.password}</strong>
+                                            </Card.Text>
+                                            <Card.Text>
+                                                Logged in time: <strong>{millsToTime(u.duration)}</strong>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
