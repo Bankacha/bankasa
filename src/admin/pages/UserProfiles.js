@@ -18,13 +18,6 @@ export function UserProfiles() {
     }
 
     const millsToTime = (milliseconds) => {
-        // const dayLength = 1000 * 60 * 60 * 24;
-        // const percentOfDay = milliseconds / dayLength;
-        // const h = Math.floor(percentOfDay * 24);
-        // const m = Math.floor(percentOfDay * 24 * 60) % 60;
-        // const s = Math.floor(percentOfDay * 24 * 60 * 60) % 60;
-
-        // return `${h}:${m}:${s}`
         return moment.utc(milliseconds ? milliseconds : 0).format('HH:mm:ss')
     }
 
