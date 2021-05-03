@@ -1,3 +1,4 @@
+import moment from "moment";
 import { Card, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,6 +15,10 @@ export function UserProfiles() {
         } else {
             return 'https://img.pngio.com/silhouette-icon-blank-person-template-blank-person-png-900_900.jpg'
         }
+    }
+
+    const millsToTime = (milliseconds) => {
+        return moment.utc(milliseconds ? milliseconds : 0).format('HH:mm:ss')
     }
 
     return (
@@ -41,6 +46,9 @@ export function UserProfiles() {
                                             </Card.Text>
                                             <Card.Text>
                                                 Password: <strong>{u.password}</strong>
+                                            </Card.Text>
+                                            <Card.Text>
+                                                Logged in time: <strong>{millsToTime(u.duration)}</strong>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>

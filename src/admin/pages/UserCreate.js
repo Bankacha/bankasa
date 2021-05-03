@@ -45,7 +45,8 @@ export function UserCreate() {
                     name: userName,
                     password,
                     role,
-                    img: imageURL
+                    img: imageURL,
+                    duration: null
                 }))
                 history.push('./')
                 pushNotification('', 'You created a new user successfully', 'success')

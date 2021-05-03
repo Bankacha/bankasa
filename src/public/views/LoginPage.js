@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { pushNotification } from "../../notifications";
 import { setLogUser } from "../../store/actions/users.actions";
-import { getUserByPasword } from "../../store/selectors";
+import { getUserByPassword } from "../../store/selectors";
 
 
 export function LoginPage() {
@@ -13,7 +13,7 @@ export function LoginPage() {
     const dispatch = useDispatch();
     const [password, setPassword] = useState(null);
 
-    const user = useSelector(getUserByPasword(password))
+    const user = useSelector(getUserByPassword(password))
 
     const handleLogIn = () => {
         if (user) {
