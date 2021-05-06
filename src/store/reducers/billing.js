@@ -119,7 +119,11 @@ const billingReducer = (state = initialState, action) => {
             }
 
         case actionTypes.clearFilteredBills:
-            return {...state, filteredBills: []}
+            return {
+                ...state,
+                filteredBills: [],
+                currentBill: []
+            }
 
         case 'SUM_TOTAL':
             const closedBills = [...state.closedBills]

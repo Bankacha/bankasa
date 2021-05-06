@@ -29,11 +29,9 @@ export function GeneralInfo({ bills, setUncheckedUser }) {
         }))
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         setUncheckedUser(userRows)
     }, [userRows, setUncheckedUser])
-
-    console.log(activeBills, bills)
 
     return (
         <Col sm={12} className='p-0'>

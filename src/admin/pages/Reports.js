@@ -1,6 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { getClosedBills, getCurrentBill, getFilteredBills, getFilterRange } from "../../store/selectors/billing.selectors";
+import { getClosedBills, getCurrentBill, getFilteredBills } from "../../store/selectors/billing.selectors";
 import { Filter } from "../components/reports/Filter";
 import { GeneralInfo } from "../components/reports/GeneralInfo";
 import { BillsInfo } from "../components/reports/BillsInfo";
