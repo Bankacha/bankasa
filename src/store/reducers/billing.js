@@ -1,4 +1,4 @@
-import {calculateItems, sumItems} from '../../utils';
+import { calculateItems, sumItems } from '../../utils';
 import * as actionTypes from '../actions/types';
 import moment from "moment";
 import { extendMoment } from 'moment-range';
@@ -17,7 +17,7 @@ const initialState = {
 };
 
 const billingReducer = (state = initialState, action) => {
-    const {payload} = action;
+    const { payload } = action;
 
     switch (action.type) {
         case actionTypes.setOrderItem:
@@ -30,18 +30,19 @@ const billingReducer = (state = initialState, action) => {
                 order.push(payload)
             }
 
-            return {...state, order}
+            return { ...state, order }
 
         case actionTypes.deleteOrderItem:
             const newOrder = state.order.filter(item => item.product.name !== payload.product.name)
-            return {...state, order: newOrder}
+            return { ...state, order: newOrder }
 
         case actionTypes.saveAndPrintOrder:
             const hasActiveBillItem = !!state.activeBillItem;
             const billItem = hasActiveBillItem ? { ...state.activeBillItem } : {
                 user: payload,
                 items: [],
-                id: state.billItemId
+                id: state.billItemId,
+                total: calculateItems(state.order)
             }
 
             for (let orderItem of state.order) {
@@ -59,14 +60,14 @@ const billingReducer = (state = initialState, action) => {
                 billItems: [...state.billItems.filter(i => i.id !== billItem.id), billItem],
                 order: [],
                 activeBillItem: billItem,
-                billItemId: !hasActiveBillItem ? state.billItemId + 1: state.billItemId
+                billItemId: !hasActiveBillItem ? state.billItemId + 1 : state.billItemId
             }
 
         case actionTypes.clearOrder:
-            return {...state, order: []}
+            return { ...state, order: [] }
 
         case actionTypes.chargeBill:
-            const current = {...state.activeBillItem}
+            const current = { ...state.activeBillItem }
 
             const bill = {
                 items: current.items,
@@ -78,7 +79,7 @@ const billingReducer = (state = initialState, action) => {
             if (bill.items?.length) {
                 return {
                     ...state,
-                    closedBills: [...state.closedBills, {...bill, id: state.billNo + 1}],
+                    closedBills: [...state.closedBills, { ...bill, id: state.billNo + 1 }],
                     billNo: state.billNo + 1,
                     billItems: state.billItems.filter((item) => item.id !== current.id),
                     activeBillItem: null
@@ -99,19 +100,26 @@ const billingReducer = (state = initialState, action) => {
             }
 
         case actionTypes.addCurrentBill:
-            return {...state, currentBill: payload}
+            return { ...state, currentBill: payload }
 
         case actionTypes.setFilterRange:
-            return {...state, filterRange: payload}    
-        
+            return { ...state, filterRange: payload }
+
         case actionTypes.setFilteredBills:
             const Moment = extendMoment(moment);
             const filteredTime = Moment.range(state.filterRange?.startDate, state.filterRange?.endDate);
 
             const filtered = state.closedBills?.map(bill => filteredTime.contains(bill.issued) ? bill : '')
             const final = filtered ? filtered : state.closedBills
-            console.log(filtered, final)
-            return {...state, filteredBills: final}
+
+            return {
+                ...state,
+                filteredBills: final,
+                filterRange: null
+            }
+
+        case actionTypes.clearFilteredBills:
+            return {...state, filteredBills: []}
 
         case 'SUM_TOTAL':
             const closedBills = [...state.closedBills]

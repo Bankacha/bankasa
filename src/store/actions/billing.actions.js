@@ -66,3 +66,9 @@ export const setFilteredBills = () => {
         type: actionTypes.setFilteredBills
     }
 }
+
+export const clearFilteredBills = () => {
+    return {
+        type: actionTypes.clearFilteredBills
+    }
+}

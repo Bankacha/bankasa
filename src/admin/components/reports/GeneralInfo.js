@@ -11,7 +11,7 @@ export function GeneralInfo({ bills, setUncheckedUser }) {
     const activeBills = useSelector(getBillItems)
     const [userRows, setUserRows] = useState(users.map(u => ({ ...u, checked: true })));
 
-    const billsByUser = (user) => {
+    const billsByUser = (user, bills) => {
         const userBills = [];
         bills.forEach(bill => bill.user === user ? userBills.push(bill) : '')
         return userBills;
@@ -33,7 +33,7 @@ export function GeneralInfo({ bills, setUncheckedUser }) {
         setUncheckedUser(userRows)
     }, [userRows, setUncheckedUser])
 
-    console.log(activeBills)
+    console.log(activeBills, bills)
 
     return (
         <Col sm={12} className='p-0'>
@@ -58,10 +58,10 @@ export function GeneralInfo({ bills, setUncheckedUser }) {
                                     <td>{i + 1}</td>
                                     <td><Form.Check checked={u.checked} onChange={({ target }) => handleWaiterChecked(u.name, target.checked)}></Form.Check></td>
                                     <td>{u.name}</td>
+                                    <td>{sumItems(billsByUser(u.name, activeBills))}</td>
                                     <td>*</td>
                                     <td>*</td>
-                                    <td>*</td>
-                                    <td>{sumItems(billsByUser(u.name))}</td>
+                                    <td>{sumItems(billsByUser(u.name, bills))}</td>
                                 </tr>
                             )
                         })

@@ -23,3 +23,4 @@ export const setActiveBillItem = 'SET_ACTIVE_BILL_ITEM';
 export const setLoggedInDuration = 'SET_LOGGED_IN_DURATION';
 export const setFilterRange = 'SET_FILTER_RANGE';
 export const setFilteredBills = 'SET_FILTERED_BILLS';
+export const clearFilteredBills = 'CLEAR_FILTERED_BILLS';
