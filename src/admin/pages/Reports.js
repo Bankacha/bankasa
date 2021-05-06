@@ -34,6 +34,9 @@ export function Reports() {
 
     const billsTotal = sumItems(bills)
 
+    console.log(closedBills)
+    console.log(filteredBills)
+
     return (
         <Row>
             <Col>

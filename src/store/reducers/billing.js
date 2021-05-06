@@ -109,7 +109,7 @@ const billingReducer = (state = initialState, action) => {
             const filteredTime = Moment.range(state.filterRange?.startDate, state.filterRange?.endDate);
 
             const filtered = state.closedBills?.map(bill => filteredTime.contains(bill.issued) ? bill : '')
-            const final = filtered ? filtered : state.closedBills
+            const final = filtered ? filtered.filter(i => i !== '') : state.closedBills
 
             return {
                 ...state,
