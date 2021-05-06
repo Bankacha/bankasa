@@ -1,4 +1,4 @@
-import { calculateItems, sumItems } from '../../utils';
+import { calculateItems } from '../../utils';
 import * as actionTypes from '../actions/types';
 import moment from "moment";
 import { extendMoment } from 'moment-range';
@@ -7,7 +7,6 @@ const initialState = {
     order: [],
     billItems: [],
     closedBills: [],
-    billsTotal: 0,
     billNo: 0,
     currentBill: [],
     activeBillItem: null,
@@ -123,14 +122,6 @@ const billingReducer = (state = initialState, action) => {
                 ...state,
                 filteredBills: [],
                 currentBill: []
-            }
-
-        case 'SUM_TOTAL':
-            const closedBills = [...state.closedBills]
-
-            return {
-                ...state,
-                billsTotal: sumItems(closedBills),
             }
 
         default:

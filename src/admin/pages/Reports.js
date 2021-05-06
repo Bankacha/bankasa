@@ -6,6 +6,7 @@ import { GeneralInfo } from "../components/reports/GeneralInfo";
 import { BillsInfo } from "../components/reports/BillsInfo";
 import { CurrentBillInfo } from "../components/reports/CurrentBillInfo";
 import { useState } from "react";
+import { sumItems } from "../../utils";
 
 export function Reports() {
 
@@ -31,6 +32,8 @@ export function Reports() {
         return userBills
     }
 
+    const billsTotal = sumItems(bills)
+
     return (
         <Row>
             <Col>
@@ -40,7 +43,7 @@ export function Reports() {
                 </Row>
 
                 <Row className='mt-3 p-2 bg-secondary m-0'>
-                    <GeneralInfo bills={bills} setUncheckedUser={setUncheckedUser} />
+                    <GeneralInfo total={billsTotal} bills={bills} setUncheckedUser={setUncheckedUser} />
                 </Row>
 
                 <Row>

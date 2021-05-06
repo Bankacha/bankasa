@@ -5,7 +5,7 @@ import { getBillItems } from "../../../store/selectors";
 import { getUsers } from "../../../store/selectors/users.selectors";
 import { sumItems } from "../../../utils";
 
-export function GeneralInfo({ bills, setUncheckedUser }) {
+export function GeneralInfo({ bills, setUncheckedUser, total }) {
 
     const users = useSelector(getUsers);
     const activeBills = useSelector(getBillItems)
@@ -65,6 +65,11 @@ export function GeneralInfo({ bills, setUncheckedUser }) {
                         })
                     }
                 </tbody>
+                <tfoot>
+                    <tr className='bg-dark'>
+                        <td colSpan='7' className='text-center text-light'><strong>Total: {total}</strong></td>
+                    </tr>
+                </tfoot>
             </Table>
         </Col>
     )
