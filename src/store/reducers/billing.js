@@ -1,5 +1,7 @@
 import {calculateItems, sumItems} from '../../utils';
 import * as actionTypes from '../actions/types';
+import moment from "moment";
+import { extendMoment } from 'moment-range';
 
 const initialState = {
     order: [],
@@ -10,6 +12,8 @@ const initialState = {
     currentBill: [],
     activeBillItem: null,
     billItemId: 0,
+    filterRange: null,
+    filteredBills: []
 };
 
 const billingReducer = (state = initialState, action) => {
@@ -97,6 +101,18 @@ const billingReducer = (state = initialState, action) => {
         case actionTypes.addCurrentBill:
             return {...state, currentBill: payload}
 
+        case actionTypes.setFilterRange:
+            return {...state, filterRange: payload}    
+        
+        case actionTypes.setFilteredBills:
+            const Moment = extendMoment(moment);
+            const filteredTime = Moment.range(state.filterRange?.startDate, state.filterRange?.endDate);
+
+            const filtered = state.closedBills?.map(bill => filteredTime.contains(bill.issued) ? bill : '')
+            const final = filtered ? filtered : state.closedBills
+            console.log(filtered, final)
+            return {...state, filteredBills: final}
+
         case 'SUM_TOTAL':
             const closedBills = [...state.closedBills]
 
@@ -104,7 +120,6 @@ const billingReducer = (state = initialState, action) => {
                 ...state,
                 billsTotal: sumItems(closedBills),
             }
-
 
         default:
             return state

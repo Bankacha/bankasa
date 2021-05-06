@@ -53,3 +53,16 @@ export const setActiveBillItem = (bill) => {
         type: actionTypes.setActiveBillItem
     }
 }
+
+export const setFilterRange = (range) => {
+    return {
+        payload: range,
+        type: actionTypes.setFilterRange
+    }
+}
+
+export const setFilteredBills = () => {
+    return {
+        type: actionTypes.setFilteredBills
+    }
+}

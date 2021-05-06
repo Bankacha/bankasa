@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Col, Form, Table } from "react-bootstrap"
 import { useSelector } from "react-redux";
+import { getBillItems } from "../../../store/selectors";
 import { getUsers } from "../../../store/selectors/users.selectors";
 import { sumItems } from "../../../utils";
 
 export function GeneralInfo({ bills, setUncheckedUser }) {
 
     const users = useSelector(getUsers);
+    const activeBills = useSelector(getBillItems)
     const [userRows, setUserRows] = useState(users.map(u => ({ ...u, checked: true })));
 
     const billsByUser = (user) => {
@@ -23,7 +25,6 @@ export function GeneralInfo({ bills, setUncheckedUser }) {
                     checked
                 }
             }
-
             return ur;
         }))
     }
@@ -31,6 +32,8 @@ export function GeneralInfo({ bills, setUncheckedUser }) {
     useEffect(()=> {
         setUncheckedUser(userRows)
     }, [userRows, setUncheckedUser])
+
+    console.log(activeBills)
 
     return (
         <Col sm={12} className='p-0'>

@@ -1,6 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { getClosedBills, getCurrentBill } from "../../store/selectors/billing.selectors";
+import { getClosedBills, getCurrentBill, getFilteredBills } from "../../store/selectors/billing.selectors";
 import { Filter } from "../components/reports/Filter";
 import { GeneralInfo } from "../components/reports/GeneralInfo";
 import { BillsInfo } from "../components/reports/BillsInfo";
@@ -11,15 +11,16 @@ export function Reports() {
 
     const closedBills = useSelector(getClosedBills);
     const currentBill = useSelector(getCurrentBill);
+    const filteredBills = useSelector(getFilteredBills);
 
     const [uncheckedUser, setUncheckedUser] = useState([])
 
     const billsByUser = (users) => {
         const userBills = [];
-        closedBills.forEach(bill => {
-            uncheckedUser.forEach( user => {
-                if(user.checked === true) {
-                    if(bill.user === user.name) {
+        filteredBills.forEach(bill => {
+            uncheckedUser.forEach(user => {
+                if (user.checked === true) {
+                    if (bill.user === user.name) {
                         userBills.push(bill)
                     }
                 }
@@ -27,6 +28,8 @@ export function Reports() {
         })
         return userBills
     }
+
+    const bills = filteredBills ?? closedBills;
 
     return (
         <Row>
@@ -37,7 +40,7 @@ export function Reports() {
                 </Row>
 
                 <Row className='mt-3 p-2 bg-secondary m-0'>
-                    <GeneralInfo bills={closedBills} setUncheckedUser={setUncheckedUser}/>
+                    <GeneralInfo bills={bills} setUncheckedUser={setUncheckedUser} />
                 </Row>
 
                 <Row>

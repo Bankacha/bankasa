@@ -21,3 +21,5 @@ export const deleteUser = 'DELETE_USER';
 export const clearActiveBillItem = 'CLEAR_ACTIVE_BILL_ITEM';
 export const setActiveBillItem = 'SET_ACTIVE_BILL_ITEM';
 export const setLoggedInDuration = 'SET_LOGGED_IN_DURATION';
+export const setFilterRange = 'SET_FILTER_RANGE';
+export const setFilteredBills = 'SET_FILTERED_BILLS';
