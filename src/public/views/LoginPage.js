@@ -48,7 +48,8 @@ export function LoginPage() {
             </div>
             <div className="col-4 bg-primary shadow-sm">
                 <Row className="h-100">
-                    <Col className="align-self-center">
+                    <Col className="align-self-center justify-content-center offset-2" sm={8}>
+                        <img className='w-100' src={process.env.PUBLIC_URL + '/bankasaLogo.png'}/>
                     </Col>
                 </Row>
             </div>
