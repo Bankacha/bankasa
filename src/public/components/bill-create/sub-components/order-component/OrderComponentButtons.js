@@ -2,13 +2,14 @@ import { Row, Col, Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { reduceStock, saveAndPrintOrder } from "../../../../../store/actions"
 import { chargeBill } from "../../../../../store/actions"
-import { getCurrentUser, getOrderItems } from "../../../../../store/selectors"
+import { getActiveBillItem, getCurrentUser, getOrderItems } from "../../../../../store/selectors"
 
 export function OrderComponentButtons() {
 
     const dispatch = useDispatch()
     const currentUser = useSelector(getCurrentUser)
     const orderItems = useSelector(getOrderItems)
+    const activeBillItem = useSelector(getActiveBillItem)
 
     const handleOrder = () => {
         const oi = [...orderItems]
@@ -19,7 +20,9 @@ export function OrderComponentButtons() {
     }
 
     const handleChargeBill = () => {
-        dispatch(chargeBill())
+        if (activeBillItem) {
+            dispatch(chargeBill())
+        }
     }
 
     return (

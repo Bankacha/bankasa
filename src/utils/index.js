@@ -7,7 +7,11 @@ export const calculateItems = (items) => {
 
 export const sumItems = (items) => {
     let total = 0;
-    items.forEach(item => total += item.total)
+    items.forEach(item => {
+        if(item !== '') {
+            total += item.total
+        }
+    })
 
     return total
 }

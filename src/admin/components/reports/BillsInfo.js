@@ -8,8 +8,8 @@ export function BillsInfo(props) {
     const dispatch = useDispatch();
 
     return (
-        <Row className='mt-3 p-2 bg-secondary m-0'>
-            <Col className='p-0'>
+        <Row className='mt-3 p-2 bg-secondary m-0 h-80'>
+            <Col className='p-0 h-100 overflow-auto'>
                 <Table striped bordered hover size="sm" className='bg-light m-0'>
                     <thead>
                         <tr className='text-center'>

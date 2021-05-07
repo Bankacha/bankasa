@@ -8,3 +8,5 @@ export const getOrderItems = (states) => states.billing.order;
 export const getClosedBills = (states) => states.billing.closedBills;
 export const getCurrentBill = (states) => states.billing.currentBill;
 export const getActiveBillItem = (states) => states.billing.activeBillItem;
+export const getFilterRange = (states) => states.billing.filterRange;
+export const getFilteredBills = (states) => states.billing.filteredBills;
