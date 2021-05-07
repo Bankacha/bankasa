@@ -42,8 +42,8 @@ export function GeneralInfo({ bills, setUncheckedUser, total }) {
                         <th>Check</th>
                         <th>Waiter Name</th>
                         <th>Still Active</th>
-                        <th>Card</th>
-                        <th>Cash</th>
+                        {/* <th>Card</th>
+                        <th>Cash</th> */}
                         <th>Total</th>
                     </tr>
                 </thead>
@@ -57,8 +57,8 @@ export function GeneralInfo({ bills, setUncheckedUser, total }) {
                                     <td><Form.Check checked={u.checked} onChange={({ target }) => handleWaiterChecked(u.name, target.checked)}></Form.Check></td>
                                     <td>{u.name}</td>
                                     <td>{sumItems(billsByUser(u.name, activeBills))}</td>
-                                    <td>*</td>
-                                    <td>*</td>
+                                    {/* <td>*</td>
+                                    <td>*</td> */}
                                     <td>{sumItems(billsByUser(u.name, bills))}</td>
                                 </tr>
                             )

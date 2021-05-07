@@ -31,7 +31,7 @@ export function Reports() {
         })
         return userBills
     }
-
+    
     const billsTotal = sumItems(bills)
 
     console.log(closedBills)
@@ -40,7 +40,6 @@ export function Reports() {
     return (
         <Row>
             <Col>
-
                 <Row className='mt-2'>
                     <Filter />
                 </Row>

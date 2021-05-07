@@ -3,12 +3,15 @@ import { useState } from "react";
 import { Col, Row, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { pushNotification } from "../../../notifications";
 import { setFilteredBills, setFilterRange } from "../../../store/actions";
+import { getFilteredBills } from "../../../store/selectors";
 
 export function Filter() {
 
     const dispatch = useDispatch();
+    const filteredBills = useSelector(getFilteredBills);
 
     const startStateDate = moment().subtract(1, "days");
 
@@ -22,6 +25,9 @@ export function Filter() {
         }
         dispatch(setFilterRange(filter))
         dispatch(setFilteredBills())
+        if(!filteredBills.length) {
+          pushNotification('', 'No bills for this date range', 'warning')  
+        }
     }
 
     return (
