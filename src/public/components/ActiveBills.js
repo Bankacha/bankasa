@@ -47,6 +47,12 @@ export function ActiveBills() {
                                                         })
                                                     }
                                                 </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th scope="row">Total</th>
+                                                        <td colSpan='2' className='text-center'><strong>{bill.total}</strong></td>
+                                                    </tr>
+                                                </tfoot>
                                             </Table>
                                         </Card>
                                     </CardDeck>

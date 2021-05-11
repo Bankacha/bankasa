@@ -17,7 +17,7 @@ export function OrderComponent() {
         return () => {
             dispatch(clearActiveBillItem());
         }
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className="h-95">
