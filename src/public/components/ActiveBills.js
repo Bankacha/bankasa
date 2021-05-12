@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { setActiveBillItem } from "../../store/actions";
 import { getBillItems, getCurrentUser } from "../../store/selectors";
+import { calculateItems } from "../../utils";
 
 export function ActiveBills() {
 
@@ -17,6 +18,8 @@ export function ActiveBills() {
         dispatch(setActiveBillItem(bill))
         history.push('/bill')
     }
+
+    const calculateTotal = (id) => calculateItems(billItems.find(bill => bill.id === id).items);
 
     return (
         <Row className='h-90'>
@@ -40,8 +43,8 @@ export function ActiveBills() {
                                                             return (
                                                                 <tr key={`billItemItem-${billItemItemIdx}`}>
                                                                     <td>{el.product.name}</td>
-                                                                    <td>{el.quantity}</td>
-                                                                    <td>{el.quantity * el.product.price}</td>
+                                                                    <td className='text-right'>{el.quantity}</td>
+                                                                    <td className='text-right'>{el.quantity * el.product.price}</td>
                                                                 </tr>
                                                             )
                                                         })
@@ -50,7 +53,7 @@ export function ActiveBills() {
                                                 <tfoot>
                                                     <tr>
                                                         <th scope="row">Total</th>
-                                                        <td colSpan='2' className='text-center'><strong>{bill.total}</strong></td>
+                                                        <td colSpan='2' className='text-center'><strong>{calculateTotal(bill.id)}</strong></td>
                                                     </tr>
                                                 </tfoot>
                                             </Table>

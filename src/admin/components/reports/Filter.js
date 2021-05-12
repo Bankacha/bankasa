@@ -34,7 +34,7 @@ export function Filter() {
             return;
         }
         if (!filteredBills.length) {
-            pushNotification('', 'No bills for this time range', 'warning')
+            pushNotification('', 'No bills for this time range', 'warning');
         }
     }, [filteredBills])
 

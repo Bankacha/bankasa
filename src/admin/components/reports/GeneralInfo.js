@@ -3,7 +3,7 @@ import { Col, Form, Table } from "react-bootstrap"
 import { useSelector } from "react-redux";
 import { getBillItems } from "../../../store/selectors";
 import { getUsers } from "../../../store/selectors/users.selectors";
-import { sumItems } from "../../../utils";
+import { calculateItems, sumItems } from "../../../utils";
 
 export function GeneralInfo({ bills, setUncheckedUser, total }) {
 
@@ -16,6 +16,15 @@ export function GeneralInfo({ bills, setUncheckedUser, total }) {
         bills.forEach(bill => bill.user === user ? userBills.push(bill) : '')
         return userBills;
     }
+
+    const activeBillsTotal = (user) => {
+        let total = 0;
+        const bills = billsByUser(user, activeBills)
+        bills.forEach(bill => total += calculateItems(bill.items))
+
+        return total
+    }
+
 
     const handleWaiterChecked = (name, checked) => {
         setUserRows(userRows.map(ur => {
@@ -56,7 +65,7 @@ export function GeneralInfo({ bills, setUncheckedUser, total }) {
                                     <td>{i + 1}</td>
                                     <td><Form.Check checked={u.checked} onChange={({ target }) => handleWaiterChecked(u.name, target.checked)}></Form.Check></td>
                                     <td>{u.name}</td>
-                                    <td>{sumItems(billsByUser(u.name, activeBills))}</td>
+                                    <td>{activeBillsTotal(u.name)}</td>
                                     {/* <td>*</td>
                                     <td>*</td> */}
                                     <td>{sumItems(billsByUser(u.name, bills))}</td>
