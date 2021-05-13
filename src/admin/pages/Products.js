@@ -16,9 +16,7 @@ export const Products = () => {
     const [search, setSearch] = useState(products)
     const [newEvent, setNewEvent] = useState('')
 
-    const localFilter = (products, event) => {
-        return products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()) || product.category.toLowerCase().includes(event.toLowerCase()))
-    }
+    const localFilter = (products, event) => products.filter(product => product.name.toLowerCase().includes(event.toLowerCase()) || product.category.toLowerCase().includes(event.toLowerCase()))
     
     const searchProducts = (event) => {
         setNewEvent(event)

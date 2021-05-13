@@ -64,7 +64,8 @@ export function ActiveBills() {
                         }) : (
                             <Col>
                                 <div className='text-center mt-5'>
-                                    <h1>Currently no active bills for this user</h1>
+                                    <img src='https://img.pngio.com/open-empty-box-png-image-royalty-free-stock-png-images-for-your-empty-box-png-256_256.png' alt='empty box'/>
+                                    <h1>Currently there's no active bills for this user</h1>
                                 </div>
                             </Col>
 

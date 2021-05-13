@@ -40,7 +40,7 @@ export function Filter() {
 
     return (
         <Col sm={12}>
-            <Row className='d-flex align-items-center py-2 m-0 bg-secondary'>
+            <Row className='d-flex align-items-center py-2 m-0 bg-secondary rounded'>
 
                 <Col sm={5} className='d-flex align-items-center'>
                     Start Date: &nbsp;

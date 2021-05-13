@@ -19,11 +19,14 @@ export const ProductCreatePage = ({ type }) => {
     const params = useParams();
     const history = useHistory();
 
+    console.log(products)
+
     const { register, handleSubmit, errors, reset, setValue } = useForm({
         defaultValues: {
             name: null,
             price: null,
-            category: categories[0].value
+            category: categories[0].value,
+            stock: null
         }
     });
 
@@ -32,21 +35,30 @@ export const ProductCreatePage = ({ type }) => {
             const productToEdit = products.find(product => product.id === params?.id)
             setValue('name', `${productToEdit?.name}`)
             setValue('price', `${productToEdit?.price}`)
+            setValue('stock', `${productToEdit?.stock}`)
             setValue('category', `${productToEdit?.category}`)
         }
+        // return() => {
+        //     setValue('name', null)
+        //     setValue('price', null)
+        //     setValue('stock', 0)
+        //     setValue('category', `${categories[0].value}`)
+
+        // }
 
     }, [type, params, setValue, products])
 
     const onSubmit = data => {
         if (type === 'create') {
-            dispatch(addNewProduct({ ...data, price: +data.price }));
+            dispatch(addNewProduct({ ...data, price: +data.price, stock: +data.stock }));
             reset()
-            pushNotification('', 'The new product is created', 'success' )
+            pushNotification('', 'The new product is created', 'success')
         }
         if (type === 'edit') {
-            dispatch(editProduct({ ...data, id: params.id }))
-            pushNotification('', 'Product successfully edited', 'info' )
-            history.push('.')
+            dispatch(editProduct({ ...data, id: params.id, price: +data.price, stock: +data.stock }))
+            pushNotification('', 'Product successfully edited', 'info')
+            history.push('../products')
+            
         }
     }
 
@@ -66,14 +78,28 @@ export const ProductCreatePage = ({ type }) => {
                             {errors.name && "product name is required!"}
                         </Form.Text>
                     </Form.Group>
+                    <Row>
+                        <Col>
+                            <Form.Group className=''>
+                                <Form.Label>Price</Form.Label>
+                                <Form.Control className='' name='price' type="number" placeholder="price" ref={register({ required: true })} />
+                                <Form.Text className="text-danger">
+                                    {errors.price && "product price is required!"}
+                                </Form.Text>
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group className=''>
+                                <Form.Label>Stock</Form.Label>
+                                <Form.Control className='' defaultValue='0' name='stock' type="number" ref={register({ required: true })} />
+                                <Form.Text className="text-danger">
+                                {errors.price && "product stock quantity is required!"}
+                                </Form.Text>
+                            </Form.Group>
+                        </Col>
+                    </Row>
 
-                    <Form.Group className=''>
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control className='' name='price' type="number" placeholder="price" ref={register({ required: true })} />
-                        <Form.Text className="text-danger">
-                            {errors.price && "product name is required!"}
-                        </Form.Text>
-                    </Form.Group>
+
 
                     <Form.Group className=''>
                         <Form.Label>Category select</Form.Label>
