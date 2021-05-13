@@ -38,13 +38,6 @@ export const ProductCreatePage = ({ type }) => {
             setValue('stock', `${productToEdit?.stock}`)
             setValue('category', `${productToEdit?.category}`)
         }
-        // return() => {
-        //     setValue('name', null)
-        //     setValue('price', null)
-        //     setValue('stock', 0)
-        //     setValue('category', `${categories[0].value}`)
-
-        // }
 
     }, [type, params, setValue, products])
 
@@ -58,7 +51,6 @@ export const ProductCreatePage = ({ type }) => {
             dispatch(editProduct({ ...data, id: params.id, price: +data.price, stock: +data.stock }))
             pushNotification('', 'Product successfully edited', 'info')
             history.push('../products')
-            
         }
     }
 
@@ -93,7 +85,7 @@ export const ProductCreatePage = ({ type }) => {
                                 <Form.Label>Stock</Form.Label>
                                 <Form.Control className='' defaultValue='0' name='stock' type="number" ref={register({ required: true })} />
                                 <Form.Text className="text-danger">
-                                {errors.price && "product stock quantity is required!"}
+                                    {errors.price && "product stock quantity is required!"}
                                 </Form.Text>
                             </Form.Group>
                         </Col>
