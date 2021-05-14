@@ -41,7 +41,7 @@ const usersReducer = (state = initialState, action) => {
         case actionTypes.deleteUser:
             return {
                 ...state,
-                users: state.users.filter(user => user.name !== payload)
+                users: state.users.filter(user => user.name !== payload.name)
             }
 
         case actionTypes.setLoggedInDuration:

@@ -19,8 +19,6 @@ export const ProductCreatePage = ({ type }) => {
     const params = useParams();
     const history = useHistory();
 
-    console.log(products)
-
     const { register, handleSubmit, errors, reset, setValue } = useForm({
         defaultValues: {
             name: null,
