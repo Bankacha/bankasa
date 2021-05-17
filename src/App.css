@@ -65,3 +65,14 @@ body {
 .link:hover {
   color: whitesmoke;
 }
+
+.buttonCol {
+  display: flex;
+}
+
+.buttonCol > * {
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  width: 158px;
+  margin-top: 5%;
+}

@@ -18,17 +18,17 @@ export function AdminPage() {
             <Col sm={12} className="mt-5">
                 <Row className="pr-5 mr-5 h-100 align-content-center justify-content-around">
                     <Link to='/admin/products'>
-                        <Col className="mx-5" sm={12}>
+                        <Col className="mx-5 buttonCol" sm={12}>
                             <AdminButton className='bg-primary'>Products</AdminButton>
                         </Col>
                     </Link>
                     <Link to='/admin/categories'>
-                        <Col className="mx-5 " sm={12}>
+                        <Col className="mx-5 buttonCol" sm={12}>
                             <AdminButton className='bg-primary'>Categories</AdminButton>
                         </Col>
                     </Link>
                     <Link to='/admin/accounting'>
-                        <Col className="mx-5" sm={12}>
+                        <Col className="mx-5 buttonCol" sm={12}>
                             <AdminButton className='bg-primary'>Accounting</AdminButton>
                         </Col>
                     </Link>
