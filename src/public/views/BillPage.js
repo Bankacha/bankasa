@@ -6,7 +6,7 @@ import { OrderComponent } from "../components/bill-create/OrderComponent";
 export function BillPage() {
     return (
         <Row className="bg-light h-95">
-            <Col xs={8}>
+            <Col xs={12} md={8}>
                 <Row className="h-25 bg-warning pb-3">
                     <Categories />
                 </Row>
