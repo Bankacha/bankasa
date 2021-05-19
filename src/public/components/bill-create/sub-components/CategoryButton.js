@@ -16,7 +16,7 @@ export function CategoryButton({ category }) {
         isActive ? dispatch(deactivateCategory(category)) : dispatch(setActiveCategory(category))
     }
     return (
-        <Col xs={2} className="align-self-end">
+        <Col xs={6} sm={4} md={3} lg={2} className="align-self-end">
             <Row>
                 <Col
                     onClick={() => handleClick(category)}

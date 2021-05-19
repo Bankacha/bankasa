@@ -19,10 +19,10 @@ export const addNewUser = (newUser) => {
     }
 }
 
-export const deleteUser = (name) => {
+export const deleteUser = (user) => {
     return {
         type: actionTypes.deleteUser,
-        payload: name
+        payload: user
     }
 }
 

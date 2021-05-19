@@ -41,7 +41,7 @@ export const CategoryModal = (props) => {
     }
 
     return (
-        <Modal show={props.show} onHide={props.onClose}>
+        <Modal animation={false} show={props.show} onHide={props.onClose}>
             <Modal.Dialog className='w-100 p-2'>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Modal.Header closeButton>

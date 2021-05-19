@@ -34,22 +34,19 @@ export function Reports() {
     
     const billsTotal = sumItems(bills)
 
-    console.log(closedBills)
-    console.log(filteredBills)
-
     return (
-        <Row>
-            <Col>
+        <Row className='h-90'>
+            <Col className='h-95'>
                 <Row className='mt-2'>
                     <Filter />
                 </Row>
 
-                <Row className='mt-3 p-2 bg-secondary m-0'>
+                <Row className='mt-3 p-2 bg-secondary m-0 rounded'>
                     <GeneralInfo total={billsTotal} bills={bills} setUncheckedUser={setUncheckedUser} />
                 </Row>
 
-                <Row>
-                    <Col sm={8}>
+                <Row className='h-65'>
+                    <Col sm={8}  className='h-100'>
                         <BillsInfo bills={billsByUser()} />
                     </Col>
                     <Col sm={4}>

@@ -11,9 +11,14 @@ body {
   cursor: pointer;
 }
 
+.w-10 {
+  width: 4%;
+}
+
 .w-45 {
   width: 45%;
 }
+
 .w-80 {
   width: 80%;
 }
@@ -33,12 +38,20 @@ body {
   height: 20%;
 }
 
+.h-65 {
+  height: 65%;
+}
+
 .h-80 {
   height: 80%;
 }
 
 .h-85 {
   height: 85%;
+}
+
+.h-90 {
+  height: 90%;
 }
 
 .h-95 {
@@ -52,3 +65,34 @@ body {
 .link:hover {
   color: whitesmoke;
 }
+
+.buttonCol {
+  display: flex;
+}
+
+.buttonCol > * {
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  width: 158px;
+  margin-top: 5%;
+}
+
+/* .categoryBtn {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+*/
+/* .categoryBtn > * {
+  min-width: 150px;
+}  */
+
+/* .productBtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+*/
+/* .productBt > * {
+  height: 40px;
+}  */

@@ -8,7 +8,7 @@ export function Categories() {
     const categories = useSelector(getCategories)
 
     return (
-        <Col>
+        <Col className='h-100 overflow-auto'>
             <Row className="h-100">
                 {
                     categories.map((c, i) => <CategoryButton key={i} category={c} />)

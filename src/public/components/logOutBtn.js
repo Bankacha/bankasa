@@ -1,24 +1,18 @@
 import { Col } from "react-bootstrap";
 import { BiLogOutCircle } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { clearActiveBillItem, logOut, setLoggedInDuration, clearFilteredBills } from "../../store/actions";
-import { getActiveBillItem, getCurrentUser } from "../../store/selectors";
+import { logOut, setLoggedInDuration, clearFilteredBills } from "../../store/actions";
+import { getCurrentUser } from "../../store/selectors";
 
 export function LogOutButton() {
 
     const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUser)
-    const activeBillItems = useSelector(getActiveBillItem)
 
     const handleLogOut = () => {
-        const bill = { ...activeBillItems }
         dispatch(logOut());
         dispatch(setLoggedInDuration(currentUser.name));
         dispatch(clearFilteredBills())
-
-        if (activeBillItems) {
-            dispatch(clearActiveBillItem(bill));
-        }
     }
 
     return (

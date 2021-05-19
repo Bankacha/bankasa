@@ -22,24 +22,24 @@ export function HomePage() {
             <Col sm={12} className="mt-5">
                 <Row className="pr-5 mr-5 h-100 align-content-center justify-content-around">
                     <Link to='/'>
-                        <Col className="mx-5" sm={12}>
+                        <Col className="mx-5 buttonCol" sm={12}>
                             <HomeButton>Map</HomeButton>
                         </Col>
                     </Link>
                     <Link to='/active'>
-                        <Col className="mx-5" sm={12}>
+                        <Col className="mx-5 buttonCol" sm={12}>
                             <HomeButton>Active</HomeButton>
                         </Col>
                     </Link>
                     <Link to='/bill'>
-                        <Col className="mx-5" sm={12}>
+                        <Col className="mx-5 buttonCol" sm={12}>
                             <HomeButton>Quick</HomeButton>
                         </Col>
                     </Link>
                     {
                         currentUser.role === 'admin' ? (
                             <Link to='/admin'>
-                                <Col className="mx-5" sm={12}>
+                                <Col className="mx-5 buttonCol" sm={12}>
                                     <HomeButton>Admin</HomeButton>
                                 </Col>
                             </Link>

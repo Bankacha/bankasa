@@ -37,7 +37,7 @@ export function UserProfiles() {
                                                     <Card.Title>{u.name}</Card.Title>
                                                 </Col>
                                                 <Col sm={2}>
-                                                    <DropdownButton name={u.name} />
+                                                    <DropdownButton user={u} />
                                                 </Col>
                                             </Row>
 

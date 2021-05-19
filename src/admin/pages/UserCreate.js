@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Card, Row, Form, Col } from "react-bootstrap";
+import { Card, Row, Form, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { addNewUser } from "../../store/actions";
-import { IoSave } from "react-icons/io5";
 import { getUsers } from "../../store/selectors/users.selectors";
 import { pushNotification } from "../../notifications";
+import { useForm } from "react-hook-form";
 
 export function UserCreate() {
 
@@ -21,6 +21,8 @@ export function UserCreate() {
     const [role, setRole] = useState('waiter');
     const [password, setPassword] = useState(null);
     const [imageURL, setImageURL] = useState(null);
+
+    const { register, errors, handleSubmit } = useForm()
 
     const handleImageUpload = e => {
         const [file] = e.target.files;
@@ -81,34 +83,58 @@ export function UserCreate() {
 
                         <Col sm={8}>
                             <Card.Body>
-                                <Row className='align-items-center'>
-                                    <Col sm={10}>
-                                        <Card.Title className='mt-2'>User Profile</Card.Title>
-                                    </Col>
-                                    <Col sm={2} className='ml-0'>
-                                        <Row>
-                                            <Col sm={12}>
-                                                <IoSave onClick={() => handleUserCreate()} variant="primary" size='2em' />
-                                            </Col>
-                                            <Col sm={12}>
-                                                <small>create</small>
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <Form.Label className='mb-0 mt-2'>Name</Form.Label>
-                                        <Form.Control type='text' onChange={(e) => setUserName(e.target.value)} placeholder='User name'></Form.Control>
-                                        <Form.Label className='mb-0 mt-2'>Role</Form.Label>
-                                        <Form.Control onChange={(e) => setRole(e.target.value)} as='select'>
-                                            <option>waiter</option>
-                                            <option>admin</option>
-                                        </Form.Control>
-                                        <Form.Label className='mb-0 mt-2'>Password</Form.Label>
-                                        <Form.Control type='number' onChange={(e) => setPassword(e.target.value)} placeholder='123...'></Form.Control>
-                                    </Col>
-                                </Row>
+                                <Form onSubmit={handleSubmit()} >
+
+                                    <Row className='align-items-center'>
+                                        <Col sm={10}>
+                                            <Card.Title className='mt-2'>User Profile</Card.Title>
+                                        </Col>
+                                        <Col sm={2} className='ml-0'>
+                                            <Row>
+                                                <Col sm={12} className='text-right'>
+                                                    <Button type='submit' onClick={() => handleUserCreate()} variant="primary" size='2em'><strong>create</strong></Button>
+                                                </Col>
+
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <Form.Group>
+                                                <Form.Label className='mb-0 mt-2'>Name</Form.Label>
+                                                <Form.Control
+                                                    ref={register({ required: true })}
+                                                    name='name'
+                                                    type='text'
+                                                    onChange={(e) => setUserName(e.target.value)}
+                                                    placeholder='User name'
+                                                >
+                                                </Form.Control>
+                                                <Form.Text className="text-danger">
+                                                    {errors.name && "user name is required!"}
+                                                </Form.Text>
+                                            </Form.Group>
+
+                                            <Form.Label className='mb-0 mt-2'>Role</Form.Label>
+                                            <Form.Control onChange={(e) => setRole(e.target.value)} as='select'>
+                                                <option>waiter</option>
+                                                <option>admin</option>
+                                            </Form.Control>
+                                            <Form.Label className='mb-0 mt-2'>Password</Form.Label>
+                                            <Form.Control
+                                                ref={register({ required: true })}
+                                                name='password'
+                                                type='number'
+                                                onChange={(e) => setPassword(e.target.value)}
+                                                placeholder='123...'
+                                            >
+                                            </Form.Control>
+                                            <Form.Text className="text-danger">
+                                                {errors.password && "password is required!"}
+                                            </Form.Text>
+                                        </Col>
+                                    </Row>
+                                </Form>
                             </Card.Body>
                         </Col>
                     </Row>

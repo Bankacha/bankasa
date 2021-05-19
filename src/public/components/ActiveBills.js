@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { setActiveBillItem } from "../../store/actions";
 import { getBillItems, getCurrentUser } from "../../store/selectors";
+import { calculateItems } from "../../utils";
 
 export function ActiveBills() {
 
@@ -17,6 +18,8 @@ export function ActiveBills() {
         dispatch(setActiveBillItem(bill))
         history.push('/bill')
     }
+
+    const calculateTotal = (id) => calculateItems(billItems.find(bill => bill.id === id).items);
 
     return (
         <Row className='h-90'>
@@ -40,13 +43,19 @@ export function ActiveBills() {
                                                             return (
                                                                 <tr key={`billItemItem-${billItemItemIdx}`}>
                                                                     <td>{el.product.name}</td>
-                                                                    <td>{el.quantity}</td>
-                                                                    <td>{el.quantity * el.product.price}</td>
+                                                                    <td className='text-right'>{el.quantity}</td>
+                                                                    <td className='text-right'>{el.quantity * el.product.price}</td>
                                                                 </tr>
                                                             )
                                                         })
                                                     }
                                                 </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th scope="row">Total</th>
+                                                        <td colSpan='2' className='text-center'><strong>{calculateTotal(bill.id)}</strong></td>
+                                                    </tr>
+                                                </tfoot>
                                             </Table>
                                         </Card>
                                     </CardDeck>
@@ -55,7 +64,8 @@ export function ActiveBills() {
                         }) : (
                             <Col>
                                 <div className='text-center mt-5'>
-                                    <h1>Currently no active bills for this user</h1>
+                                    <img src='https://img.pngio.com/open-empty-box-png-image-royalty-free-stock-png-images-for-your-empty-box-png-256_256.png' alt='empty box'/>
+                                    <h1>Currently there's no active bills for this user</h1>
                                 </div>
                             </Col>
 
