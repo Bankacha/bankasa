@@ -77,22 +77,7 @@ body {
   margin-top: 5%;
 }
 
-/* .categoryBtn {
-  display: flex;
-  flex-wrap: wrap;
+/* * {
+  box-sizing: border-box;
+} */
 
-}
-*/
-/* .categoryBtn > * {
-  min-width: 150px;
-}  */
-
-/* .productBtn {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-*/
-/* .productBt > * {
-  height: 40px;
-}  */

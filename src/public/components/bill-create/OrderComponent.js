@@ -29,7 +29,7 @@ export function OrderComponent() {
                     <Row className="h-85">
                         <OrderItems />
                     </Row>
-                    <Row className="h-10 rounded-pill mx-2 bg-light">
+                    <Row className="h-10 mx-2">
                         <OrderItemsFooter />
                     </Row>
                 </Col>
