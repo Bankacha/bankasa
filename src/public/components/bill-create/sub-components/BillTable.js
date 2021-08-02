@@ -8,7 +8,7 @@ export function BillTable() {
 
     return (
         <Row>
-            <Col className="w-100 h-100 position-absolute overflow-auto">
+            <Col className="w-100 h-100 position-absolute overflow-auto p-0 ml-3">
                 <Table striped hover size="sm" variant=''>
                     <tbody className="text-light w-100 position-absolute px-3">
                         {
