@@ -41,7 +41,12 @@ export function UserCreate() {
     const handleUserCreate = () => {
         if (userName && password) {
             const exiting = users.find(user => user.name === userName || user.password === password)
-            pushNotification('', 'The password or user name is already existing', 'danger')
+
+            if(exiting) {
+                history.push('/admin/accounting/users')
+                pushNotification('', 'The password or user name is already existing', 'danger')
+            } 
+            
             if (!exiting) {
                 dispatch(addNewUser({
                     name: userName,
